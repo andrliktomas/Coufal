@@ -1,0 +1,37 @@
+{
+  "no": 629,
+  "title": "3rd Army club Pilsen",
+  "originalTitle": "Přívěsek 3rd Army club Pilsen",
+  "category": "key-fobs",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/629/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/629-privesek-3rd-army-club-pilsen",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/629-privesek-3rd-army-club-pilsen",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/629-privesek-3rd-army-club-pilsen"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "privesky-na-klice",
+    "slug": "privesek-3rd-army-club-pilsen",
+    "titleSuffix": null
+  }
+}

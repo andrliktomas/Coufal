@@ -1,0 +1,37 @@
+{
+  "no": 625,
+  "title": "Vilnius defence attache association",
+  "originalTitle": "Plaketa Vilnius defence attache association",
+  "category": "plaques",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/625/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/plakety/item/625-plaketa-vilnius-defence-attache-association",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/plakety/item/625-plaketa-vilnius-defence-attache-association",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/plakety/item/625-plaketa-vilnius-defence-attache-association"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "plakety",
+    "slug": "plaketa-vilnius-defence-attache-association",
+    "titleSuffix": null
+  }
+}

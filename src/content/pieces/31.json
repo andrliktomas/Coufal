@@ -1,0 +1,41 @@
+{
+  "no": 31,
+  "title": "Stojánky na nože",
+  "originalTitle": "stojánky na nože",
+  "category": "figures",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina staré stříbro",
+    "en": "patina old silver",
+    "de": "Altsilber patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/31/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/31-stojanky-na-noze",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/31-stojanky-na-noze",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/31-stojanky-na-noze"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "figurky",
+    "slug": "stojanky-na-noze",
+    "titleSuffix": null
+  }
+}

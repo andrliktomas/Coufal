@@ -1,0 +1,41 @@
+{
+  "no": 228,
+  "title": "Rohy",
+  "originalTitle": "opasková spona Rohy",
+  "category": "buckles",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/228/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/228-opaskova-spona-rohy",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/228-opaskova-spona-rohy",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/228-opaskova-spona-rohy"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "opaskove-spony",
+    "slug": "opaskova-spona-rohy",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 708,
+  "title": "T.O. Rančeři",
+  "originalTitle": "T.O. Rančeři",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará mosaz",
+    "en": "patina old brass",
+    "de": "Altmessing patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/708/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/708-t-o-ranceri",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/708-t-o-ranceri",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/708-t-o-ranceri"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "t-o-ranceri",
+    "titleSuffix": null
+  }
+}

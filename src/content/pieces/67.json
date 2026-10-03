@@ -1,0 +1,41 @@
+{
+  "no": 67,
+  "title": "Pamětní mince Jiří z Poděbrad",
+  "originalTitle": "pamětní mince Jiří z Poděbrad",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/67/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/67-pametni-mince-jiri-z-podebrad",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/67-pametni-mince-jiri-z-podebrad",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/67-pametni-mince-jiri-z-podebrad"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "pametni-mince-jiri-z-podebrad",
+    "titleSuffix": null
+  }
+}

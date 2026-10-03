@@ -1,0 +1,39 @@
+{
+  "no": 712,
+  "title": "1. míle",
+  "originalTitle": "1. míle",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínové starostříbro"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/712/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/712-1-mile",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/712-1-mile",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/712-1-mile"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "1-mile",
+    "titleSuffix": null
+  }
+}

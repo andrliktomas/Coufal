@@ -1,0 +1,41 @@
+{
+  "no": 162,
+  "title": "Hasiči",
+  "originalTitle": "odznak Hasiči",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklá mosaz",
+    "en": "glossy brass",
+    "de": "Messing glänz"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/162/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/162-odznak-hasici",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/162-odznak-hasici",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/162-odznak-hasici"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-hasici",
+    "titleSuffix": null
+  }
+}

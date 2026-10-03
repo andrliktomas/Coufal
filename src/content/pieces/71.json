@@ -1,0 +1,41 @@
+{
+  "no": 71,
+  "title": "Extreme Euro open",
+  "originalTitle": "plaketa Extreme Euro open",
+  "category": "plaques",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklá mosaz",
+    "en": "glossy brass",
+    "de": "Messing glänz"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/71/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/plakety/item/71-plaketa-extreme-euro-open",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/plakety/item/71-plaketa-extreme-euro-open",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/plakety/item/71-plaketa-extreme-euro-open"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "plakety",
+    "slug": "plaketa-extreme-euro-open",
+    "titleSuffix": null
+  }
+}

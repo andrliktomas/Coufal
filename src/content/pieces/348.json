@@ -1,0 +1,41 @@
+{
+  "no": 348,
+  "title": "Vánoční turnaj",
+  "originalTitle": "Medaile Vánoční turnaj",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "různé staroúpravy",
+    "en": "various repairs",
+    "de": "diverse"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/348/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/348-medaile-vanocni-turnaj",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/348-medaile-vanocni-turnaj",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/348-medaile-vanocni-turnaj"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-vanocni-turnaj",
+    "titleSuffix": null
+  }
+}

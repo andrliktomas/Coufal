@@ -1,0 +1,41 @@
+{
+  "no": 215,
+  "title": "Brno 2015",
+  "originalTitle": "odznak Brno 2015",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklý nikl",
+    "en": "glossy nickel",
+    "de": "Nickel"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/215/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/215-odznak-brno-2015",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/215-odznak-brno-2015",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/215-odznak-brno-2015"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-brno-2015",
+    "titleSuffix": null
+  }
+}

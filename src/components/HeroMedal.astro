@@ -1,0 +1,180 @@
+---
+/**
+ * The engraved hero medal: tilts toward the pointer with a soft-light shine,
+ * flips to the reverse on click/tap. A real <button>; no tilt on touch or with reduced motion.
+ */
+import Rosette from './Rosette.astro';
+
+interface Props {
+  label: string;
+  labelBack: string;
+  hint: string;
+}
+const { label, labelBack, hint } = Astro.props;
+
+// Laurel wreath on the reverse: the right branch from the artboard, mirrored for the left.
+const right = [
+  [383.6, 457.2, 117], [410.8, 439.3, 106.5], [434.3, 416.8, 96], [453.4, 390.3, 85.5], [467.3, 360.9, 75], [475.6, 329.4, 64.5],
+  [478.0, 296.9, 54], [474.4, 264.5, 43.5], [465.0, 233.3, 33], [450.1, 204.4, 22.5], [430.2, 178.6, 12], [405.9, 156.9, 1.5], [378.0, 140.0, -9],
+];
+const left = right.map(([x, y, r]) => [+(600 - x).toFixed(1), y, +(360 - r).toFixed(1)]);
+---
+
+<div class="medal-wrap fadein">
+  <button type="button" class="medal" aria-label={label} aria-pressed="false" data-medal data-label={label} data-label-back={labelBack}>
+    <div class="m3d">
+      <div class="face"><Rosette id="rimA" /></div>
+      <div class="face back">
+        <svg viewBox="0 0 600 600" aria-hidden="true">
+          <defs><path id="rimB" d="M300,300 m-262,0 a262,262 0 1,1 524,0 a262,262 0 1,1 -524,0"></path></defs>
+          <circle cx="300" cy="300" r="292" class="disc"></circle>
+          <circle cx="300" cy="300" r="284" class="n s05"></circle>
+          <circle cx="300" cy="300" r="244" class="n s1" stroke-dasharray="1 6"></circle>
+          <circle cx="300" cy="300" r="234" class="n s1"></circle>
+          <text class="rim"><textPath href="#rimB">CAST TO YOUR DESIGN · VÝROBA NA ZAKÁZKU · GEGOSSEN NACH IHREM ENTWURF · </textPath></text>
+          <g class="n s1">
+            {right.concat(left).map(([x, y, r]) => <ellipse cx={x} cy={y} rx="16" ry="6.5" transform={`rotate(${r} ${x} ${y})`} />)}
+          </g>
+          <text x="300" y="318" class="mmi">MMI</text>
+          <line x1="230" y1="350" x2="370" y2="350" class="s1"></line>
+          <text x="300" y="380" class="small" letter-spacing="6">BRNO · CZ</text>
+          <text x="300" y="232" class="small tiny" letter-spacing="6">EST.</text>
+        </svg>
+      </div>
+      <div class="shine" aria-hidden="true"></div>
+    </div>
+  </button>
+  <span class="label hint">{hint}</span>
+</div>
+
+<style>
+  .medal-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .fadein {
+    animation: fadein 1.4s 0.5s ease both;
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: scale(0.94) rotate(-8deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .medal {
+    --rx: 0deg;
+    --ry: 0deg;
+    --flip: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1400px;
+    border-radius: 50%;
+  }
+  .medal[aria-pressed='true'] {
+    --flip: 180deg;
+  }
+  .m3d {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    transform-style: preserve-3d;
+    transition: transform 0.7s var(--ease);
+    transform: rotateX(var(--rx)) rotateY(calc(var(--ry) + var(--flip)));
+  }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  .back svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--ink);
+  }
+  .disc {
+    fill: var(--paper);
+    stroke-width: 1.2;
+  }
+  .n {
+    fill: none;
+  }
+  .s1 {
+    stroke-width: 1;
+  }
+  .s05 {
+    stroke-width: 0.5;
+  }
+  .rim,
+  .small {
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 5px;
+    fill: var(--ink);
+    stroke: none;
+  }
+  .small {
+    text-anchor: middle;
+  }
+  .tiny {
+    font-size: 12px;
+  }
+  .mmi {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 104px;
+    fill: var(--black);
+    stroke: none;
+    text-anchor: middle;
+  }
+  .shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 45%);
+  }
+  .hint {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+</style>
+
+<script>
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-medal]')) {
+    const set = (mx: number, my: number) => {
+      btn.style.setProperty('--ry', `${((mx - 0.5) * 26).toFixed(2)}deg`);
+      btn.style.setProperty('--rx', `${((0.5 - my) * 22).toFixed(2)}deg`);
+      btn.style.setProperty('--mx', `${(mx * 100).toFixed(1)}%`);
+      btn.style.setProperty('--my', `${(my * 100).toFixed(1)}%`);
+    };
+    btn.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse' || !fine.matches || still.matches) return;
+      const r = btn.getBoundingClientRect();
+      set((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
+    });
+    btn.addEventListener('pointerleave', () => set(0.5, 0.5));
+    btn.addEventListener('click', () => {
+      const on = btn.getAttribute('aria-pressed') !== 'true';
+      btn.setAttribute('aria-pressed', String(on));
+      btn.setAttribute('aria-label', on ? btn.dataset.labelBack! : btn.dataset.label!);
+    });
+  }
+</script>

@@ -1,0 +1,426 @@
+---
+import { getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PieceImg from '../components/PieceImg.astro';
+import Tile from '../components/Tile.astro';
+import type { Lang } from '../i18n/locales';
+import { pathFor } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { allPieces, numLabel, pick, pieceRoute, pieceUrl } from '../lib/pieces';
+import { breadcrumbJsonLd, ORG_ID } from '../lib/jsonld';
+import { SITE_URL } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  no: number;
+}
+const { lang, no } = Astro.props;
+const u = t(lang);
+const all = await allPieces();
+const p = all.find((x) => x.no === no)!;
+const cat = u.cat[p.category];
+const route = pieceRoute(p);
+
+// "More medals": nearest numbers in the same category.
+const siblings = all.filter((x) => x.category === p.category && x.no !== p.no);
+const related = siblings.sort((a, b) => Math.abs(a.no - p.no) - Math.abs(b.no - p.no)).slice(0, 4).sort((a, b) => b.no - a.no);
+
+const story = pick(p.story, lang);
+const finish = pick(p.finish, lang);
+const titleWords = p.title.split(' ');
+const crumbs = [
+  { name: u.common.home, url: pathFor({ type: 'home' }, lang) },
+  { name: u.archive.title, url: pathFor({ type: 'archive' }, lang) },
+  { name: cat.plural, url: pathFor({ type: 'category', category: p.category }, lang) },
+  { name: numLabel(p.no, lang), url: pieceUrl(p, lang) },
+];
+const quoteHref = `${pathFor({ type: 'quote' }, lang)}?ref=${p.no}`;
+
+// Large versions for the lightbox (and the social card).
+const large = await Promise.all(p.images.map((img) => getImage({ src: img.src, width: Math.min(1600, img.src.width), format: 'webp' })));
+const ogImage = `/og/${p.no}.jpg`;
+
+const spec: { k: string; v: string | null; todo?: boolean }[] = [
+  { k: u.piece.client, v: p.client && p.clientNamePublishable ? p.client : '[confirm]', todo: !(p.client && p.clientNamePublishable) },
+  { k: u.piece.year, v: p.year ? String(p.year) : u.common.year, todo: !p.year },
+  { k: u.piece.metal, v: p.metal ?? '[tin / zinc]', todo: !p.metal },
+  { k: u.piece.finish, v: finish ?? '[plating / hand-painted]', todo: !finish },
+  { k: u.piece.size, v: p.sizeMm ? `${p.sizeMm} mm` : '[mm]', todo: !p.sizeMm },
+  { k: u.piece.series, v: p.series ? u.common.pcs(Number(p.series)) : '[pcs]', todo: !p.series },
+];
+const note = p.note ?? null;
+
+const artwork = {
+  '@context': 'https://schema.org',
+  '@type': 'VisualArtwork',
+  name: p.title,
+  identifier: String(p.no),
+  url: SITE_URL + pieceUrl(p, lang),
+  inLanguage: lang,
+  artform: cat.singular,
+  artMedium: p.metal ?? 'tin / zinc',
+  artworkSurface: finish ?? undefined,
+  image: large.map((l) => SITE_URL + l.src),
+  creator: { '@id': ORG_ID },
+  description: story ?? u.piece.storyFallback(p.no, p.title, cat.singular),
+  ...(p.year ? { dateCreated: String(p.year) } : {}),
+};
+---
+
+<Base
+  lang={lang}
+  route={route}
+  title={u.meta.pieceTitle(p.no, p.title, cat.singular)}
+  description={u.meta.pieceDesc(p.no, p.title, cat.singular)}
+  ogImage={ogImage}
+  ogType="article"
+  jsonld={[breadcrumbJsonLd(crumbs), artwork]}
+>
+  <section class="wrap head">
+    <nav aria-label={u.common.breadcrumb} class="kicker crumbs">
+      {
+        crumbs.map((c, i) =>
+          i < crumbs.length - 1 ? (
+            <>
+              <a class="lnk" href={c.url}>
+                {c.name}
+              </a>{' '}
+              /{' '}
+            </>
+          ) : (
+            <span aria-current="page" class="cur">
+              {c.name}
+            </span>
+          ),
+        )
+      }
+    </nav>
+    <div class="ghost" aria-hidden="true">{p.no}</div>
+    <div class="title-row">
+      <h1 class="display h1">
+        <span class="line">
+          <span>
+            {titleWords.length > 1 ? titleWords.slice(0, -1).join(' ') + ' ' : ''}
+            <em>{titleWords.at(-1)}</em>
+          </span>
+        </span>
+      </h1>
+      <span class="kicker cat">{cat.singular} · {u.piece.catalogueNo} {p.no}</span>
+    </div>
+  </section>
+
+  <section class="wrap body">
+    <div class:list={['gallery', { single: p.images.length === 1 }]} aria-label={u.piece.gallery} role="group" data-gallery>
+      {
+        p.images.length === 0 ? (
+          <PieceImg piece={p} lang={lang} ratio="4 / 3" sizes="(max-width: 1040px) 100vw, 60vw" class="g0" caption="OBVERSE — ZOOMABLE" />
+        ) : (
+          p.images.map((img, i) => (
+            <a href={large[i].src} class:list={['g', i === 0 ? 'g0' : 'gn']} data-lightbox={i} aria-label={`${u.piece.openLarge}: ${u.piece.roles[img.role]}`}>
+              <PieceImg
+                piece={p}
+                index={i}
+                lang={lang}
+                ratio={i === 0 ? undefined : '1 / 1'}
+                sizes={i === 0 ? '(max-width: 1040px) 100vw, 60vw' : '(max-width: 1040px) 50vw, 30vw'}
+                eager={i === 0}
+                widths={i === 0 ? [640, 1000] : [360, 640]}
+              />
+            </a>
+          ))
+        )
+      }
+    </div>
+
+    <div class="side">
+      {story ? <p class="dropcap">{story}</p> : <p class="dropcap">{u.piece.storyFallback(p.no, p.title, cat.singular)}</p>}
+      {!story && <p class="todo pending">{u.piece.storyPending}</p>}
+      <dl class="spec">
+        {
+          spec.map((s) => (
+            <>
+              <dt class="label">{s.k}</dt>
+              <dd>
+                <span class:list={{ todo: s.todo }}>{s.v}</span>
+              </dd>
+            </>
+          ))
+        }
+        {
+          note && (
+            <>
+              <dt class="label">{u.piece.note}</dt>
+              <dd lang="cs">{note}</dd>
+            </>
+          )
+        }
+      </dl>
+      <div class="like">
+        <span class="like-h">{u.piece.likeThis[0]} <em>{u.piece.likeThis[1]}</em></span>
+        <span class="like-p">{u.piece.startWith(p.no)}</span>
+        <a href={quoteHref} class="btn btn--light">{u.piece.requestQuote}</a>
+      </div>
+      <span class="nfs">{u.common.notForSaleShort}</span>
+    </div>
+  </section>
+
+  {
+    related.length > 0 && (
+      <section class="more">
+        <div class="wrap more-in">
+          <div class="more-head">
+            <h2 class="display h-mid">
+              {u.piece.more(cat.plural)[0]} <em>{u.piece.more(cat.plural)[1]}</em>
+            </h2>
+            <a href={pathFor({ type: 'category', category: p.category }, lang)} class="caps all">
+              {u.piece.allOf(cat.plural)}
+            </a>
+          </div>
+          <div class="rel">
+            {related.map((r, i) => (
+              <Tile piece={r} lang={lang} ratio="4 / 5" sizes="(max-width: 600px) 92vw, 300px" tone={i + 1} class="reveal" />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <dialog class="lightbox" data-dialog aria-label={u.piece.gallery}>
+    <div class="lb-stage" data-stage>
+      <img alt="" data-lb-img />
+    </div>
+    <div class="lb-bar">
+      <button type="button" class="btn btn--light" data-zoom aria-pressed="false">{u.piece.zoom}</button>
+      <button type="button" class="btn btn--light" data-close>{u.piece.close} ✕</button>
+    </div>
+  </dialog>
+</Base>
+
+<style>
+  .head {
+    padding-top: 48px;
+    position: relative;
+  }
+  .crumbs {
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .cur {
+    color: var(--black);
+  }
+  .ghost {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(140px, 30vw, 460px);
+    line-height: 0.78;
+    letter-spacing: -0.06em;
+    color: transparent;
+    -webkit-text-stroke: 1px #b6bec7;
+    margin-top: 24px;
+  }
+  .title-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 48px;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: -0.4em;
+    position: relative;
+  }
+  .h1 {
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    overflow-wrap: anywhere;
+  }
+  .cat {
+    font-size: 13px;
+  }
+  .body {
+    padding-top: 72px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+  }
+  .gallery {
+    flex: 3 1 620px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-content: start;
+  }
+  .gallery :global(.g0) {
+    grid-column: span 2;
+  }
+  .g {
+    display: block;
+    cursor: zoom-in;
+  }
+  .side {
+    flex: 2 1 380px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .side p {
+    margin: 0;
+  }
+  .pending {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: -16px !important;
+  }
+  .spec {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    border-top: 1px solid var(--ink);
+  }
+  .spec dt,
+  .spec dd {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .spec dd {
+    margin: 0;
+  }
+  .like {
+    background: var(--ink);
+    color: var(--on-ink);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .like-h {
+    font-family: var(--serif);
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .like-p {
+    color: var(--line);
+    font-size: 15px;
+  }
+  .like .btn {
+    align-self: flex-start;
+  }
+  .nfs {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .more {
+    border-top: 1px solid var(--ink);
+  }
+  .more-in {
+    padding-top: 96px;
+    padding-bottom: 136px;
+  }
+  .more-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+  }
+  .all {
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid var(--ink);
+    padding: 12px 0 6px;
+  }
+  .rel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 28px;
+  }
+
+  .lightbox {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(20, 24, 28, 0.94);
+    color: var(--on-ink);
+  }
+  .lightbox::backdrop {
+    background: transparent;
+  }
+  .lb-stage {
+    position: absolute;
+    inset: 0 0 88px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+  }
+  .lb-stage.zoomed {
+    cursor: zoom-out;
+  }
+  .lb-stage img {
+    max-width: 92vw;
+    max-height: calc(100dvh - 120px);
+    object-fit: contain;
+    transition: transform 0.4s var(--ease);
+  }
+  .lb-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-dialog]');
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-lightbox]')];
+  if (dialog && links.length && typeof dialog.showModal === 'function') {
+    const img = dialog.querySelector<HTMLImageElement>('[data-lb-img]')!;
+    const stage = dialog.querySelector<HTMLElement>('[data-stage]')!;
+    const zoomBtn = dialog.querySelector<HTMLButtonElement>('[data-zoom]')!;
+    let zoomed = false;
+    let opener: HTMLElement | null = null;
+
+    const setZoom = (on: boolean, x = 0.5, y = 0.5) => {
+      zoomed = on;
+      stage.classList.toggle('zoomed', on);
+      zoomBtn.setAttribute('aria-pressed', String(on));
+      img.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+      img.style.transform = on ? 'scale(2.2)' : '';
+    };
+    for (const a of links) {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        opener = a;
+        const thumb = a.querySelector('img');
+        img.src = a.href;
+        img.alt = thumb?.alt ?? '';
+        setZoom(false);
+        dialog.showModal();
+      });
+    }
+    stage.addEventListener('click', (e) => {
+      const r = img.getBoundingClientRect();
+      setZoom(!zoomed, (e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
+    });
+    stage.addEventListener('pointermove', (e) => {
+      if (!zoomed || e.pointerType !== 'mouse') return;
+      const r = stage.getBoundingClientRect();
+      img.style.transformOrigin = `${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`;
+    });
+    zoomBtn.addEventListener('click', () => setZoom(!zoomed));
+    dialog.querySelector('[data-close]')!.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => opener?.focus());
+  }
+</script>

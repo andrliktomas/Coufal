@@ -1,0 +1,39 @@
+{
+  "no": 720,
+  "title": "ERP",
+  "originalTitle": "ERP",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínové starostříbro"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/720/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/720-erp",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/720-erp",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/720-erp"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "erp",
+    "titleSuffix": null
+  }
+}

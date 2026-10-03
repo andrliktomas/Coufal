@@ -1,0 +1,41 @@
+{
+  "no": 35,
+  "title": "Viněta Kerberos",
+  "originalTitle": "viněta Kerberos",
+  "category": "labels",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/35/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/firemni-stitky/item/35-vineta-kerberos",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/firemni-stitky/item/35-vineta-kerberos",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/firemni-stitky/item/35-vineta-kerberos"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "firemni-stitky",
+    "slug": "vineta-kerberos",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 12,
+  "title": "Andílka",
+  "originalTitle": "figurka andílka",
+  "category": "figures",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/12/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/12-figurka-andilka",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/12-figurka-andilka",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/12-figurka-andilka"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "figurky",
+    "slug": "figurka-andilka",
+    "titleSuffix": null
+  }
+}

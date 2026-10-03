@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import LangSwitch from './LangSwitch.astro';
+import logo from '../assets/brand/logo-ink.png';
+import type { Lang } from '../i18n/locales';
+import { pathFor } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { heroFor } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  alternates: Record<Lang, string>;
+  home?: boolean;
+}
+const { lang, alternates, home = false } = Astro.props;
+const nav = heroFor(lang).nav;
+const homePath = pathFor({ type: 'home' }, lang);
+const anchor = (id: string) => (home ? `#${id}` : `${homePath}#${id}`);
+const u = t(lang);
+---
+
+<header class:list={['site-header wrap', { 'is-home': home }]}>
+  <a href={homePath} class="logo" aria-label="CRdesign — {u.common.home}">
+    <Image src={logo} alt="CRdesign" width={76} height={74} loading="eager" />
+  </a>
+  <nav aria-label={u.common.mainNav} class="nav caps">
+    <a class="lnk" href={pathFor({ type: 'archive' }, lang)}>{nav.archive}</a>
+    <a class="lnk" href={anchor('index')}>{nav.products}</a>
+    <a class="lnk" href={anchor('process')}>{nav.process}</a>
+    <a class="lnk" href={anchor('studio')}>{nav.workshop}</a>
+  </nav>
+  <div class="tools">
+    <LangSwitch lang={lang} alternates={alternates} />
+    <a href={pathFor({ type: 'quote' }, lang)} class:list={['btn', { 'btn--line': !home }]}>{nav.quote}</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 20;
+  }
+  .site-header:not(.is-home) {
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    width: 76px;
+    height: 74px;
+    object-fit: contain;
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 36px;
+    align-items: center;
+  }
+  .nav a {
+    padding: 12px 0;
+  }
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+  }
+  @media (max-width: 860px) {
+    .site-header {
+      gap: 8px 20px;
+    }
+    .logo img {
+      width: 56px;
+      height: 54px;
+    }
+    .nav {
+      order: 3;
+      width: 100%;
+      gap: 0 24px;
+    }
+  }
+</style>

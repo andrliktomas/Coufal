@@ -1,0 +1,37 @@
+{
+  "no": 624,
+  "title": "Weiss",
+  "originalTitle": "Opasková spona Weiss",
+  "category": "buckles",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/624/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "opaskove-spony",
+    "slug": "opaskova-spona-weiss",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 68,
+  "title": "Pamětní mince Vojenské nemocnice Brno",
+  "originalTitle": "pamětní mince Vojenské nemocnice Brno",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/68/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/68-pametni-mince-vojenske-nemocnice-brno",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/68-pametni-mince-vojenske-nemocnice-brno",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/68-pametni-mince-vojenske-nemocnice-brno"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "pametni-mince-vojenske-nemocnice-brno",
+    "titleSuffix": null
+  }
+}

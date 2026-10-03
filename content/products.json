@@ -1,0 +1,69 @@
+{
+  "_note": "MOQ values come from the current quote form (poptavka). null = 'on request', confirm with client.",
+  "products": [
+    {
+      "id": "medals",
+      "moq": 20,
+      "en": "Medals",
+      "cs": "Medaile",
+      "de": "Medaillen",
+      "oldCat": "medaile"
+    },
+    {
+      "id": "plaques",
+      "moq": null,
+      "en": "Plaques",
+      "cs": "Plakety",
+      "de": "Plaketten",
+      "oldCat": "plakety"
+    },
+    {
+      "id": "badges",
+      "moq": 20,
+      "en": "Badges & pins",
+      "cs": "Odznaky",
+      "de": "Abzeichen",
+      "oldCat": "odznaky"
+    },
+    {
+      "id": "buckles",
+      "moq": 10,
+      "en": "Belt buckles",
+      "cs": "Opaskové spony",
+      "de": "Gürtelschnallen",
+      "oldCat": "opaskove-spony"
+    },
+    {
+      "id": "key-fobs",
+      "moq": 20,
+      "en": "Key fobs",
+      "cs": "Přívěsky na klíče",
+      "de": "Schlüsselanhänger",
+      "oldCat": "privesky-na-klice"
+    },
+    {
+      "id": "figures",
+      "moq": 30,
+      "en": "Figures & game pieces",
+      "cs": "Figurky",
+      "de": "Figuren",
+      "oldCat": "figurky"
+    },
+    {
+      "id": "labels",
+      "moq": null,
+      "en": "Company labels",
+      "cs": "Firemní štítky",
+      "de": "Firmenschilder",
+      "oldCat": "firemni-stitky"
+    },
+    {
+      "id": "other",
+      "moq": 10,
+      "en": "Other castings",
+      "cs": "Ostatní výrobky",
+      "de": "Sonstige Produkte",
+      "oldCat": "ostatni-vyrobky"
+    }
+  ]
+}

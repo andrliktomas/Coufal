@@ -1,0 +1,47 @@
+{
+  "no": 412,
+  "title": "Pamětní medaile Zásahové jednotky Policie Brno",
+  "originalTitle": "Pamětní medaile Zásahové jednotky Policie Brno",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/412/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/412/2.jpg",
+      "role": "detail",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/412/3.jpg",
+      "role": "detail",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/412-pametni-medaile-zasahove-jednotky-policie-brno",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/412-pametni-medaile-zasahove-jednotky-policie-brno",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/412-pametni-medaile-zasahove-jednotky-policie-brno"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "pametni-medaile-zasahove-jednotky-policie-brno",
+    "titleSuffix": null
+  }
+}

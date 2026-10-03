@@ -1,0 +1,41 @@
+{
+  "no": 36,
+  "title": "Teplo Břeclav",
+  "originalTitle": "štítek Teplo Břeclav",
+  "category": "labels",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará měď",
+    "en": "patina old copper",
+    "de": "Bronze patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/36/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/firemni-stitky/item/36-stitek-teplo-breclav",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/firemni-stitky/item/36-stitek-teplo-breclav",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/firemni-stitky/item/36-stitek-teplo-breclav"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "firemni-stitky",
+    "slug": "stitek-teplo-breclav",
+    "titleSuffix": null
+  }
+}

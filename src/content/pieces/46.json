@@ -1,0 +1,41 @@
+{
+  "no": 46,
+  "title": "Firemní štítek",
+  "originalTitle": "firemní štítek",
+  "category": "labels",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklá mosaz",
+    "en": "glossy brass",
+    "de": "Messing glänz"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/46/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/firemni-stitky/item/46-firemni-stitek",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/firemni-stitky/item/46-firemni-stitek",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/firemni-stitky/item/46-firemni-stitek"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "firemni-stitky",
+    "slug": "firemni-stitek",
+    "titleSuffix": null
+  }
+}

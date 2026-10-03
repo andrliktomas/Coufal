@@ -1,0 +1,41 @@
+{
+  "no": 243,
+  "title": "Krokodýl",
+  "originalTitle": "opasková spona Krokodýl",
+  "category": "buckles",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina staré stříbro",
+    "en": "patina old silver",
+    "de": "Altsilber patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/243/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/243-opaskova-spona-krokodyl",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/243-opaskova-spona-krokodyl",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/243-opaskova-spona-krokodyl"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "opaskove-spony",
+    "slug": "opaskova-spona-krokodyl",
+    "titleSuffix": null
+  }
+}

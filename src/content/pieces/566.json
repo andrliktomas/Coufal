@@ -1,0 +1,37 @@
+{
+  "no": 566,
+  "title": "ČVK Brno",
+  "originalTitle": "Odznak ČVK Brno",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/566/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/566-odznak-cvk-brno",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/566-odznak-cvk-brno",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/566-odznak-cvk-brno"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-cvk-brno",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 650,
+  "title": "Mistrovství moravy a slezska",
+  "originalTitle": "Mistrovství moravy a slezska",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "různé staroúpravy",
+    "en": "various repairs",
+    "de": "diverse"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/650/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/650-mistrovstvi-moravy-a-slezska",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/650-mistrovstvi-moravy-a-slezska",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/650-mistrovstvi-moravy-a-slezska"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "mistrovstvi-moravy-a-slezska",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 642,
+  "title": "Totem",
+  "originalTitle": "Totem",
+  "category": "figures",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará mosaz",
+    "en": "patina old brass",
+    "de": "Altmessing patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/642/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/642-totem",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/642-totem",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/642-totem"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "figurky",
+    "slug": "totem",
+    "titleSuffix": null
+  }
+}

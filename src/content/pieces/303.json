@@ -1,0 +1,37 @@
+{
+  "no": 303,
+  "title": "Havana club",
+  "originalTitle": "Opasková spona Havana club",
+  "category": "buckles",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/303/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/303-opaskova-spona-havana-club",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/303-opaskova-spona-havana-club",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/303-opaskova-spona-havana-club"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "opaskove-spony",
+    "slug": "opaskova-spona-havana-club",
+    "titleSuffix": null
+  }
+}

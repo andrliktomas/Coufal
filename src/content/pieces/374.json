@@ -1,0 +1,41 @@
+{
+  "no": 374,
+  "title": "Harley Davidson club Brno 50 Aniversary",
+  "originalTitle": "Odznak Harley Davidson club Brno 50 Aniversary",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/374/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/374-odznak-harley-davidson-club-brno-50-aniversary",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/374-odznak-harley-davidson-club-brno-50-aniversary",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/374-odznak-harley-davidson-club-brno-50-aniversary"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-harley-davidson-club-brno-50-aniversary",
+    "titleSuffix": null
+  }
+}

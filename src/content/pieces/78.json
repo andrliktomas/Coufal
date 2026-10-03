@@ -1,0 +1,41 @@
+{
+  "no": 78,
+  "title": "Brandýský okruh",
+  "originalTitle": "plaketa Brandýský okruh",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará měď",
+    "en": "patina old copper",
+    "de": "Bronze patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/78/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/78-plaketa-brandysky-okruh",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/78-plaketa-brandysky-okruh",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/78-plaketa-brandysky-okruh"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "plaketa-brandysky-okruh",
+    "titleSuffix": null
+  }
+}

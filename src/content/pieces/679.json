@@ -1,0 +1,41 @@
+{
+  "no": 679,
+  "title": "Rotující setrvačníky",
+  "originalTitle": "Rotující setrvačníky - odznak",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "broznová patina kartáčovaná",
+    "en": "brooch patina brushed",
+    "de": "Bronze Patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/679/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/679-rotujici-setrvacniky-odznak",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/679-rotujici-setrvacniky-odznak",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/679-rotujici-setrvacniky-odznak"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "rotujici-setrvacniky-odznak",
+    "titleSuffix": "odznak"
+  }
+}

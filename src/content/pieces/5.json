@@ -1,0 +1,41 @@
+{
+  "no": 5,
+  "title": "Jesličky",
+  "originalTitle": "jesličky",
+  "category": "figures",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "ručně malovaný cín",
+    "en": "hand painted tin",
+    "de": "handgemaltes Zinn"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/5/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/5-jeslicky",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/5-jeslicky",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/5-jeslicky"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "figurky",
+    "slug": "jeslicky",
+    "titleSuffix": null
+  }
+}

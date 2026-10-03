@@ -1,0 +1,41 @@
+{
+  "no": 134,
+  "title": "TJ Viktoria Želešice",
+  "originalTitle": "odznak TJ Viktoria Želešice",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklý nikl",
+    "en": "glossy nickel",
+    "de": "Nickel"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/134/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/134-odznak-tj-viktoria-zelesice",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/134-odznak-tj-viktoria-zelesice",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/134-odznak-tj-viktoria-zelesice"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-tj-viktoria-zelesice",
+    "titleSuffix": null
+  }
+}

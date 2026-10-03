@@ -1,0 +1,31 @@
+---
+/**
+ * Fallback for "/". On Cloudflare Pages, functions/index.ts answers first and
+ * redirects by Accept-Language; this static page only covers local preview and no-function hosts.
+ */
+import { LANG_NAMES, LOCALES } from '../i18n/locales';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>CRdesign</title>
+    <link rel="canonical" href={new URL('/en/', Astro.site).href} />
+    <meta http-equiv="refresh" content="0; url=/en/" />
+    <script is:inline>
+      (function () {
+        var l = (navigator.languages || [navigator.language || 'en']).map(function (x) { return x.slice(0, 2).toLowerCase(); });
+        var ok = ['en', 'de', 'cs', 'pl', 'fr', 'it'];
+        for (var i = 0; i < l.length; i++) if (ok.indexOf(l[i]) >= 0) return location.replace('/' + l[i] + '/');
+        if (l.indexOf('sk') >= 0) return location.replace('/cs/');
+        location.replace('/en/');
+      })();
+    </script>
+  </head>
+  <body>
+    <ul>{LOCALES.map((l) => <li><a href={`/${l}/`} hreflang={l}>{LANG_NAMES[l]}</a></li>)}</ul>
+  </body>
+</html>

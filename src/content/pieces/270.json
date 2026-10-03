@@ -1,0 +1,41 @@
+{
+  "no": 270,
+  "title": "Na klíče",
+  "originalTitle": "přívěsek na klíče – Kajot",
+  "category": "key-fobs",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklý nikl",
+    "en": "glossy nickel",
+    "de": "Nickel"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/270/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/270-privesek-na-klice-kajot",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/270-privesek-na-klice-kajot",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/270-privesek-na-klice-kajot"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "privesky-na-klice",
+    "slug": "privesek-na-klice-kajot",
+    "titleSuffix": "Kajot"
+  }
+}

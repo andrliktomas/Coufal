@@ -1,0 +1,41 @@
+{
+  "no": 680,
+  "title": "MS Háj Neslovice",
+  "originalTitle": "MS Háj Neslovice - odznak",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará mosaz",
+    "en": "patina old brass",
+    "de": "Altmessing patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/680/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/680-ms-haj-neslovice-odznak",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/680-ms-haj-neslovice-odznak",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/680-ms-haj-neslovice-odznak"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "ms-haj-neslovice-odznak",
+    "titleSuffix": "odznak"
+  }
+}

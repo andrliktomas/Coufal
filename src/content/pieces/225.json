@@ -1,0 +1,41 @@
+{
+  "no": 225,
+  "title": "Klubová Czech Rebels",
+  "originalTitle": "opasková spona klubová Czech Rebels",
+  "category": "buckles",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/225/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/225-opaskova-spona-klubova-czech-rebels",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/225-opaskova-spona-klubova-czech-rebels",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/225-opaskova-spona-klubova-czech-rebels"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "opaskove-spony",
+    "slug": "opaskova-spona-klubova-czech-rebels",
+    "titleSuffix": null
+  }
+}

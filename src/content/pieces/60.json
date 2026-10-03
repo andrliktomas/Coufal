@@ -1,0 +1,41 @@
+{
+  "no": 60,
+  "title": "Replika medaile Franz Josef",
+  "originalTitle": "replika medaile Franz Josef",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "broznová patina kartáčovaná",
+    "en": "brooch patina brushed",
+    "de": "Bronze Patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/60/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/60-replika-medaile-franz-josef",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/60-replika-medaile-franz-josef",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/60-replika-medaile-franz-josef"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "replika-medaile-franz-josef",
+    "titleSuffix": null
+  }
+}

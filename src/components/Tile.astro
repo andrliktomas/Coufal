@@ -1,0 +1,113 @@
+---
+/** Museum-label tile: photo, big italic number, title and a mono catalogue line. */
+import PieceImg from './PieceImg.astro';
+import type { Lang } from '../i18n/locales';
+import { labelFor, pieceUrl, type Piece } from '../lib/pieces';
+import { t } from '../i18n/ui';
+
+interface Props {
+  piece: Piece;
+  lang: Lang;
+  size?: 'lg' | 'md';
+  ratio?: string;
+  sizes: string;
+  tone?: number;
+  withMetal?: boolean;
+  more?: boolean;
+  class?: string;
+  parallax?: boolean;
+  title?: string;
+  widths?: number[];
+}
+const { piece, lang, size = 'md', ratio, sizes, tone = 1, withMetal = false, more = false, parallax = false, title, widths = [360, 640] } = Astro.props;
+const u = t(lang);
+---
+
+<a href={pieceUrl(piece, lang)} class:list={['tile', `tile--${size}`, Astro.props.class]} data-cat={piece.category}>
+  <div class="frame">
+    <div class:list={{ par: parallax }}>
+      <PieceImg piece={piece} lang={lang} ratio={ratio} sizes={sizes} tone={tone} widths={widths} />
+    </div>
+  </div>
+  <div class="meta">
+    <span class="no">{piece.no}</span>
+    <span class="txt">
+      <span class="name">{title ?? piece.title}</span>
+      <span class="label">{labelFor(piece, lang, withMetal)}</span>
+    </span>
+    {
+      more && (
+        <span class="more-wrap caps" aria-hidden="true">
+          <span class="more">{u.common.view} →</span>
+        </span>
+      )
+    }
+  </div>
+</a>
+
+<style>
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .tile--lg {
+    gap: 18px;
+  }
+  .frame {
+    overflow: hidden;
+  }
+  .meta {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    border-top: 1px solid var(--ink);
+    padding-top: 12px;
+  }
+  .tile--lg .meta {
+    gap: 20px;
+    padding-top: 14px;
+  }
+  .no {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 34px;
+    line-height: 1;
+    color: var(--black);
+  }
+  .tile--lg .no {
+    font-size: 44px;
+  }
+  .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+  .name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .tile--lg .name {
+    font-size: 17px;
+  }
+  .more-wrap {
+    overflow: hidden;
+    letter-spacing: 0.18em;
+  }
+  .more {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.6s var(--ease);
+  }
+  .tile:hover .more,
+  .tile:focus-visible .more {
+    transform: none;
+  }
+  @media (hover: none) {
+    .more {
+      transform: none;
+    }
+  }
+</style>

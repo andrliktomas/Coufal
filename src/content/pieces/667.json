@@ -1,0 +1,41 @@
+{
+  "no": 667,
+  "title": "KMR Cup",
+  "originalTitle": "KMR Cup",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "různé staroúpravy",
+    "en": "various repairs",
+    "de": "diverse"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": "dvojdílná kombinovaná medaile",
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/667/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/667-kmr-cup",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/667-kmr-cup",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/667-kmr-cup"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "kmr-cup",
+    "titleSuffix": null
+  }
+}

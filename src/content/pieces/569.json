@@ -1,0 +1,37 @@
+{
+  "no": 569,
+  "title": "10. výročí Speciální pořádková jednotka",
+  "originalTitle": "Odznak 10. výročí Speciální pořádková jednotka",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/569/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/569-odznak-10-vyroci-specialni-poradkova-jednotka",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/569-odznak-10-vyroci-specialni-poradkova-jednotka",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/569-odznak-10-vyroci-specialni-poradkova-jednotka"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-10-vyroci-specialni-poradkova-jednotka",
+    "titleSuffix": null
+  }
+}

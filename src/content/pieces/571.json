@@ -1,0 +1,37 @@
+{
+  "no": 571,
+  "title": "Federation of Harley Davidson clubs",
+  "originalTitle": "Odznak Federation of Harley Davidson clubs",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/571/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/571-odznak-federation-of-harley-davidson-clubs",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/571-odznak-federation-of-harley-davidson-clubs",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/571-odznak-federation-of-harley-davidson-clubs"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-federation-of-harley-davidson-clubs",
+    "titleSuffix": null
+  }
+}

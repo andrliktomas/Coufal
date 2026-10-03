@@ -1,0 +1,41 @@
+{
+  "no": 90,
+  "title": "Pamětní plaketa Okruhový závod",
+  "originalTitle": "pamětní plaketa Okruhový závod",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará měď",
+    "en": "patina old copper",
+    "de": "Bronze patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/90/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/90-pametni-plaketa-okruhovy-zavod",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/90-pametni-plaketa-okruhovy-zavod",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/90-pametni-plaketa-okruhovy-zavod"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "pametni-plaketa-okruhovy-zavod",
+    "titleSuffix": null
+  }
+}

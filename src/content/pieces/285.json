@@ -1,0 +1,41 @@
+{
+  "no": 285,
+  "title": "Napoleon",
+  "originalTitle": "klíčenka Napoleon",
+  "category": "key-fobs",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/285/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/285-klicenka-napoleon",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/285-klicenka-napoleon",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/285-klicenka-napoleon"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "privesky-na-klice",
+    "slug": "klicenka-napoleon",
+    "titleSuffix": null
+  }
+}

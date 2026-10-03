@@ -1,0 +1,41 @@
+{
+  "no": 393,
+  "title": "Havel na hrad",
+  "originalTitle": "Přívěsek Havel na hrad",
+  "category": "key-fobs",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/393/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/393-privesek-havel-na-hrad",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/393-privesek-havel-na-hrad",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/393-privesek-havel-na-hrad"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "privesky-na-klice",
+    "slug": "privesek-havel-na-hrad",
+    "titleSuffix": null
+  }
+}

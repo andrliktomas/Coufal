@@ -1,0 +1,41 @@
+{
+  "no": 320,
+  "title": "Medalile Vokolo Príglu 2011",
+  "originalTitle": "Medalile Vokolo Príglu 2011",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patinovaný zinek",
+    "en": "patinated zinc",
+    "de": "Zink patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/320/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/320-medalile-vokolo-priglu-2011",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/320-medalile-vokolo-priglu-2011",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/320-medalile-vokolo-priglu-2011"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medalile-vokolo-priglu-2011",
+    "titleSuffix": null
+  }
+}

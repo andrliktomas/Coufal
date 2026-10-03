@@ -1,0 +1,41 @@
+{
+  "no": 297,
+  "title": "Žeton Your life",
+  "originalTitle": "žeton Your life",
+  "category": "other",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/297/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/ostatni-vyrobky/item/297-zeton-your-life",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/ostatni-vyrobky/item/297-zeton-your-life",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/ostatni-vyrobky/item/297-zeton-your-life"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "ostatni-vyrobky",
+    "slug": "zeton-your-life",
+    "titleSuffix": null
+  }
+}

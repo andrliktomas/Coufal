@@ -1,0 +1,41 @@
+{
+  "no": 390,
+  "title": "Klíč ZZS JMK",
+  "originalTitle": "Klíč ZZS JMK",
+  "category": "other",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/390/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/ostatni-vyrobky/item/390-klic-zzs-jmk",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/ostatni-vyrobky/item/390-klic-zzs-jmk",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/ostatni-vyrobky/item/390-klic-zzs-jmk"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "ostatni-vyrobky",
+    "slug": "klic-zzs-jmk",
+    "titleSuffix": null
+  }
+}

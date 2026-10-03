@@ -1,0 +1,41 @@
+{
+  "no": 329,
+  "title": "Výroční plaketa Zásahová jednotka Brno",
+  "originalTitle": "Výroční plaketa Zásahová jednotka Brno",
+  "category": "plaques",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/329/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/plakety/item/329-vyrocni-plaketa-zasahova-jednotka-brno",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/plakety/item/329-vyrocni-plaketa-zasahova-jednotka-brno",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/plakety/item/329-vyrocni-plaketa-zasahova-jednotka-brno"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "plakety",
+    "slug": "vyrocni-plaketa-zasahova-jednotka-brno",
+    "titleSuffix": null
+  }
+}

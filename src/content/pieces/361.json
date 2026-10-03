@@ -1,0 +1,41 @@
+{
+  "no": 361,
+  "title": "Upomínkový Wolfram",
+  "originalTitle": "Odznak upomínkový Wolfram",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará mosaz",
+    "en": "patina old brass",
+    "de": "Altmessing patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/361/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/361-odznak-upominkovy-wolfram",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/361-odznak-upominkovy-wolfram",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/361-odznak-upominkovy-wolfram"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "odznak-upominkovy-wolfram",
+    "titleSuffix": null
+  }
+}

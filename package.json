@@ -1,0 +1,29 @@
+{
+  "name": "medaile-odznaky",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && tsx scripts/postbuild.ts",
+    "preview": "wrangler pages dev dist",
+    "check": "astro check",
+    "migrate": "tsx scripts/migrate.ts",
+    "redirects": "tsx scripts/redirects.ts"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/bodoni-moda": "^5.3.0",
+    "@fontsource-variable/montserrat": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "astro": "^7.3.5",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^5.20261003.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.147.0"
+  }
+}

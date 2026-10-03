@@ -1,0 +1,30 @@
+{
+  "name": "CRdesign",
+  "owner": "Richard Coufal",
+  "address": {
+    "street": "Horova 54",
+    "city": "Brno",
+    "zip": "616 00",
+    "country": "CZ"
+  },
+  "phone": "+420 603 772 780",
+  "email": "coufalcr@centrum.cz",
+  "founded": 2001,
+  "spinCastingSince": 2004,
+  "facts": [
+    "Family business founded in 2001, originally hand-painting tin pictures.",
+    "Since 2004 tin and zinc spin casting of small metal castings.",
+    "Products: belt buckles, Christmas decorations, key fobs, badges, breastpins, medals, company logos, game pawns, glassware labels.",
+    "Made to order from origination to final product; galvanic plating available.",
+    "All pieces shown belong to clients and are not for sale."
+  ],
+  "toConfirm": [
+    "IČO / VAT ID",
+    "lead times",
+    "shipping countries & terms",
+    "quote reply time",
+    "which client names may be published",
+    "domain + DNS access",
+    "email address for quote form (keep centrum.cz or new domain mailbox?)"
+  ]
+}

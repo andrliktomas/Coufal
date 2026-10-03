@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n/ui';
+
+const lang = 'en';
+const u = t(lang);
+---
+
+<Base lang={lang} route={{ type: 'home' }} title={u.meta.notFoundTitle} description={u.notFound.text} noindex>
+  <section class="wrap nf">
+    <div class="ghost" aria-hidden="true">404</div>
+    <h1 class="display h1">{u.notFound.title}</h1>
+    <p class="lead">{u.notFound.text}</p>
+    <p><a class="btn" href="/en/">{u.notFound.back} →</a></p>
+    <p class="label langs">
+      <a class="lnk" href="/de/">Deutsch</a> · <a class="lnk" href="/cs/">Čeština</a> · <a class="lnk" href="/pl/">Polski</a> ·
+      <a class="lnk" href="/fr/">Français</a> · <a class="lnk" href="/it/">Italiano</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    padding-top: 48px;
+    padding-bottom: 136px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .ghost {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(140px, 30vw, 420px);
+    line-height: 0.78;
+    color: transparent;
+    -webkit-text-stroke: 1px #b6bec7;
+  }
+  .h1 {
+    font-size: clamp(56px, 8vw, 128px);
+    margin-top: -0.5em;
+  }
+  .langs {
+    margin-top: 24px;
+  }
+</style>

@@ -1,0 +1,12 @@
+# Cloudflare Pages project config (used by `wrangler pages dev` and Pages builds).
+# Secrets are NOT stored here — set them in the dashboard (Settings → Variables and Secrets)
+# or with `wrangler pages secret put NAME`:
+#   TURNSTILE_SECRET_KEY, QUOTE_WEBHOOK_URL, QUOTE_WEBHOOK_SECRET, FILE_LINK_SECRET
+# Build-time variables (plain): SITE_URL, PUBLIC_TURNSTILE_SITE_KEY
+name = "medaile-odznaky"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "dist"
+
+[[r2_buckets]]
+binding = "QUOTE_UPLOADS"
+bucket_name = "crdesign-quote-uploads"

@@ -1,0 +1,37 @@
+{
+  "no": 437,
+  "title": "ISF Volleyball 2018",
+  "originalTitle": "Medaile ISF Volleyball 2018",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/437/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/437-medaile-isf-volleyball-2018",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/437-medaile-isf-volleyball-2018",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/437-medaile-isf-volleyball-2018"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-isf-volleyball-2018",
+    "titleSuffix": null
+  }
+}

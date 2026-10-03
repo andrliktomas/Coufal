@@ -1,0 +1,41 @@
+{
+  "no": 40,
+  "title": "HD Club Brno",
+  "originalTitle": "štítek HD Club Brno",
+  "category": "labels",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/40/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/firemni-stitky/item/40-stitek-hd-club-brno",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/firemni-stitky/item/40-stitek-hd-club-brno",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/firemni-stitky/item/40-stitek-hd-club-brno"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "firemni-stitky",
+    "slug": "stitek-hd-club-brno",
+    "titleSuffix": null
+  }
+}

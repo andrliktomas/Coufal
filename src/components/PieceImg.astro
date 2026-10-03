@@ -1,0 +1,65 @@
+---
+/**
+ * Responsive photo of a piece (AVIF/WebP via astro:assets), or a visible
+ * placeholder box when the piece has no photo yet.
+ */
+import { Picture } from 'astro:assets';
+import type { Lang } from '../i18n/locales';
+import { altFor, numLabel, type Piece } from '../lib/pieces';
+
+interface Props {
+  piece: Piece | undefined;
+  no?: number;
+  lang: Lang;
+  index?: number;
+  /** CSS aspect-ratio for the frame; omit to use the photo's own ratio. */
+  ratio?: string;
+  sizes: string;
+  widths?: number[];
+  tone?: number;
+  eager?: boolean;
+  class?: string;
+  caption?: string;
+}
+const { piece, no, lang, index = 0, ratio, sizes, widths = [360, 640, 960, 1400], tone = 1, eager = false, caption } = Astro.props;
+const img = piece?.images[index];
+const style = ratio ? `aspect-ratio:${ratio}` : img ? `aspect-ratio:${img.src.width} / ${img.src.height}` : 'aspect-ratio:4 / 5';
+const usable = img ? widths.filter((w) => w <= img.src.width).concat(widths.some((w) => w > img.src.width) ? [img.src.width] : []) : [];
+---
+
+<span class:list={['ph', Astro.props.class]} style={`${style};background:var(--tone-${tone})`}>
+  {
+    img ? (
+      <Picture
+        src={img.src}
+        alt={altFor(piece!, index, lang)}
+        formats={['avif']}
+        fallbackFormat="webp"
+        widths={[...new Set(usable)]}
+        sizes={sizes}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : undefined}
+        decoding={eager ? 'sync' : 'async'}
+      />
+    ) : (
+      <span class="ph-cap">[ PHOTO · {caption ?? numLabel(piece?.no ?? no ?? 0, 'en')} ]</span>
+    )
+  }
+</span>
+
+<style>
+  .ph {
+    display: block;
+    overflow: hidden;
+  }
+  .ph :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .ph :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

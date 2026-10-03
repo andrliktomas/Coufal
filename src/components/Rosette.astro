@@ -1,0 +1,80 @@
+---
+/** The engraved obverse: rim text, guilloché rosette and the logo in the centre. Used by the hero medal and the quote page. */
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-ink.png';
+
+interface Props {
+  id: string;
+  rim?: string;
+  fill?: string;
+  spin?: boolean;
+}
+const {
+  id,
+  rim = 'CRDESIGN · MEDAILE · ODZNAKY · SPONY · BRNO · EST. MMI · TIN · ZINC · CRDESIGN · MEDAILE · ODZNAKY · SPONY · BRNO · EST. MMI · TIN · ZINC · ',
+  fill = 'var(--paper)',
+  spin = true,
+} = Astro.props;
+const ellipses = Array.from({ length: 48 }, (_, i) => +(i * 3.75).toFixed(2));
+---
+
+<div class="rosette">
+  <svg viewBox="0 0 600 600" aria-hidden="true">
+    <defs><path id={id} d="M300,300 m-262,0 a262,262 0 1,1 524,0 a262,262 0 1,1 -524,0"></path></defs>
+    <circle cx="300" cy="300" r="292" style={`fill:${fill}`} class="s12"></circle>
+    <circle cx="300" cy="300" r="284" class="n s05"></circle>
+    <circle cx="300" cy="300" r="244" class="n s1" stroke-dasharray="1 6"></circle>
+    <circle cx="300" cy="300" r="234" class="n s1"></circle>
+    <g class:list={{ spin }}>
+      <text class="rim"><textPath href={`#${id}`}>{rim}</textPath></text>
+    </g>
+    <g class="n guil">{ellipses.map((r) => <ellipse cx="300" cy="300" rx="196" ry="56" transform={`rotate(${r} 300 300)`} />)}</g>
+    <circle cx="300" cy="300" r="122" style={`fill:${fill}`} class="s1"></circle>
+    <circle cx="300" cy="300" r="113" class="n s05"></circle>
+  </svg>
+  <Image src={logo} alt="" width={168} height={163} class="logo" loading="eager" />
+</div>
+
+<style>
+  .rosette {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--ink);
+  }
+  .n {
+    fill: none;
+  }
+  .s12 {
+    stroke-width: 1.2;
+  }
+  .s1 {
+    stroke-width: 1;
+  }
+  .s05 {
+    stroke-width: 0.5;
+  }
+  .guil {
+    stroke-width: 0.55;
+    opacity: 0.55;
+  }
+  .rim {
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 5px;
+    fill: var(--ink);
+    stroke: none;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 28%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: multiply;
+  }
+</style>

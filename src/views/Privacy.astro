@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import type { Lang } from '../i18n/locales';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const u = t(lang);
+const P = u.privacy;
+// Split "[…]" placeholders out so they render as visible to-dos.
+const parts = (s: string) => s.split(/(\[[^\]]+\])/).map((x) => ({ x, todo: /^\[.*\]$/.test(x) }));
+const updated = '2026-10-03';
+---
+
+<Base lang={lang} route={{ type: 'privacy' }} title={u.meta.privacyTitle} description={u.meta.privacyDesc}>
+  <section class="wrap head">
+    <h1 class="display h1"><span class="line"><span>{P.title}</span></span></h1>
+    <p class="label">{P.updated}: <time datetime={updated}>{updated}</time></p>
+  </section>
+  <section class="wrap body">
+    {
+      P.sections.map((s) => (
+        <section class="block">
+          <h2 class="display h2">{s.h}</h2>
+          <div>
+            {s.p.map((para) => (
+              <p>{parts(para).map((pp) => (pp.todo ? <span class="todo">{pp.x}</span> : pp.x))}</p>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </section>
+</Base>
+
+<style>
+  .head {
+    padding-top: 64px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .h1 {
+    font-size: clamp(64px, 11vw, 180px);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+  }
+  .body {
+    padding-bottom: 136px;
+    border-top: 1px solid var(--ink);
+  }
+  .block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 64px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .h2 {
+    flex: 1 1 280px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .block > div {
+    flex: 2 1 480px;
+    max-width: 40em;
+  }
+  .block p {
+    margin: 0 0 1em;
+  }
+</style>

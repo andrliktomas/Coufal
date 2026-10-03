@@ -1,0 +1,37 @@
+{
+  "no": 158,
+  "title": "Vůdcovský odznak",
+  "originalTitle": "vůdcovský odznak - ohaři",
+  "category": "badges",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/158/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/158-vudcovsky-odznak-ohari",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/158-vudcovsky-odznak-ohari",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/158-vudcovsky-odznak-ohari"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "odznaky",
+    "slug": "vudcovsky-odznak-ohari",
+    "titleSuffix": "ohaři"
+  }
+}

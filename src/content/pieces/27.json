@@ -1,0 +1,41 @@
+{
+  "no": 27,
+  "title": "Medailon Zaklínač",
+  "originalTitle": "Medailon Zaklínač",
+  "category": "figures",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "cínová patina kartáčovaná",
+    "en": "Tin patina brushed",
+    "de": "Zinnpatina feingebürstet"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/27/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/27-medailon-zaklinac",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/27-medailon-zaklinac",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/27-medailon-zaklinac"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "figurky",
+    "slug": "medailon-zaklinac",
+    "titleSuffix": null
+  }
+}

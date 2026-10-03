@@ -1,0 +1,603 @@
+---
+import Base from '../layouts/Base.astro';
+import Rosette from '../components/Rosette.astro';
+import type { Lang } from '../i18n/locales';
+import { pathFor } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { company, MAILTO, PHONE_HREF } from '../lib/site';
+import { ALLOWED_EXT_ATTR, MAX_UPLOAD_BYTES, QUOTE_MIN, QUOTE_TYPES } from '../lib/quote-config';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const u = t(lang);
+const q = u.quote;
+const roman = ['i.', 'ii.', 'iii.'];
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'; // Cloudflare's always-pass test key
+const first = QUOTE_TYPES[0];
+const today = new Date().toISOString().slice(0, 10);
+const messages = {
+  sending: q.sending,
+  submit: q.submit,
+  okTitle: q.okTitle,
+  okText: q.okText,
+  errTitle: q.errTitle,
+  errors: q.errors,
+  minFor: Object.fromEntries(QUOTE_TYPES.map((ty) => [ty, q.minFor(q.types[ty], QUOTE_MIN[ty])])),
+  maxBytes: MAX_UPLOAD_BYTES,
+};
+---
+
+<Base lang={lang} route={{ type: 'quote' }} title={u.meta.quoteTitle} description={u.meta.quoteDesc}>
+  <section class="wrap hero">
+    <div class="hero-text">
+      <div class="kicker k">{q.kicker}</div>
+      <h1 class="display h1">
+        <span class="line"><span>{q.title[0]}</span></span>
+        <span class="line d2"><span><em>{q.title[1]}</em></span></span>
+      </h1>
+      <p class="lead">{q.lead}</p>
+    </div>
+    <div class="hero-medal"><Rosette id="rimQ" /></div>
+  </section>
+
+  <section class="wrap main">
+    <form
+      class="form"
+      method="post"
+      action="/api/quote"
+      enctype="multipart/form-data"
+      data-quote
+      data-messages={JSON.stringify(messages)}
+      novalidate
+    >
+      <input type="hidden" name="lang" value={lang} />
+      <div class="hp" aria-hidden="true">
+        <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <fieldset>
+        <legend class="kicker">{q.s1}</legend>
+        <div class="types">
+          {
+            QUOTE_TYPES.map((ty) => (
+              <label class="type">
+                <input type="radio" name="type" value={ty} checked={ty === first} data-min={QUOTE_MIN[ty]} />
+                <span class="type-name">{q.types[ty]}</span>
+                <span class="type-min">{q.minPcs(QUOTE_MIN[ty])}</span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <fieldset class="grid">
+        <legend class="kicker">{q.s2}</legend>
+        <div class="field wide">
+          <label for="desc" class="label">{q.desc}</label>
+          <textarea id="desc" name="description" rows="4" placeholder={q.descPh} class="serif-in"></textarea>
+        </div>
+        <div class="field">
+          <label for="qty" class="label">{q.qty}</label>
+          <input id="qty" name="quantity" type="number" inputmode="numeric" min={QUOTE_MIN[first]} step="1" required placeholder={`min. ${QUOTE_MIN[first]}`} class="serif-in big" aria-describedby="qty-help" />
+          <span id="qty-help" class="help" data-min-help>{q.minFor(q.types[first], QUOTE_MIN[first])}</span>
+        </div>
+        <div class="field">
+          <label for="ref" class="label">{q.ref}</label>
+          <input id="ref" name="reference" type="text" placeholder={q.refPh} class="serif-in big it" autocomplete="off" />
+        </div>
+        <div class="field wide">
+          <label for="files" class="label">{q.files}</label>
+          <input id="files" name="files" type="file" multiple accept={ALLOWED_EXT_ATTR} class="file" aria-describedby="files-help" />
+          <span id="files-help" class="help" data-files-help>{q.filesHint}</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="grid">
+        <legend class="kicker">{q.s3}</legend>
+        <div class="field">
+          <label for="date" class="label">{q.date}</label>
+          <input id="date" name="neededBy" type="date" required min={today} />
+        </div>
+        <div class="field">
+          <label for="country" class="label">{q.country}</label>
+          <select id="country" name="country" required>
+            {q.countries.map((c) => <option>{c}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="name" class="label">{q.name}</label>
+          <input id="name" name="name" type="text" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email" class="label">{q.email}</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+      </fieldset>
+
+      <div class="ts">
+        <div class="cf-turnstile" data-sitekey={siteKey} data-language={lang} data-theme="light" data-size="flexible" aria-label={q.turnstileLabel}></div>
+      </div>
+
+      <div class="send">
+        <button type="submit" class="btn submit" data-submit>{q.submit}</button>
+        <span class="consent">
+          {q.consent} <a class="lnk" href={pathFor({ type: 'privacy' }, lang)}>{q.consentLink}</a>
+        </span>
+      </div>
+      <p class="help">{q.note}</p>
+
+      <div class="status" role="status" aria-live="polite" tabindex="-1" data-status hidden></div>
+      <!-- No-JS fallback: the function redirects to #sent or #error-…; :target shows the matching block. -->
+      <div id="sent" class="status ok target">
+        <strong>{q.okTitle}</strong>
+        {q.okText}
+      </div>
+      {
+        Object.entries(q.errors).map(([code, msg]) => (
+          <div id={`error-${code}`} class="status err target">
+            <strong>{q.errTitle}</strong> {msg}
+          </div>
+        ))
+      }
+    </form>
+
+    <aside class="aside">
+      <span class="aside-h">{q.nextTitle[0]} <em>{q.nextTitle[1]}</em></span>
+      <ol>
+        {
+          q.next.map((s, i) => {
+            const m = s.match(/^(.*?)(\[[^\]]+\])(.*)$/);
+            return (
+              <li>
+                <span class="r">{roman[i]}</span>
+                <span>
+                  {m ? (
+                    <>
+                      {m[1]}
+                      <span class="todo">{m[2]}</span>
+                      {m[3]}
+                    </>
+                  ) : (
+                    s
+                  )}
+                </span>
+              </li>
+            );
+          })
+        }
+      </ol>
+      <div class="talk">
+        <span class="label talk-l">{q.talk}</span>
+        <span class="owner">{company.owner}</span>
+        <a class="lnk" href={PHONE_HREF}>{company.phone}</a>
+        <a class="lnk" href={MAILTO}>{company.email}</a>
+        <span class="addr">{company.address.street}, {company.address.zip} {company.address.city}</span>
+      </div>
+    </aside>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 64px;
+    align-items: center;
+  }
+  .hero-text {
+    flex: 2 1 640px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .k {
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+  }
+  .h1 {
+    font-size: clamp(64px, 10vw, 168px);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+  }
+  .lead {
+    max-width: 32em;
+  }
+  .hero-medal {
+    flex: 1 1 300px;
+    max-width: 420px;
+    min-width: 0;
+  }
+  .main {
+    padding-top: 96px;
+    padding-bottom: 136px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    align-items: flex-start;
+  }
+  .form {
+    flex: 2 1 640px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+  legend {
+    padding: 0 0 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+  }
+  .wide {
+    grid-column: 1 / -1;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .help {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+  input:not([type='radio']):not([type='file']),
+  select,
+  textarea {
+    min-height: 56px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--ink);
+    border-radius: 0;
+    font-size: 18px;
+    padding: 8px 0;
+  }
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    border-bottom-width: 2px;
+    box-shadow: 0 6px 0 -4px var(--ink);
+  }
+  [aria-invalid='true'] {
+    border-bottom-color: #a12a2a !important;
+  }
+  .serif-in {
+    font-family: var(--serif) !important;
+    font-size: 26px !important;
+    line-height: 1.3;
+  }
+  textarea {
+    resize: vertical;
+  }
+  .big {
+    font-size: 30px !important;
+  }
+  .it {
+    font-style: italic;
+  }
+  .file {
+    min-height: 96px;
+    border: 1px dashed var(--outline);
+    padding: 32px 24px;
+    background: var(--paper-2);
+    cursor: pointer;
+  }
+  .types {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--line);
+  }
+  .type {
+    position: relative;
+    min-height: 150px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--black);
+    transition: background 0.25s;
+  }
+  .type:hover {
+    background: var(--paper-2);
+  }
+  .type input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .type:has(input:checked) {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+  .type:has(input:focus-visible) {
+    outline: 2px solid var(--black);
+    outline-offset: -4px;
+  }
+  .type-name {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .type-min {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+  }
+  .ts {
+    min-height: 65px;
+  }
+  .send {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 28px;
+    align-items: center;
+    margin-top: -40px;
+  }
+  .submit {
+    min-height: 64px;
+    padding: 0 44px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+  }
+  .submit[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .consent {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .status {
+    padding: 24px 28px;
+    border-left: 3px solid var(--ink);
+    background: var(--paper-2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: -40px;
+  }
+  .status:focus {
+    outline: none;
+  }
+  .status.err,
+  .status:global(.err) {
+    border-left-color: #a12a2a;
+  }
+  .status strong,
+  .status :global(strong) {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--black);
+  }
+  .target {
+    display: none;
+  }
+  .target:target {
+    display: flex;
+  }
+  .aside {
+    flex: 1 1 320px;
+    min-width: 0;
+    background: var(--ink);
+    color: var(--on-ink);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: sticky;
+    top: 24px;
+  }
+  .aside-h {
+    font-family: var(--serif);
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #dce1e6;
+  }
+  li {
+    display: flex;
+    gap: 16px;
+  }
+  .r {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--line);
+    flex: none;
+    width: 1.3em;
+  }
+  .aside .todo {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .talk {
+    border-top: 1px solid var(--steel);
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .talk-l {
+    color: var(--line);
+    letter-spacing: 0.16em;
+  }
+  .owner {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 30px;
+  }
+  .addr {
+    color: var(--line);
+    font-size: 14px;
+  }
+  @media (max-width: 860px) {
+    .aside {
+      position: static;
+      padding: 28px;
+    }
+    .form {
+      gap: 56px;
+    }
+  }
+</style>
+
+<script>
+  type Messages = {
+    sending: string;
+    submit: string;
+    okTitle: string;
+    okText: string;
+    errTitle: string;
+    errors: Record<string, string>;
+    minFor: Record<string, string>;
+    maxBytes: number;
+  };
+  const ALLOWED = ['pdf', 'ai', 'svg', 'png', 'jpg', 'jpeg'];
+
+  const form = document.querySelector<HTMLFormElement>('[data-quote]');
+  if (form) {
+    const m: Messages = JSON.parse(form.dataset.messages!);
+    const qty = form.querySelector<HTMLInputElement>('#qty')!;
+    const help = form.querySelector<HTMLElement>('[data-min-help]')!;
+    const files = form.querySelector<HTMLInputElement>('#files')!;
+    const ref = form.querySelector<HTMLInputElement>('#ref')!;
+    const email = form.querySelector<HTMLInputElement>('#email')!;
+    const date = form.querySelector<HTMLInputElement>('#date')!;
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+
+    // ?ref=677 from a piece page.
+    const r = new URLSearchParams(location.search).get('ref');
+    if (r && /^\d{1,5}$/.test(r)) ref.value = `No. ${r}`;
+
+    // Product type drives the quantity minimum.
+    const syncType = () => {
+      const sel = form.querySelector<HTMLInputElement>('input[name="type"]:checked');
+      if (!sel) return;
+      qty.min = sel.dataset.min!;
+      qty.placeholder = `min. ${sel.dataset.min}`;
+      help.textContent = m.minFor[sel.value];
+    };
+    form.addEventListener('change', (e) => {
+      if ((e.target as HTMLInputElement).name === 'type') syncType();
+    });
+    syncType();
+
+    // Load Turnstile only when the visitor starts on the form (keeps the page fast).
+    let tsLoaded = false;
+    const loadTs = () => {
+      if (tsLoaded) return;
+      tsLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.append(s);
+    };
+    form.addEventListener('focusin', loadTs, { once: true });
+    form.addEventListener('pointerdown', loadTs, { once: true });
+    new IntersectionObserver((es, io) => {
+      if (es.some((e) => e.isIntersecting)) {
+        loadTs();
+        io.disconnect();
+      }
+    }, { rootMargin: '0px 0px -40% 0px' }).observe(form.querySelector('.types')!);
+
+    const show = (kind: 'ok' | 'err', title: string, text: string) => {
+      status.hidden = false;
+      status.className = `status ${kind}`;
+      status.innerHTML = '';
+      const strong = document.createElement('strong');
+      strong.textContent = title;
+      status.append(strong, document.createTextNode(text));
+      status.focus();
+    };
+    const fail = (code: string, field?: HTMLElement | null) => {
+      show('err', m.errTitle, m.errors[code] ?? m.errors.server);
+      if (field) {
+        field.setAttribute('aria-invalid', 'true');
+        field.addEventListener('input', () => field.removeAttribute('aria-invalid'), { once: true });
+      }
+    };
+
+    const validate = (): boolean => {
+      form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+      const n = Number(qty.value);
+      if (!qty.value) return fail('missing', qty), false;
+      if (!Number.isFinite(n) || n < Number(qty.min)) return fail('qty_min', qty), false;
+      if (!date.value) return fail('missing', date), false;
+      if (date.value < date.min) return fail('date', date), false;
+      if (!email.value || !email.checkValidity()) return fail('email', email), false;
+      const list = [...(files.files ?? [])];
+      if (list.some((f) => !ALLOWED.includes(f.name.split('.').pop()!.toLowerCase()))) return fail('file_type', files), false;
+      if (list.reduce((s, f) => s + f.size, 0) > m.maxBytes) return fail('too_large', files), false;
+      return true;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const data = new FormData(form);
+      if (!data.get('cf-turnstile-response')) return fail('turnstile');
+      submit.disabled = true;
+      submit.textContent = m.sending;
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { accept: 'application/json' } });
+        const body = await res.json().catch(() => ({ ok: false, error: 'server' }));
+        if (res.ok && body.ok) {
+          show('ok', m.okTitle, ` ${m.okText}`);
+          form.reset();
+          syncType();
+          (window as any).turnstile?.reset();
+        } else {
+          const field = body.field ? form.querySelector<HTMLElement>(`[name="${body.field}"]`) : null;
+          fail(body.error ?? 'server', field);
+          (window as any).turnstile?.reset();
+        }
+      } catch {
+        fail('network');
+      } finally {
+        submit.disabled = false;
+        submit.textContent = m.submit;
+      }
+    });
+  }
+</script>

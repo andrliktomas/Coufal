@@ -1,0 +1,898 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroMedal from '../components/HeroMedal.astro';
+import Process from '../components/Process.astro';
+import PieceImg from '../components/PieceImg.astro';
+import Tile from '../components/Tile.astro';
+import type { Lang } from '../i18n/locales';
+import { pathFor, CATEGORY_IDS } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { allPieces, byNo, nextNo, numLabel } from '../lib/pieces';
+import { company, heroFor, moqOf, PHONE_HREF, SITE_URL, YEARS } from '../lib/site';
+import { orgJsonLd } from '../lib/jsonld';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const u = t(lang);
+const h = heroFor(lang);
+const pieces = await allPieces();
+
+// Selected commissions wall (numbers from the artboard).
+const WALL = [
+  { no: 677, cls: 'w-a', ratio: '5 / 4', sizes: '(max-width: 860px) 100vw, 56vw' },
+  { no: 727, cls: 'w-b', ratio: '3 / 4', sizes: '(max-width: 860px) 100vw, 32vw' },
+  { no: 642, cls: 'w-c', ratio: '4 / 5', sizes: '(max-width: 860px) 100vw, 32vw' },
+  { no: 733, cls: 'w-d', ratio: '3 / 2', sizes: '(max-width: 860px) 100vw, 48vw' },
+  { no: 676, cls: 'w-e', ratio: '1 / 1', sizes: '(max-width: 860px) 100vw, 40vw' },
+  { no: 643, cls: 'w-f', ratio: '2 / 3', sizes: '(max-width: 860px) 100vw, 32vw' },
+];
+const wall = await Promise.all(WALL.map(async (w, i) => ({ ...w, piece: await byNo(w.no), tone: i + 1 })));
+
+// Editorial paragraph: *em* and {chip:NNN} tokens.
+const CHIP_SHAPES = ['pill', 'coin', 'tab'];
+let chipIdx = 0;
+const editorial = await Promise.all(
+  u.home.editorial.split(/(\{chip:\d+\}|\*[^*]+\*)/).map(async (part) => {
+    const chip = part.match(/^\{chip:(\d+)\}$/);
+    if (chip) return { chip: await byNo(Number(chip[1])), no: Number(chip[1]), shape: CHIP_SHAPES[chipIdx++ % 3] };
+    const em = part.match(/^\*([^*]+)\*$/);
+    if (em) return { em: em[1] };
+    return { text: part };
+  }),
+);
+
+// Index rows, with a representative photo per family for the floating preview.
+const index = CATEGORY_IDS.map((c, i) => {
+  const moq = moqOf(c);
+  return {
+    id: c,
+    n: String(i + 1).padStart(2, '0'),
+    name: u.cat[c].plural,
+    desc: u.cat[c].desc,
+    moq: moq ? u.common.from(moq) : u.common.onRequest,
+    href: pathFor({ type: 'category', category: c }, lang),
+    preview: pieces.find((p) => p.category === c && p.images.length),
+  };
+});
+
+const tag = numLabel(await nextNo(), 'en');
+const marquee = u.home.marquee;
+const studio = [
+  ['3 / 4', 1],
+  ['4 / 3', 2],
+  ['3 / 4', 3],
+  ['1 / 1', 4],
+  ['4 / 5', 5],
+  ['4 / 3', 6],
+] as const;
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: u.home.faq
+    .filter((f) => !f.placeholder)
+    .map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
+---
+
+<Base
+  lang={lang}
+  route={{ type: 'home' }}
+  title={u.meta.homeTitle}
+  description={u.meta.homeDesc}
+  footer="full"
+  home
+  jsonld={[orgJsonLd(lang, homeUrl), faqLd]}
+>
+  <!-- Hero -->
+  <section class="wrap hero">
+    <div class="util kicker">
+      <span>{h.util}</span><span class="hide-sm">{u.home.utilRight}</span>
+    </div>
+    <div class="hero-row">
+      <h1 class="hero-h">
+        <span class="line"><span>{h.t1}</span></span>
+        <span class="line d2"><span class="t2">{h.t2}</span></span>
+        <span class="line d3">
+          <span>
+            <span class="sr-only">{h.words[0]}</span>
+            <span class="swap" aria-hidden="true" data-words={JSON.stringify(h.words)}>{h.words[0]}</span>
+          </span>
+        </span>
+      </h1>
+      <div class="overlap">
+        <HeroMedal label={u.home.medalLabel} labelBack={u.home.medalReverseLabel} hint={h.flip} />
+      </div>
+    </div>
+    <div class="hero-foot">
+      <p class="sub">{h.sub}</p>
+      <div class="ctas">
+        <a href={pathFor({ type: 'quote' }, lang)} class="btn btn--lg">{h.cta} →</a>
+        <a href={pathFor({ type: 'archive' }, lang)} class="btn btn--lg btn--line">{h.cta2}</a>
+      </div>
+      <div class="kicker meta">{u.home.heroMeta[0]}<br />{u.home.heroMeta[1]}</div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marq">
+      {
+        [0, 1].map((copy) => (
+          <div class="marq-set" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {marquee.map((m) => (
+              <span class="mq-item">
+                <span class="mq">{m}</span>
+                <svg viewBox="0 0 40 40" aria-hidden="true">
+                  <circle cx="20" cy="20" r="18" />
+                  <circle cx="20" cy="20" r="12" stroke-dasharray="1 3" />
+                  <circle cx="20" cy="20" r="5" />
+                </svg>
+              </span>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Editorial -->
+  <section class="editorial">
+    <div class="reveal ed-inner">
+      <p class="ed">
+        {
+          editorial.map((s) =>
+            'chip' in s ? (
+              <span class:list={['chip', `chip--${s.shape}`]} aria-hidden="true">
+                <PieceImg piece={s.chip} no={s.no} lang={lang} ratio="auto" sizes="120px" widths={[120, 240]} />
+              </span>
+            ) : 'em' in s ? (
+              <em>{s.em}</em>
+            ) : (
+              s.text
+            ),
+          )
+        }
+      </p>
+    </div>
+  </section>
+
+  <!-- Selected commissions -->
+  <section id="work" class="wrap work">
+    <div class="reveal work-head">
+      <h2 class="display h-section">{u.home.wallTitle[0]}<br /><em>{u.home.wallTitle[1]}</em></h2>
+      <a class="lnk caps" href={pathFor({ type: 'archive' }, lang)}>{u.home.wallLink}</a>
+    </div>
+    <div class="wall">
+      {
+        wall.map((w) =>
+          w.piece ? (
+            <Tile
+              piece={w.piece}
+              lang={lang}
+              size="lg"
+              ratio={w.ratio}
+              sizes={w.sizes}
+              tone={w.tone}
+              withMetal
+              more
+              parallax
+              widths={[360, 640, 1000]}
+              class={`${w.cls} reveal`}
+            />
+          ) : null,
+        )
+      }
+    </div>
+  </section>
+
+  <!-- Index -->
+  <section id="index" class="index-sec">
+    <div class="reveal wrap index-head">
+      <h2 class="display h-section">{u.home.indexTitle}</h2>
+      <p class="lead">{u.home.indexLead}</p>
+    </div>
+    <div class="wrap index" data-index>
+      {
+        index.map((r) => (
+          <a href={r.href} class="idx" data-id={r.id}>
+            <span class="idx-n">{r.n}</span>
+            <span class="idx-name">{r.name}</span>
+            <span class="idx-dots hide-sm" />
+            <span class="idx-desc">{r.desc}</span>
+            <span class="idx-moq">{r.moq}</span>
+          </a>
+        ))
+      }
+      <div class="preview" aria-hidden="true" data-preview>
+        {
+          index.map((r, i) => (
+            <div class="pv" data-for={r.id} style={`--rot:${i % 2 ? 4 : -4}deg`}>
+              <PieceImg piece={r.preview} lang={lang} ratio="4 / 5" sizes="240px" widths={[240, 480]} tone={(i % 6) + 1} />
+              <span class="pv-n">{r.n}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Process title={u.home.processTitle} lead={u.home.processLead} steps={u.home.steps} tag={tag} ready={u.home.readyToShip} />
+
+  <!-- Studio -->
+  <section id="studio" class="studio">
+    <div class="reveal wrap studio-head">
+      <div class="years">
+        <span aria-hidden="true" class="big">{YEARS}</span>
+        <h2 class="display">
+          <span class="sr-only">{YEARS} </span>{u.home.yearsLabel[0]}<br /><em>{u.home.yearsLabel[1]}</em>
+        </h2>
+      </div>
+      <div class="story">
+        <p class="dropcap">{u.home.studio[0]}</p>
+        <p>{u.home.studio[1]} <span class="sig">{u.home.signature}</span></p>
+      </div>
+    </div>
+    <div class="strip" role="region" aria-label={u.home.stripLabel} tabindex="0">
+      {
+        studio.map(([ratio, tone], i) => (
+          <figure class="ph" style={`aspect-ratio:${ratio};background:var(--tone-${tone})`}>
+            <figcaption class="ph-cap">[ PHOTO · {u.home.strip[i]} ]</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+    <div class="wrap label strip-hint">{u.home.stripHint}</div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-sec">
+    <div class="wrap faq-inner">
+      <h2 class="reveal display h-mid">{u.home.faqTitle[0]}<br /><em>{u.home.faqTitle[1]}</em></h2>
+      <div class="faq">
+        {
+          u.home.faq.map((f) => (
+            <details>
+              <summary>
+                <span>{f.q}</span>
+                <span class="plus" aria-hidden="true">
+                  +
+                </span>
+              </summary>
+              <p class:list={{ todo: f.placeholder }}>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <div class="reveal cta-text">
+        <div class="kicker cta-kicker">{u.home.ctaKicker}</div>
+        <h2 class="display cta-h">{u.home.ctaTitle[0]}<br /><em class="wm">{u.home.ctaTitle[1]}</em></h2>
+        <div class="cta-row">
+          <a href={pathFor({ type: 'quote' }, lang)} class="btn btn--light btn--lg">{h.cta} →</a>
+          <span class="call">{u.home.orCall} <a class="lnk" href={PHONE_HREF}>{company.phone}</a></span>
+        </div>
+      </div>
+      <div class="cta-medal" aria-hidden="true">
+        <svg viewBox="0 0 600 600">
+          <defs><path id="rimC" d="M300,300 m-250,0 a250,250 0 1,1 500,0 a250,250 0 1,1 -500,0"></path></defs>
+          <circle cx="300" cy="300" r="290" class="c1"></circle>
+          <g class="spin"><text class="rimc"><textPath href="#rimC">{u.home.ctaRim}</textPath></text></g>
+          <circle cx="300" cy="300" r="200" class="c1" stroke-dasharray="2 7"></circle>
+          <text x="300" y="336" class="arrow">→</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .util {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+    letter-spacing: 0.14em;
+  }
+  .hero-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-h {
+    flex: 1 1 700px;
+    min-width: 0;
+    position: relative;
+    z-index: 2;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(60px, 9.6vw, 164px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    color: var(--black);
+    perspective: 600px;
+  }
+  .t2 {
+    padding-left: 1.1em;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .swap {
+    display: inline-block;
+    transform-origin: 50% 100%;
+  }
+  .swap.go {
+    animation: swap 0.8s var(--ease) both;
+  }
+  @keyframes swap {
+    from {
+      opacity: 0;
+      transform: translateY(35%) rotateX(-70deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .overlap {
+    flex: 0 1 600px;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+    margin-left: -12%;
+  }
+  .hero-foot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px 48px;
+    align-items: end;
+    padding-bottom: 72px;
+  }
+  .sub {
+    margin: 0;
+    font-size: 19px;
+    max-width: 30em;
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .meta {
+    letter-spacing: 0.14em;
+    text-align: right;
+    color: var(--muted);
+  }
+
+  /* Marquee */
+  .marquee {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    overflow: hidden;
+    padding: 26px 0;
+  }
+  .marq {
+    display: flex;
+    width: max-content;
+    animation: marq 48s linear infinite;
+  }
+  .marq:hover {
+    animation-play-state: paused;
+  }
+  .marq-set {
+    display: flex;
+  }
+  @keyframes marq {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .mq-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-right: 40px;
+    white-space: nowrap;
+  }
+  .mq {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(56px, 7vw, 112px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--ink);
+    transition:
+      color 0.4s,
+      -webkit-text-stroke-color 0.4s;
+  }
+  .mq:hover {
+    color: var(--ink);
+  }
+  .mq-item svg {
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1;
+  }
+
+  /* Editorial */
+  .editorial {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .ed-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(72px, 10vw, 136px) var(--pad);
+  }
+  .ed {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.2vw, 64px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+  .chip {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: -0.06em;
+  }
+  .chip :global(.ph) {
+    width: 100%;
+    height: 100%;
+  }
+  .chip--pill {
+    width: 2.2em;
+    height: 0.78em;
+    border-radius: 999px;
+  }
+  .chip--coin {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.14em;
+    border-radius: 50%;
+  }
+  .chip--tab {
+    width: 1.8em;
+    height: 0.9em;
+    vertical-align: -0.1em;
+    border-radius: 14px;
+  }
+
+  /* Wall */
+  .work {
+    padding-top: clamp(80px, 10vw, 136px);
+    padding-bottom: clamp(96px, 11vw, 160px);
+  }
+  .work-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: clamp(48px, 7vw, 96px);
+  }
+  .work-head .lnk {
+    padding-bottom: 6px;
+  }
+  .wall {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 88px;
+  }
+  .wall :global(.w-a) {
+    grid-column: 1 / span 7;
+  }
+  .wall :global(.w-b) {
+    grid-column: 9 / span 4;
+    margin-top: 220px;
+  }
+  .wall :global(.w-c) {
+    grid-column: 2 / span 4;
+  }
+  .wall :global(.w-d) {
+    grid-column: 7 / span 6;
+    /* The artboard's -160px pulled this tile over the label of No. 727 once real photos set the row height. */
+    margin-top: 0;
+  }
+  .wall :global(.w-e) {
+    grid-column: 1 / span 5;
+    margin-top: -20px;
+  }
+  .wall :global(.w-f) {
+    grid-column: 7 / span 4;
+    margin-top: 120px;
+  }
+
+  /* Index */
+  .index-sec {
+    border-top: 1px solid var(--ink);
+  }
+  .index-head {
+    padding-top: clamp(80px, 9vw, 120px);
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 64px;
+    align-items: flex-end;
+  }
+  .index-head h2 {
+    flex: 1 1 520px;
+  }
+  .index-head p {
+    flex: 1 1 360px;
+  }
+  .index {
+    padding-bottom: 128px;
+    position: relative;
+  }
+  .idx {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 28px;
+    padding: 22px 16px;
+    border-bottom: 1px solid var(--line);
+    transition:
+      background 0.35s ease,
+      color 0.35s ease,
+      padding 0.35s ease;
+  }
+  .idx:hover,
+  .idx:focus-visible {
+    background: var(--ink);
+    color: var(--on-ink);
+    padding-left: 32px;
+  }
+  .idx-n {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    width: 2.5em;
+  }
+  .idx-name {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .idx-dots {
+    flex: 1;
+    min-width: 40px;
+    border-bottom: 1px dotted currentColor;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+  .idx-desc {
+    font-size: 15px;
+    max-width: 22em;
+  }
+  .idx-moq {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    min-width: 9em;
+    text-align: right;
+  }
+  .preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    pointer-events: none;
+    width: 240px;
+    transition:
+      left 0.18s ease-out,
+      top 0.18s ease-out;
+    display: none;
+  }
+  .pv {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 240px;
+    opacity: 0;
+    transform: translate(-50%, -55%) rotate(var(--rot));
+    transition:
+      opacity 0.25s,
+      transform 0.4s;
+    box-shadow:
+      0 30px 60px rgba(20, 24, 28, 0.25),
+      inset 0 0 0 1px rgba(56, 65, 74, 0.15);
+  }
+  .pv.on {
+    opacity: 1;
+  }
+  .pv-n {
+    position: absolute;
+    left: 14px;
+    bottom: 10px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--black);
+  }
+  @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
+    :global(.js) .preview {
+      display: block;
+    }
+  }
+
+  /* Studio */
+  .studio {
+    padding: clamp(88px, 10vw, 136px) 0;
+  }
+  .studio-head {
+    padding-bottom: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 96px;
+    align-items: flex-end;
+  }
+  .years {
+    flex: 1 1 420px;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .big {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(140px, 18vw, 280px);
+    line-height: 0.75;
+    letter-spacing: -0.06em;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--outline);
+  }
+  .years h2 {
+    font-size: clamp(36px, 4vw, 60px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .story {
+    flex: 1 1 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 36em;
+  }
+  .story p {
+    margin: 0;
+  }
+  .sig {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--black);
+  }
+  .strip {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 var(--pad) 16px;
+    scroll-padding: 0 var(--pad);
+  }
+  .strip > figure {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    margin: 0;
+    height: clamp(300px, 40vw, 480px);
+  }
+  .strip-hint {
+    padding-top: 8px;
+    letter-spacing: 0.16em;
+  }
+
+  /* FAQ */
+  .faq-sec {
+    border-top: 1px solid var(--ink);
+  }
+  .faq-inner {
+    padding-top: clamp(80px, 9vw, 120px);
+    padding-bottom: clamp(80px, 9vw, 120px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 96px;
+  }
+  .faq-inner h2 {
+    flex: 1 1 360px;
+  }
+  .faq {
+    flex: 2 1 560px;
+    min-width: 0;
+  }
+  details {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: 1.2;
+    color: var(--black);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .plus {
+    font-family: var(--mono);
+    font-size: 24px;
+    display: inline-block;
+    transition: transform 0.4s;
+  }
+  details[open] .plus {
+    transform: rotate(45deg);
+  }
+  details p {
+    margin: 14px 0 0;
+    max-width: 40em;
+    color: var(--stone);
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--ink);
+    color: var(--on-ink);
+    overflow: hidden;
+  }
+  .cta-inner {
+    padding-top: clamp(96px, 11vw, 160px);
+    padding-bottom: clamp(96px, 11vw, 160px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: center;
+  }
+  .cta-text {
+    flex: 2 1 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .cta-kicker {
+    color: var(--line);
+  }
+  .cta-h {
+    color: inherit;
+    font-size: clamp(64px, 10vw, 172px);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+  }
+  .wm {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--silver);
+    transition: color 0.8s ease;
+  }
+  .wm:hover {
+    color: var(--silver);
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    align-items: center;
+  }
+  .call {
+    color: var(--line);
+  }
+  .call a {
+    color: var(--on-ink);
+  }
+  .cta-medal {
+    flex: 1 1 280px;
+    max-width: 380px;
+    opacity: 0.9;
+  }
+  .cta-medal svg {
+    width: 100%;
+    height: auto;
+  }
+  .c1 {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .rimc {
+    font-family: var(--mono);
+    font-size: 22px;
+    letter-spacing: 9px;
+    fill: var(--silver);
+  }
+  .arrow {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 110px;
+    fill: var(--on-ink);
+    text-anchor: middle;
+  }
+
+  @media (max-width: 860px) {
+    .overlap {
+      margin-left: 0;
+      flex-basis: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .meta {
+      text-align: left;
+    }
+    .wall {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 56px;
+    }
+    .wall :global(.tile) {
+      grid-column: auto !important;
+      margin-top: 0 !important;
+    }
+    .idx-moq {
+      text-align: left;
+      min-width: 0;
+    }
+  }
+</style>
+
+<script>
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Word cycler: every 2.6 s, flip in the next localized word.
+  for (const el of document.querySelectorAll<HTMLElement>('[data-words]')) {
+    const words: string[] = JSON.parse(el.dataset.words!);
+    let i = 0;
+    setInterval(() => {
+      if (still.matches || document.hidden) return;
+      i = (i + 1) % words.length;
+      el.classList.remove('go');
+      void el.offsetWidth;
+      el.textContent = words[i];
+      el.classList.add('go');
+    }, 2600);
+  }
+
+  // Index: floating preview that follows the cursor.
+  for (const box of document.querySelectorAll<HTMLElement>('[data-index]')) {
+    const prev = box.querySelector<HTMLElement>('[data-preview]')!;
+    const cards = new Map([...prev.querySelectorAll<HTMLElement>('.pv')].map((c) => [c.dataset.for!, c]));
+    let shown: HTMLElement | undefined;
+    box.addEventListener('pointermove', (e) => {
+      const r = box.getBoundingClientRect();
+      prev.style.left = `${e.clientX - r.left}px`;
+      prev.style.top = `${e.clientY - r.top}px`;
+    });
+    for (const row of box.querySelectorAll<HTMLElement>('.idx')) {
+      row.addEventListener('pointerenter', () => {
+        shown?.classList.remove('on');
+        shown = cards.get(row.dataset.id!);
+        shown?.classList.add('on');
+      });
+    }
+    box.addEventListener('pointerleave', () => shown?.classList.remove('on'));
+  }
+</script>

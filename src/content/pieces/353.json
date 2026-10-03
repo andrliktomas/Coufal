@@ -1,0 +1,41 @@
+{
+  "no": 353,
+  "title": "Sbor dobrovolných hasičů Kelčice",
+  "originalTitle": "Medaile Sbor dobrovolných hasičů Kelčice",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina stará měď",
+    "en": "patina old copper",
+    "de": "Bronze patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/353/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/353-medaile-sbor-dobrovolnych-hasicu-kelcice",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/353-medaile-sbor-dobrovolnych-hasicu-kelcice",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/353-medaile-sbor-dobrovolnych-hasicu-kelcice"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-sbor-dobrovolnych-hasicu-kelcice",
+    "titleSuffix": null
+  }
+}

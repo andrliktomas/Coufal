@@ -1,0 +1,41 @@
+{
+  "no": 302,
+  "title": "Trofej Býčí skála",
+  "originalTitle": "Trofej Býčí skála",
+  "category": "other",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "broznová patina kartáčovaná",
+    "en": "brooch patina brushed",
+    "de": "Bronze Patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/302/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/ostatni-vyrobky/item/302-trofej-byci-skala",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/ostatni-vyrobky/item/302-trofej-byci-skala",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/ostatni-vyrobky/item/302-trofej-byci-skala"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "ostatni-vyrobky",
+    "slug": "trofej-byci-skala",
+    "titleSuffix": null
+  }
+}

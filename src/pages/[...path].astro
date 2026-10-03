@@ -1,0 +1,46 @@
+---
+/**
+ * One router for every localized page, because slugs are translated per locale
+ * (/en/archive/medals/… vs /cs/archiv/medaile/…). URLs come from src/i18n/routes.ts.
+ */
+import type { GetStaticPaths } from 'astro';
+import Home from '../views/Home.astro';
+import Archive from '../views/Archive.astro';
+import PieceView from '../views/Piece.astro';
+import Quote from '../views/Quote.astro';
+import Privacy from '../views/Privacy.astro';
+import { LOCALES, type Lang } from '../i18n/locales';
+import { CATEGORY_IDS, pathFor, type Route } from '../i18n/routes';
+import { allPieces, pieceRoute } from '../lib/pieces';
+
+export const getStaticPaths = (async () => {
+  const pieces = await allPieces();
+  const routes: Route[] = [
+    { type: 'home' },
+    { type: 'archive' },
+    ...CATEGORY_IDS.map((category) => ({ type: 'category', category }) as Route),
+    ...pieces.map(pieceRoute),
+    { type: 'quote' },
+    { type: 'privacy' },
+  ];
+  return LOCALES.flatMap((lang) =>
+    routes.map((route) => ({
+      params: { path: pathFor(route, lang).replace(/^\/|\/$/g, '') },
+      props: { lang, route },
+    })),
+  );
+}) satisfies GetStaticPaths;
+
+interface Props {
+  lang: Lang;
+  route: Route;
+}
+const { lang, route } = Astro.props;
+---
+
+{route.type === 'home' && <Home lang={lang} />}
+{route.type === 'archive' && <Archive lang={lang} />}
+{route.type === 'category' && <Archive lang={lang} category={route.category} />}
+{route.type === 'piece' && <PieceView lang={lang} no={route.no} />}
+{route.type === 'quote' && <Quote lang={lang} />}
+{route.type === 'privacy' && <Privacy lang={lang} />}

@@ -1,0 +1,505 @@
+{
+  "_note": "Seed list scraped from the homepage on 2026-10-03. The old site holds many more items (K2 item IDs go up to ~733). Run the migration script to fill the rest, images and texts. null = to be confirmed with the client.",
+  "pieces": [
+    {
+      "no": 733,
+      "title": "LS",
+      "originalTitle": "LS — opasková spona",
+      "category": "buckles",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/733-ls-opaskova-spona",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/733-ls-opaskova-spona",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/733-ls-opaskova-spona"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": "zlatá vložka (gold inlay)",
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 732,
+      "title": "HOT",
+      "originalTitle": "HOT — odznak",
+      "category": "badges",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/732-hot-odznak",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/732-hot-odznak",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/732-hot-odznak"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 731,
+      "title": "CoD",
+      "originalTitle": "CoD — odznak",
+      "category": "badges",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/731-cod-odznak",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/731-cod-odznak",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/731-cod-odznak"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 730,
+      "title": "DOGA",
+      "originalTitle": "DOGA — odznak",
+      "category": "badges",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/730-doga-odznak",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/730-doga-odznak",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/730-doga-odznak"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 729,
+      "title": "Custom Garage",
+      "originalTitle": "Custom Garage — odznak",
+      "category": "badges",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/729-custom-garage-odznak",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/729-custom-garage-odznak",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/729-custom-garage-odznak"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 727,
+      "title": "Ústavní soud",
+      "originalTitle": "Ústavní soud — odznak",
+      "category": "badges",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/odznaky/item/727-ustavni-soud-odznak",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/odznaky/item/727-ustavni-soud-odznak",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/odznaky/item/727-ustavni-soud-odznak"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 678,
+      "title": "Brněnský masakr",
+      "originalTitle": "Brněnský masakr",
+      "category": "medals",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/678-brnensky-masakr",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/678-brnensky-masakr",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/678-brnensky-masakr"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 677,
+      "title": "Zbrojovka Brno",
+      "originalTitle": "Zbrojovka Brno",
+      "category": "medals",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/677-zbrojovka-brno",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/677-zbrojovka-brno",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/677-zbrojovka-brno"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 676,
+      "title": "Triatlon",
+      "originalTitle": "Triatlon",
+      "category": "medals",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/676-triatlon",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/676-triatlon",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/676-triatlon"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 675,
+      "title": "Triatlon",
+      "originalTitle": "Triatlon",
+      "category": "medals",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/675-triatlon",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/675-triatlon",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/675-triatlon"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 674,
+      "title": "Goalmaster",
+      "originalTitle": "Goalmaster",
+      "category": "medals",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/674-goalmaster",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/674-goalmaster",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/674-goalmaster"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 649,
+      "title": "Krokodýl",
+      "originalTitle": "Krokodýl",
+      "category": "key-fobs",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/649-krokodyl",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/649-krokodyl",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/649-krokodyl"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 643,
+      "title": "INCA Gold",
+      "originalTitle": "INCA Gold",
+      "category": "key-fobs",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/643-inca-gold",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/643-inca-gold",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/643-inca-gold"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 642,
+      "title": "Totem",
+      "originalTitle": "Totem",
+      "category": "figures",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/642-totem",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/642-totem",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/642-totem"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 641,
+      "title": "Freud",
+      "originalTitle": "Freud",
+      "category": "key-fobs",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 639,
+      "title": "Support",
+      "originalTitle": "Support — opasková spona",
+      "category": "buckles",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/639-support-opaskova-spona",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/639-support-opaskova-spona",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/639-support-opaskova-spona"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 635,
+      "title": "Bulánci",
+      "originalTitle": "Bulánci",
+      "category": "figures",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/figurky/item/635-bulanci",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/figurky/item/635-bulanci",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/figurky/item/635-bulanci"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 624,
+      "title": "Weiss",
+      "originalTitle": "Opasková spona Weiss",
+      "category": "buckles",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/624-opaskova-spona-weiss"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 623,
+      "title": "Flighting Storkes",
+      "originalTitle": "Opasková spona Flighting Storkes",
+      "category": "buckles",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/623-opaskova-spona-flighting-storkes",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/623-opaskova-spona-flighting-storkes",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/623-opaskova-spona-flighting-storkes"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    },
+    {
+      "no": 622,
+      "title": "Blade brothers",
+      "originalTitle": "Opasková spona Blade brothers",
+      "category": "buckles",
+      "oldUrls": {
+        "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/opaskove-spony/item/622-opaskova-spona-blade-brothers",
+        "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/opaskove-spony/item/622-opaskova-spona-blade-brothers",
+        "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/opaskove-spony/item/622-opaskova-spona-blade-brothers"
+      },
+      "client": null,
+      "year": null,
+      "metal": null,
+      "finish": null,
+      "sizeMm": null,
+      "series": null,
+      "note": null,
+      "story": {
+        "cs": null,
+        "en": null,
+        "de": null
+      },
+      "images": [],
+      "clientNamePublishable": null
+    }
+  ]
+}

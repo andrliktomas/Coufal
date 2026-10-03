@@ -1,0 +1,37 @@
+{
+  "no": 445,
+  "title": "Česká kuželkářská asociace",
+  "originalTitle": "Medaile Česká kuželkářská asociace",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/445/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/445-medaile-ceska-kuzelkarska-asociace",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/445-medaile-ceska-kuzelkarska-asociace",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/445-medaile-ceska-kuzelkarska-asociace"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-ceska-kuzelkarska-asociace",
+    "titleSuffix": null
+  }
+}

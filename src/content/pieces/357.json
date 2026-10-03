@@ -1,0 +1,37 @@
+{
+  "no": 357,
+  "title": "Jednotka operativního zásahu",
+  "originalTitle": "Plaketa Jednotka operativního zásahu",
+  "category": "plaques",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/357/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/plakety/item/357-plaketa-jednotka-operativniho-zasahu",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/plakety/item/357-plaketa-jednotka-operativniho-zasahu",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/plakety/item/357-plaketa-jednotka-operativniho-zasahu"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "plakety",
+    "slug": "plaketa-jednotka-operativniho-zasahu",
+    "titleSuffix": null
+  }
+}

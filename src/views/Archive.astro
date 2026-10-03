@@ -1,0 +1,282 @@
+---
+/**
+ * Archive (all pieces) and the per-category landing pages.
+ * On the full archive the filter works client-side and pushes the category URL;
+ * on a category page the chips are plain links.
+ */
+import Base from '../layouts/Base.astro';
+import Tile from '../components/Tile.astro';
+import type { Lang } from '../i18n/locales';
+import { CATEGORY_IDS, pathFor, type CategoryId, type Route } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { allPieces } from '../lib/pieces';
+import { breadcrumbJsonLd } from '../lib/jsonld';
+import { SITE_URL } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  category?: CategoryId;
+}
+const { lang, category } = Astro.props;
+const u = t(lang);
+const all = await allPieces();
+const shown = category ? all.filter((p) => p.category === category) : all;
+const count = (c?: CategoryId) => (c ? all.filter((p) => p.category === c).length : all.length);
+const route: Route = category ? { type: 'category', category } : { type: 'archive' };
+const archivePath = pathFor({ type: 'archive' }, lang);
+
+const chips = [
+  { id: 'all', label: u.archive.all, href: archivePath, n: count() },
+  ...CATEGORY_IDS.map((c) => ({ id: c, label: u.cat[c].plural, href: pathFor({ type: 'category', category: c }, lang), n: count(c) })),
+];
+const crumbs = [
+  { name: u.common.home, url: pathFor({ type: 'home' }, lang) },
+  { name: u.archive.title, url: archivePath },
+  ...(category ? [{ name: u.cat[category].plural, url: pathFor(route, lang) }] : []),
+];
+const title = category ? u.meta.categoryTitle(u.cat[category].plural) : u.meta.archiveTitle;
+const description = category ? u.meta.categoryDesc(u.cat[category].plural, shown.length) : u.meta.archiveDesc;
+const collection = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  inLanguage: lang,
+  url: SITE_URL + pathFor(route, lang),
+  numberOfItems: shown.length,
+};
+const tones = [1, 2, 3, 4, 5, 6];
+const titles = Object.fromEntries([['all', u.meta.archiveTitle], ...CATEGORY_IDS.map((c) => [c, u.meta.categoryTitle(u.cat[c].plural)])]);
+---
+
+<Base lang={lang} route={route} title={title} description={description} jsonld={[breadcrumbJsonLd(crumbs), collection]}>
+  <section class="wrap head">
+    <nav aria-label={u.common.breadcrumb} class="kicker crumbs">
+      {
+        crumbs.map((c, i) =>
+          i < crumbs.length - 1 ? (
+            <>
+              <a class="lnk" href={c.url}>
+                {c.name}
+              </a>{' '}
+              /{' '}
+            </>
+          ) : (
+            <span aria-current="page" class="cur">
+              {c.name}
+            </span>
+          ),
+        )
+      }
+    </nav>
+    <div class="title-row">
+      <h1 class="display big">
+        <span class="line"><span>{category ? u.cat[category].plural : u.archive.title}<sup data-count>{shown.length}</sup></span></span>
+      </h1>
+      <div class="intro">
+        {category ? <p class="lead">{u.cat[category].intro}</p> : <p class="lead">{u.archive.lead}</p>}
+        {
+          !category &&
+            CATEGORY_IDS.map((c) => (
+              <p class="lead cat-intro" data-intro={c} hidden>
+                {u.cat[c].intro}
+              </p>
+            ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="bar">
+    <nav class="wrap chips" aria-label={u.archive.filterLabel} data-filter={category ? undefined : ''} data-titles={JSON.stringify(titles)}>
+      {
+        chips.map((c) => (
+          <a
+            href={c.href}
+            class="chip"
+            data-cat={c.id}
+            aria-current={(category ?? 'all') === c.id ? 'page' : undefined}
+          >
+            {c.label}
+            <sup>{c.n}</sup>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+
+  <section class="wrap grid-sec">
+    {shown.length === 0 && <div class="empty todo">{u.archive.empty}</div>}
+    <div class="masonry" data-grid>
+      {
+        shown.map((p, i) => (
+          <Tile piece={p} lang={lang} sizes="(max-width: 700px) 92vw, 320px" tone={tones[(i * 5) % 6]} class="m-tile" />
+        ))
+      }
+    </div>
+    <p class="note">{u.common.notForSale}</p>
+  </section>
+</Base>
+
+<style>
+  .head {
+    padding-top: 64px;
+    padding-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .crumbs {
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .cur {
+    color: var(--black);
+  }
+  .title-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 64px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .big {
+    font-size: clamp(72px, 13vw, 220px);
+    line-height: 0.82;
+    letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
+  }
+  sup {
+    font-size: 0.32em;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    vertical-align: 0.9em;
+    padding-left: 0.12em;
+    line-height: 0;
+  }
+  .intro {
+    flex: 0 1 420px;
+  }
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--paper);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .chips {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 28px;
+    align-items: center;
+  }
+  .chip {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    font: 600 12px/1 var(--sans);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+  .chip:hover {
+    color: var(--black);
+  }
+  .chip[aria-current='page'] {
+    color: var(--black);
+    border-bottom-color: var(--ink);
+  }
+  .chip sup {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-style: normal;
+    padding-left: 3px;
+    vertical-align: 0.6em;
+    letter-spacing: 0;
+  }
+  .grid-sec {
+    padding-top: 64px;
+    padding-bottom: 136px;
+  }
+  .masonry {
+    column-width: 300px;
+    column-gap: 28px;
+  }
+  .masonry :global(.m-tile) {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 48px;
+    break-inside: avoid;
+  }
+  .masonry :global(.m-tile[hidden]) {
+    display: none;
+  }
+  .empty {
+    padding: 96px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 40px;
+    color: var(--steel);
+  }
+  .note {
+    margin: 24px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  @media (max-width: 860px) {
+    .chips {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 0 22px;
+      scrollbar-width: none;
+    }
+    .chip {
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('[data-filter]');
+  if (nav) {
+    const titles: Record<string, string> = JSON.parse(nav.dataset.titles!);
+    const chips = [...nav.querySelectorAll<HTMLAnchorElement>('.chip')];
+    const tiles = [...document.querySelectorAll<HTMLElement>('[data-grid] .m-tile')];
+    const counter = document.querySelector<HTMLElement>('[data-count]');
+    const intros = [...document.querySelectorAll<HTMLElement>('[data-intro]')];
+    const leadAll = intros[0]?.previousElementSibling as HTMLElement | null;
+
+    const apply = (cat: string) => {
+      let n = 0;
+      for (const t of tiles) {
+        const on = cat === 'all' || t.dataset.cat === cat;
+        t.hidden = !on;
+        if (on) n++;
+      }
+      if (counter) counter.textContent = String(n);
+      chips.forEach((c) => (c.dataset.cat === cat ? c.setAttribute('aria-current', 'page') : c.removeAttribute('aria-current')));
+      for (const p of intros) p.hidden = p.dataset.intro !== cat;
+      if (leadAll) leadAll.hidden = cat !== 'all';
+      if (titles[cat]) document.title = titles[cat];
+    };
+
+    for (const c of chips) {
+      c.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        const cat = c.dataset.cat!;
+        apply(cat);
+        history.pushState({ cat }, '', c.href);
+      });
+    }
+    addEventListener('popstate', (e) => apply((e.state && e.state.cat) || 'all'));
+    history.replaceState({ cat: 'all' }, '');
+  }
+</script>

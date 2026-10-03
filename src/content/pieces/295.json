@@ -1,0 +1,37 @@
+{
+  "no": 295,
+  "title": "Těžítko Kajot",
+  "originalTitle": "těžítko Kajot",
+  "category": "other",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/295/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/ostatni-vyrobky/item/295-tezitko-kajot",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/ostatni-vyrobky/item/295-tezitko-kajot",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/ostatni-vyrobky/item/295-tezitko-kajot"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "ostatni-vyrobky",
+    "slug": "tezitko-kajot",
+    "titleSuffix": null
+  }
+}

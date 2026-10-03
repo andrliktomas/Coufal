@@ -1,0 +1,37 @@
+{
+  "no": 291,
+  "title": "Klíč k městské části Královo Pole",
+  "originalTitle": "klíč k městské části Královo Pole",
+  "category": "other",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/291/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/ostatni-vyrobky/item/291-klic-k-mestske-casti-kralovo-pole",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/ostatni-vyrobky/item/291-klic-k-mestske-casti-kralovo-pole",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/ostatni-vyrobky/item/291-klic-k-mestske-casti-kralovo-pole"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "ostatni-vyrobky",
+    "slug": "klic-k-mestske-casti-kralovo-pole",
+    "titleSuffix": null
+  }
+}

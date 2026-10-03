@@ -1,0 +1,37 @@
+{
+  "no": 492,
+  "title": "Zdravotní pojišťovna Ministerstva vnitra",
+  "originalTitle": "Medaile Zdravotní pojišťovna Ministerstva vnitra",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/492/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/492-medaile-zdravotni-pojistovna-ministerstva-vnitra",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/492-medaile-zdravotni-pojistovna-ministerstva-vnitra",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/492-medaile-zdravotni-pojistovna-ministerstva-vnitra"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-zdravotni-pojistovna-ministerstva-vnitra",
+    "titleSuffix": null
+  }
+}

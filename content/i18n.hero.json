@@ -1,0 +1,135 @@
+{
+  "_note": "Machine-drafted hero/nav strings. Native-speaker review required before launch (DE, PL, FR, IT).",
+  "en": {
+    "util": "Medals · Badges · Belt buckles — cast to order",
+    "t1": "Metal,",
+    "t2": "cast to",
+    "words": [
+      "your design.",
+      "your logo.",
+      "your sketch.",
+      "your story."
+    ],
+    "sub": "Medals, badges and belt buckles spin-cast from tin and zinc in our family workshop in Brno — from the first sketch to the finished piece.",
+    "cta": "Request a quote",
+    "cta2": "The archive",
+    "flip": "Click to flip · move to tilt",
+    "nav": {
+      "archive": "Archive",
+      "products": "Index",
+      "process": "Process",
+      "workshop": "Studio",
+      "quote": "Quote"
+    }
+  },
+  "de": {
+    "util": "Medaillen · Abzeichen · Gürtelschnallen — nach Maß gegossen",
+    "t1": "Metall,",
+    "t2": "gegossen nach",
+    "words": [
+      "Ihrem Entwurf.",
+      "Ihrem Logo.",
+      "Ihrer Skizze.",
+      "Ihrer Idee."
+    ],
+    "sub": "Medaillen, Abzeichen und Gürtelschnallen im Schleuderguss aus Zinn und Zink – in unserer Familienwerkstatt in Brünn, von der ersten Skizze bis zum fertigen Stück.",
+    "cta": "Angebot anfordern",
+    "cta2": "Das Archiv",
+    "flip": "Klicken zum Wenden · bewegen zum Kippen",
+    "nav": {
+      "archive": "Archiv",
+      "products": "Index",
+      "process": "Ablauf",
+      "workshop": "Atelier",
+      "quote": "Anfrage"
+    }
+  },
+  "cs": {
+    "util": "Medaile · Odznaky · Opaskové spony — odlité na zakázku",
+    "t1": "Kov,",
+    "t2": "odlitý podle",
+    "words": [
+      "vašeho návrhu.",
+      "vašeho loga.",
+      "vaší skici.",
+      "vašeho nápadu."
+    ],
+    "sub": "Medaile, odznaky a opaskové spony odstředivě lité z cínu a zinku v naší rodinné dílně v Brně — od první skici po hotový kus.",
+    "cta": "Nezávazná poptávka",
+    "cta2": "Archiv",
+    "flip": "Klikni pro otočení · pohybem nakloníš",
+    "nav": {
+      "archive": "Archiv",
+      "products": "Rejstřík",
+      "process": "Postup",
+      "workshop": "Dílna",
+      "quote": "Poptávka"
+    }
+  },
+  "pl": {
+    "util": "Medale · Odznaki · Klamry — odlewane na zamówienie",
+    "t1": "Metal,",
+    "t2": "odlany według",
+    "words": [
+      "Twojego projektu.",
+      "Twojego logo.",
+      "Twojego szkicu.",
+      "Twojego pomysłu."
+    ],
+    "sub": "Medale, odznaki i klamry do pasków odlewane odśrodkowo z cyny i cynku w naszym rodzinnym warsztacie w Brnie — od pierwszego szkicu po gotowy wyrób.",
+    "cta": "Zapytaj o wycenę",
+    "cta2": "Archiwum",
+    "flip": "Kliknij, aby obrócić",
+    "nav": {
+      "archive": "Archiwum",
+      "products": "Indeks",
+      "process": "Proces",
+      "workshop": "Pracownia",
+      "quote": "Wycena"
+    }
+  },
+  "fr": {
+    "util": "Médailles · Insignes · Boucles — coulés sur mesure",
+    "t1": "Le métal,",
+    "t2": "coulé selon",
+    "words": [
+      "votre dessin.",
+      "votre logo.",
+      "votre croquis.",
+      "votre idée."
+    ],
+    "sub": "Médailles, insignes et boucles de ceinture coulés par centrifugation en étain et en zinc dans notre atelier familial de Brno — de la première esquisse à la pièce finie.",
+    "cta": "Demander un devis",
+    "cta2": "Les archives",
+    "flip": "Cliquez pour retourner",
+    "nav": {
+      "archive": "Archives",
+      "products": "Index",
+      "process": "Procédé",
+      "workshop": "Atelier",
+      "quote": "Devis"
+    }
+  },
+  "it": {
+    "util": "Medaglie · Distintivi · Fibbie — fusi su misura",
+    "t1": "Metallo,",
+    "t2": "fuso",
+    "words": [
+      "sul tuo disegno.",
+      "sul tuo logo.",
+      "sul tuo schizzo.",
+      "sulla tua idea."
+    ],
+    "sub": "Medaglie, distintivi e fibbie per cinture in fusione centrifuga di stagno e zinco nel nostro laboratorio di famiglia a Brno — dal primo schizzo al pezzo finito.",
+    "cta": "Richiedi un preventivo",
+    "cta2": "L’archivio",
+    "flip": "Clicca per girare",
+    "nav": {
+      "archive": "Archivio",
+      "products": "Indice",
+      "process": "Processo",
+      "workshop": "Laboratorio",
+      "quote": "Preventivo"
+    }
+  }
+}

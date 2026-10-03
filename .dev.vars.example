@@ -1,0 +1,6 @@
+# Copy to .dev.vars for `npm run preview` (wrangler pages dev). Never commit .dev.vars.
+# These are Cloudflare's public Turnstile test keys (always pass).
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+QUOTE_WEBHOOK_URL=https://hook.eu2.make.com/REPLACE_ME
+QUOTE_WEBHOOK_SECRET=change-me
+FILE_LINK_SECRET=change-me-to-a-long-random-string

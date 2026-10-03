@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CRdesign — Medals, badges and belt buckles cast to your design</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&amp;family=Montserrat:wght@400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F6F6F4}
+a{color:inherit;text-decoration:none}
+.lnk{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .5s cubic-bezier(.2,.7,.1,1)}.lnk:hover{background-size:100% 1px}
+.spin{transform-origin:300px 300px;animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:inline-block;animation:rise 1.2s cubic-bezier(.2,.7,.1,1) both}
+.d2>span{animation-delay:.12s}.d3>span{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(110%)}to{transform:none}}
+.swap{display:inline-block;animation:swap .8s cubic-bezier(.2,.7,.1,1) both;transform-origin:50% 100%}
+@keyframes swap{from{opacity:0;transform:translateY(35%) rotateX(-70deg)}to{opacity:1;transform:none}}
+.fadein{animation:fadein 1.4s .5s ease both}@keyframes fadein{from{opacity:0;transform:scale(.94) rotate(-8deg)}to{opacity:1;transform:none}}
+.menu{animation:menu .28s cubic-bezier(.2,.7,.1,1) both}@keyframes menu{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.marq{display:flex;width:max-content;animation:marq 48s linear infinite}.marq:hover{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.mq{transition:color .4s,-webkit-text-stroke-color .4s}.mq:hover{color:#38414A}
+.wall{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:28px;row-gap:88px}
+.w-a{grid-column:1 / span 7}.w-b{grid-column:9 / span 4;margin-top:220px}
+.w-c{grid-column:2 / span 4}.w-d{grid-column:7 / span 6;margin-top:-160px}
+.w-e{grid-column:1 / span 5;margin-top:-20px}.w-f{grid-column:7 / span 4;margin-top:120px}
+.tile .ph{transition:transform 1.1s cubic-bezier(.2,.7,.1,1)}.tile:hover .ph{transform:scale(1.045)}
+.tile .more{display:inline-block;transform:translateY(110%);transition:transform .6s cubic-bezier(.2,.7,.1,1)}.tile:hover .more{transform:none}
+.idx{transition:background .35s ease,color .35s ease,padding .35s ease}.idx:hover{background:#38414A;color:#F4F6F8;padding-left:32px}
+.step{transition:background .3s,color .3s}
+.bar{animation:bar 4.6s linear both}@keyframes bar{from{width:0}to{width:100%}}
+.draw{stroke-dasharray:1300;stroke-dashoffset:1300;animation:draw 2.6s cubic-bezier(.4,0,.2,1) forwards}@keyframes draw{to{stroke-dashoffset:0}}
+.sweep{transform-origin:300px 300px;animation:spin 2.8s linear infinite}
+.strip{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px}.strip>*{scroll-snap-align:start;flex:0 0 auto}
+.wm{transition:color .8s ease}.wm:hover{color:#38414A}
+.overlap{margin-left:-12%}
+.dropcap::first-letter{float:left;font-family:'Bodoni Moda',serif;font-size:5.4em;line-height:.78;padding:8px 12px 0 0;color:#14181C}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}.plus{transition:transform .4s;display:inline-block}
+@supports (animation-timeline: view()){
+.reveal{animation:fadeup linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+.par{animation:par linear both;animation-timeline:view()}
+}
+@keyframes fadeup{from{opacity:0;transform:translateY(90px)}to{opacity:1;transform:none}}
+@keyframes par{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+@media (max-width:860px){.wall{grid-template-columns:minmax(0,1fr);row-gap:56px}.w-a,.w-b,.w-c,.w-d,.w-e,.w-f{grid-column:auto;margin-top:0}.overlap{margin-left:0}.hide-sm{display:none}}
+</style>
+</helmet>
+<div style="font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; background: {{paper}}; color: {{ink}}; font-size: 17px; line-height: 1.65; overflow-x: hidden; position: relative">
+<svg aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60; opacity: {{grainOp}}; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" style="filter: url(#grain)"></rect></svg>
+
+<header style="max-width: 1440px; margin: 0 auto; padding: 18px 48px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center; justify-content: space-between; position: relative; z-index: 20">
+<a href="Main.dc.html" aria-label="CRdesign home" style="display: flex; align-items: center"><img src="/_blob/ba5c64b08b45e9eb1e008a098bc489aa" alt="CRdesign" style="width: 76px; height: 74px; object-fit: contain"></a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 36px; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase">
+<a class="lnk" href="Archive.dc.html">{{t.nav.archive}}</a>
+<a class="lnk" href="#index">{{t.nav.products}}</a>
+<a class="lnk" href="#process">{{t.nav.process}}</a>
+<a class="lnk" href="#studio">{{t.nav.workshop}}</a>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center">
+<div style="position: relative" onMouseLeave="{{closeLang}}">
+<button type="button" onClick="{{toggleLang}}" aria-haspopup="listbox" aria-expanded="{{langExpanded}}" aria-label="Language" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 14px; background: transparent; border: 1px solid #C9CED4; font: 500 12px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; color: inherit; cursor: pointer">
+<svg viewBox="0 0 24 24" aria-hidden="true" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.4"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"></path></svg>
+<span>{{langCur.code}}</span><span class="hide-sm" style="opacity: .65; letter-spacing: .04em">{{langCur.name}}</span>
+<svg viewBox="0 0 24 24" aria-hidden="true" style="{{chevStyle}}"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<sc-if value="{{langOpen}}" hint-placeholder-val="{{ false }}">
+<ul role="listbox" aria-label="Language" class="menu" style="position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; margin: 0; padding: 6px; list-style: none; min-width: 230px; background: #FFFFFF; border: 1px solid #C9CED4; box-shadow: 0 28px 56px rgba(20,24,28,.16)">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="6">
+<li role="option" aria-selected="{{l.pressed}}"><button type="button" onClick="{{l.pick}}" style="{{l.style}}"><span>{{l.name}}</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em; opacity: .7">{{l.mark}}{{l.code}}</span></button></li>
+</sc-for>
+</ul>
+</sc-if>
+</div>
+<a href="Quote.dc.html" style="padding: 14px 22px; background: {{ink}}; color: {{paper}}; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase">{{t.nav.quote}}</a>
+</div>
+</header>
+
+<section style="max-width: 1440px; margin: 0 auto; padding: 32px 48px 0; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid {{ink}}; padding-top: 14px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase">
+<span>{{t.util}}</span><span class="hide-sm">Brno — Est. MMI</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center">
+<h1 style="flex: 1 1 700px; min-width: 0; position: relative; z-index: 2; margin: 0; font-family: 'Bodoni Moda', Didot, 'Bodoni 72', serif; font-weight: 500; font-size: clamp(60px, 9.6vw, 164px); line-height: .9; letter-spacing: -.045em; color: #14181C; perspective: 600px">
+<span class="line"><span>{{t.t1}}</span></span>
+<span class="line d2"><span style="padding-left: 1.1em; font-style: italic; font-weight: 400">{{t.t2}}</span></span>
+<span class="line d3"><span>
+<sc-if value="{{wordA}}" hint-placeholder-val="{{ true }}"><span class="swap">{{word}}</span></sc-if>
+<sc-if value="{{wordB}}" hint-placeholder-val="{{ false }}"><span class="swap">{{word}}</span></sc-if>
+</span></span>
+</h1>
+<div class="overlap fadein" style="flex: 0 1 600px; min-width: 0; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 14px">
+<button type="button" onClick="{{flip}}" onMouseMove="{{tilt}}" onMouseLeave="{{untilt}}" aria-label="Flip the medal to see the reverse" style="width: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; perspective: 1400px">
+<div style="{{medalStyle}}">
+<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden"><svg viewBox="0 0 600 600" aria-hidden="true" style="display: block; width: 100%; height: 100%">
+<defs><path id="rimA" d="M300,300 m-262,0 a262,262 0 1,1 524,0 a262,262 0 1,1 -524,0"></path></defs>
+<circle cx="300" cy="300" r="292" style="fill: #F6F6F4; stroke: #38414A; stroke-width: 1.2"></circle>
+<circle cx="300" cy="300" r="284" style="fill: none; stroke: #38414A; stroke-width: .5"></circle>
+<circle cx="300" cy="300" r="244" style="fill: none; stroke: #38414A; stroke-width: 1; stroke-dasharray: 1 6"></circle>
+<circle cx="300" cy="300" r="234" style="fill: none; stroke: #38414A; stroke-width: 1"></circle>
+<g class="{{spinCls}}"><text style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 5px; fill: #38414A"><textPath href="#rimA">CRDESIGN · MEDAILE · ODZNAKY · SPONY · BRNO · EST. MMI · TIN · ZINC · CRDESIGN · MEDAILE · ODZNAKY · SPONY · BRNO · EST. MMI · TIN · ZINC · </textPath></text></g>
+<g style="fill: none; stroke: #38414A; stroke-width: .55; opacity: .55">
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(0.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(3.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(7.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(11.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(15.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(18.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(22.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(26.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(30.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(33.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(37.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(41.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(45.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(48.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(52.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(56.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(60.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(63.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(67.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(71.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(75.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(78.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(82.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(86.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(90.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(93.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(97.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(101.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(105.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(108.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(112.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(116.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(120.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(123.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(127.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(131.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(135.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(138.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(142.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(146.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(150.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(153.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(157.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(161.25 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(165.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(168.75 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(172.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="196" ry="56" transform="rotate(176.25 300 300)"></ellipse>
+</g>
+<circle cx="300" cy="300" r="122" style="fill: #F6F6F4; stroke: #38414A; stroke-width: 1"></circle>
+<circle cx="300" cy="300" r="113" style="fill: none; stroke: #38414A; stroke-width: .5"></circle>
+</svg>
+<img src="/_blob/ba5c64b08b45e9eb1e008a098bc489aa" alt="" style="position: absolute; left: 50%; top: 50%; width: 28%; transform: translate(-50%, -50%)"></div>
+<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg)"><svg viewBox="0 0 600 600" aria-hidden="true" style="display: block; width: 100%; height: 100%">
+<defs><path id="rimB" d="M300,300 m-262,0 a262,262 0 1,1 524,0 a262,262 0 1,1 -524,0"></path></defs>
+<circle cx="300" cy="300" r="292" style="fill: #F6F6F4; stroke: #38414A; stroke-width: 1.2"></circle>
+<circle cx="300" cy="300" r="284" style="fill: none; stroke: #38414A; stroke-width: .5"></circle>
+<circle cx="300" cy="300" r="244" style="fill: none; stroke: #38414A; stroke-width: 1; stroke-dasharray: 1 6"></circle>
+<circle cx="300" cy="300" r="234" style="fill: none; stroke: #38414A; stroke-width: 1"></circle>
+<text style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 5px; fill: #38414A"><textPath href="#rimB">CAST TO YOUR DESIGN · VÝROBA NA ZAKÁZKU · GEGOSSEN NACH IHREM ENTWURF · </textPath></text>
+<g style="fill: none; stroke: #38414A; stroke-width: 1">
+<ellipse cx="383.6" cy="457.2" rx="16" ry="6.5" transform="rotate(117.0 383.6 457.2)"></ellipse>
+<ellipse cx="410.8" cy="439.3" rx="16" ry="6.5" transform="rotate(106.5 410.8 439.3)"></ellipse>
+<ellipse cx="434.3" cy="416.8" rx="16" ry="6.5" transform="rotate(96.0 434.3 416.8)"></ellipse>
+<ellipse cx="453.4" cy="390.3" rx="16" ry="6.5" transform="rotate(85.5 453.4 390.3)"></ellipse>
+<ellipse cx="467.3" cy="360.9" rx="16" ry="6.5" transform="rotate(75.0 467.3 360.9)"></ellipse>
+<ellipse cx="475.6" cy="329.4" rx="16" ry="6.5" transform="rotate(64.5 475.6 329.4)"></ellipse>
+<ellipse cx="478.0" cy="296.9" rx="16" ry="6.5" transform="rotate(54.0 478.0 296.9)"></ellipse>
+<ellipse cx="474.4" cy="264.5" rx="16" ry="6.5" transform="rotate(43.5 474.4 264.5)"></ellipse>
+<ellipse cx="465.0" cy="233.3" rx="16" ry="6.5" transform="rotate(33.0 465.0 233.3)"></ellipse>
+<ellipse cx="450.1" cy="204.4" rx="16" ry="6.5" transform="rotate(22.5 450.1 204.4)"></ellipse>
+<ellipse cx="430.2" cy="178.6" rx="16" ry="6.5" transform="rotate(12.0 430.2 178.6)"></ellipse>
+<ellipse cx="405.9" cy="156.9" rx="16" ry="6.5" transform="rotate(1.5 405.9 156.9)"></ellipse>
+<ellipse cx="378.0" cy="140.0" rx="16" ry="6.5" transform="rotate(-9.0 378.0 140.0)"></ellipse>
+<ellipse cx="216.4" cy="457.2" rx="16" ry="6.5" transform="rotate(243.0 216.4 457.2)"></ellipse>
+<ellipse cx="189.2" cy="439.3" rx="16" ry="6.5" transform="rotate(253.5 189.2 439.3)"></ellipse>
+<ellipse cx="165.7" cy="416.8" rx="16" ry="6.5" transform="rotate(264.0 165.7 416.8)"></ellipse>
+<ellipse cx="146.6" cy="390.3" rx="16" ry="6.5" transform="rotate(274.5 146.6 390.3)"></ellipse>
+<ellipse cx="132.7" cy="360.9" rx="16" ry="6.5" transform="rotate(285.0 132.7 360.9)"></ellipse>
+<ellipse cx="124.4" cy="329.4" rx="16" ry="6.5" transform="rotate(295.5 124.4 329.4)"></ellipse>
+<ellipse cx="122.0" cy="296.9" rx="16" ry="6.5" transform="rotate(306.0 122.0 296.9)"></ellipse>
+<ellipse cx="125.6" cy="264.5" rx="16" ry="6.5" transform="rotate(316.5 125.6 264.5)"></ellipse>
+<ellipse cx="135.0" cy="233.3" rx="16" ry="6.5" transform="rotate(327.0 135.0 233.3)"></ellipse>
+<ellipse cx="149.9" cy="204.4" rx="16" ry="6.5" transform="rotate(337.5 149.9 204.4)"></ellipse>
+<ellipse cx="169.8" cy="178.6" rx="16" ry="6.5" transform="rotate(348.0 169.8 178.6)"></ellipse>
+<ellipse cx="194.1" cy="156.9" rx="16" ry="6.5" transform="rotate(358.5 194.1 156.9)"></ellipse>
+<ellipse cx="222.0" cy="140.0" rx="16" ry="6.5" transform="rotate(369.0 222.0 140.0)"></ellipse>
+</g>
+<text x="300" y="318" style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 104px; fill: #14181C; text-anchor: middle">MMI</text>
+<line x1="230" y1="350" x2="370" y2="350" style="stroke: #38414A; stroke-width: 1"></line>
+<text x="300" y="380" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 6px; fill: #38414A; text-anchor: middle">BRNO · CZ</text>
+<text x="300" y="232" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 6px; fill: #38414A; text-anchor: middle">EST.</text>
+</svg></div>
+<div style="{{shine}}"></div>
+</div>
+</button>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #5E6873">{{flipHint}}</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px 48px; align-items: end; padding-bottom: 72px">
+<p style="margin: 0; font-size: 19px; max-width: 30em">{{t.sub}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Quote.dc.html" style="padding: 18px 30px; background: {{ink}}; color: {{paper}}; font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase">{{t.cta}} →</a>
+<a href="Archive.dc.html" style="padding: 17px 29px; border: 1px solid {{ink}}; font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase">{{t.cta2}}</a>
+</div>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-align: right; color: #5E6873">Tin · Zinc · Galvanic finish<br>Scroll ↓</div>
+</div>
+</section>
+
+<div style="border-top: 1px solid {{ink}}; border-bottom: 1px solid {{ink}}; overflow: hidden; padding: 26px 0">
+<div class="marq">
+<sc-for list="{{marquee}}" as="m" hint-placeholder-count="16">
+<span style="display: flex; align-items: center; gap: 40px; padding-right: 40px; white-space: nowrap">
+<span class="mq" style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: clamp(56px, 7vw, 112px); line-height: 1; color: transparent; -webkit-text-stroke: 1px #38414A">{{m}}</span>
+<svg viewBox="0 0 40 40" aria-hidden="true" style="width: 34px; height: 34px; fill: none; stroke: #38414A; stroke-width: 1"><circle cx="20" cy="20" r="18"></circle><circle cx="20" cy="20" r="12" style="stroke-dasharray: 1 3"></circle><circle cx="20" cy="20" r="5"></circle></svg>
+</span>
+</sc-for>
+</div>
+</div>
+
+<section style="background: #ECEDEB; border-bottom: 1px solid #C9CED4">
+<div class="reveal" style="max-width: 1240px; margin: 0 auto; padding: 136px 48px">
+<p style="margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(32px, 4.2vw, 64px); line-height: 1.18; letter-spacing: -.02em; color: #14181C">Since 2001 we have been turning
+<span style="display: inline-block; width: 2.2em; height: .78em; vertical-align: -.06em; background: #D3D8DD; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(56,65,74,.15)"></span>
+sketches into <em>medals</em>
+<span style="display: inline-block; width: 1em; height: 1em; vertical-align: -.14em; background: #C9CED4; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(56,65,74,.2)"></span>,
+<em>badges</em> and <em>belt buckles</em>
+<span style="display: inline-block; width: 1.8em; height: .9em; vertical-align: -.1em; background: #DDE1E5; border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(56,65,74,.15)"></span>
+— spin-cast in tin and zinc in our family workshop in Brno, from the first line to the finished piece.</p>
+</div>
+</section>
+
+<section id="work" style="max-width: 1440px; margin: 0 auto; padding: 136px 48px 160px">
+<div class="reveal" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end; margin-bottom: 96px">
+<h2 style="margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(56px, 8vw, 132px); line-height: .9; letter-spacing: -.04em; color: #14181C">Selected<br><em>commissions</em></h2>
+<a class="lnk" href="Archive.dc.html" style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; padding-bottom: 6px">The full archive →</a>
+</div>
+<div class="wall">
+<a href="Piece.dc.html" class="w-a tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 5 / 4; background: #D3D8DD; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 677 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">677</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">Zbrojovka Brno</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Medal · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+<a href="Archive.dc.html" class="w-b tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 3 / 4; background: #DDE1E5; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 727 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">727</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">Ústavní soud</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Badge · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+<a href="Archive.dc.html" class="w-c tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 4 / 5; background: #E2E5E8; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 642 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">642</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">Totem</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Figure · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+<a href="Archive.dc.html" class="w-d tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 3 / 2; background: #CDD3D9; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 733 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">733</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">LS — gold inlay</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Belt buckle · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+<a href="Archive.dc.html" class="w-e tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 1 / 1; background: #DADEE2; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 676 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">676</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">Triatlon</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Medal · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+<a href="Archive.dc.html" class="w-f tile reveal" style="display: flex; flex-direction: column; gap: 18px">
+<div style="overflow: hidden"><div class="par"><div class="ph" style="aspect-ratio: 2 / 3; background: #D6DBE0; position: relative; box-shadow: inset 0 0 0 1px rgba(56,65,74,.12)"><span style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · No. 643 ]</span></div></div></div>
+<div style="display: flex; gap: 20px; align-items: baseline; border-top: 1px solid #38414A; padding-top: 14px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 44px; line-height: 1; color: #14181C">643</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1"><span style="font-size: 17px; font-weight: 600">INCA Gold</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #5E6873">Key fob · [year] · [metal]</span></span>
+<span style="overflow: hidden; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase"><span class="more">View →</span></span>
+</div>
+</a>
+
+</div>
+</section>
+
+<section id="index" style="border-top: 1px solid {{ink}}">
+<div class="reveal" style="max-width: 1440px; margin: 0 auto; padding: 120px 48px 40px; display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-end">
+<h2 style="flex: 1 1 520px; margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(56px, 8vw, 132px); line-height: .9; letter-spacing: -.04em; color: #14181C">Index</h2>
+<p style="flex: 1 1 360px; margin: 0; color: #4A535D">Everything we cast is made to order. Hover a line to preview — minimum series per product family on the right.</p>
+</div>
+<div onMouseMove="{{idxMove}}" onMouseLeave="{{idxLeave}}" style="max-width: 1440px; margin: 0 auto; padding: 0 48px 128px; position: relative">
+<sc-for list="{{index}}" as="r" hint-placeholder-count="8">
+<a href="Archive.dc.html" class="idx" onMouseEnter="{{r.enter}}" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 28px; padding: 22px 16px; border-bottom: 1px solid #C9CED4">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; width: 2.5em">{{r.n}}</span>
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-size: clamp(36px, 5vw, 76px); line-height: 1; letter-spacing: -.03em">{{r.name}}</span>
+<span class="hide-sm" style="flex: 1; min-width: 40px; border-bottom: 1px dotted currentColor; opacity: .5; margin-bottom: 10px"></span>
+<span style="font-size: 15px; max-width: 22em">{{r.desc}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; min-width: 9em; text-align: right">{{r.moq}}</span>
+</a>
+</sc-for>
+<sc-if value="{{prev.show}}" hint-placeholder-val="{{ false }}">
+<div class="hide-sm" style="{{prev.style}}">
+<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center">
+<svg viewBox="0 0 100 100" aria-hidden="true" style="width: 52%; fill: none; stroke: #38414A; stroke-width: .7"><circle cx="50" cy="50" r="46"></circle><circle cx="50" cy="50" r="40" style="stroke-dasharray: 1 3"></circle><circle cx="50" cy="50" r="22"></circle></svg>
+</div>
+<span style="position: absolute; left: 14px; top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #4A535D">[ PHOTO · {{prev.name}} ]</span>
+<span style="position: absolute; left: 14px; bottom: 10px; font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 28px; color: #14181C">{{prev.n}}</span>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="process" style="background: {{ink}}; color: #F4F6F8">
+<div style="max-width: 1440px; margin: 0 auto; padding: 136px 48px">
+<div class="reveal" style="display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-end; margin-bottom: 72px">
+<h2 style="flex: 1 1 560px; margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(56px, 8vw, 132px); line-height: .9; letter-spacing: -.04em">From line<br><em>to metal</em></h2>
+<p style="flex: 1 1 340px; margin: 0; color: #C9CED4">Watch a piece take shape — or click a step.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<ol style="flex: 1 1 420px; min-width: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid #6B747E">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<li style="border-bottom: 1px solid #6B747E">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" class="step" style="{{s.style}}">
+<span style="display: flex; align-items: baseline; gap: 24px">
+<span style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: 54px; line-height: 1; width: 1.6em; color: transparent; -webkit-text-stroke: 1px #C9CED4">{{s.n}}</span>
+<span style="display: flex; flex-direction: column; gap: 6px; text-align: left">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase">{{s.title}}</span>
+<sc-if value="{{s.on}}" hint-placeholder-val="{{ false }}"><span style="color: #C9CED4; font-size: 15px; font-weight: 400; letter-spacing: 0; text-transform: none">{{s.text}}</span></sc-if>
+</span>
+</span>
+<sc-if value="{{s.on}}" hint-placeholder-val="{{ false }}"><span class="bar" style="display: block; height: 1px; background: #F4F6F8; margin-top: 14px"></span></sc-if>
+</button>
+</li>
+</sc-for>
+</ol>
+<div style="flex: 1 1 460px; min-width: 0; max-width: 620px; margin: 0 auto">
+<sc-if value="{{procA}}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 600 600" aria-hidden="true" style="display: block; width: 100%; height: auto">
+<defs><clipPath id="disc"><circle cx="300" cy="300" r="200"></circle></clipPath></defs>
+<circle cx="300" cy="300" r="250" style="fill: none; stroke: #6B747E; stroke-width: 22; transition: opacity .9s; opacity: {{pv.l2}}"></circle>
+<circle cx="300" cy="300" r="262" style="fill: none; stroke: #E6E7EB; stroke-width: .8; stroke-dasharray: 2 8; transition: opacity .9s; opacity: {{pv.l2}}"></circle>
+<g style="clip-path: url(#disc)"><rect x="80" y="80" width="440" height="440" style="fill: #8C959E; transition: transform 1.6s cubic-bezier(.3,.6,.2,1); transform: {{pv.fill}}"></rect></g>
+<g style="fill: none; stroke: #E6E7EB; stroke-width: .7; transition: opacity 1s; opacity: {{pv.l4}}">
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(0.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(7.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(15.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(22.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(30.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(37.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(45.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(52.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(60.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(67.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(75.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(82.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(90.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(97.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(105.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(112.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(120.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(127.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(135.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(142.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(150.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(157.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(165.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(172.5 300 300)"></ellipse>
+</g>
+<circle cx="300" cy="300" r="200" class="draw" style="fill: none; stroke: #E6E7EB; stroke-width: 1.5"></circle>
+<path class="draw" d="M262 238 C 240 250, 238 340, 268 362 M286 236 L 286 362 M286 236 C 340 230, 352 296, 290 300 L 340 364" style="fill: none; stroke: #E6E7EB; stroke-width: 2.4; stroke-linecap: round"></path>
+<circle cx="300" cy="300" r="200" style="fill: none; stroke: #FFFFFF; stroke-width: 6; stroke-dasharray: 90 1167; transition: opacity .6s; opacity: {{pv.l4}}" class="sweep"></circle>
+<g style="transition: opacity .8s, transform .8s; opacity: {{pv.l5}}; transform: {{pv.tag}}">
+<rect x="360" y="470" width="190" height="64" style="fill: #F4F6F8"></rect>
+<text x="378" y="500" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 3px; fill: #38414A">No. 734</text>
+<text x="378" y="522" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; fill: #5E6873">READY TO SHIP</text>
+</g>
+</svg></sc-if>
+<sc-if value="{{procB}}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 600 600" aria-hidden="true" style="display: block; width: 100%; height: auto">
+<defs><clipPath id="disc"><circle cx="300" cy="300" r="200"></circle></clipPath></defs>
+<circle cx="300" cy="300" r="250" style="fill: none; stroke: #6B747E; stroke-width: 22; transition: opacity .9s; opacity: {{pv.l2}}"></circle>
+<circle cx="300" cy="300" r="262" style="fill: none; stroke: #E6E7EB; stroke-width: .8; stroke-dasharray: 2 8; transition: opacity .9s; opacity: {{pv.l2}}"></circle>
+<g style="clip-path: url(#disc)"><rect x="80" y="80" width="440" height="440" style="fill: #8C959E; transition: transform 1.6s cubic-bezier(.3,.6,.2,1); transform: {{pv.fill}}"></rect></g>
+<g style="fill: none; stroke: #E6E7EB; stroke-width: .7; transition: opacity 1s; opacity: {{pv.l4}}">
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(0.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(7.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(15.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(22.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(30.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(37.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(45.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(52.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(60.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(67.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(75.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(82.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(90.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(97.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(105.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(112.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(120.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(127.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(135.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(142.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(150.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(157.5 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(165.0 300 300)"></ellipse>
+<ellipse cx="300" cy="300" rx="170" ry="48" transform="rotate(172.5 300 300)"></ellipse>
+</g>
+<circle cx="300" cy="300" r="200" class="draw" style="fill: none; stroke: #E6E7EB; stroke-width: 1.5"></circle>
+<path class="draw" d="M262 238 C 240 250, 238 340, 268 362 M286 236 L 286 362 M286 236 C 340 230, 352 296, 290 300 L 340 364" style="fill: none; stroke: #E6E7EB; stroke-width: 2.4; stroke-linecap: round"></path>
+<circle cx="300" cy="300" r="200" style="fill: none; stroke: #FFFFFF; stroke-width: 6; stroke-dasharray: 90 1167; transition: opacity .6s; opacity: {{pv.l4}}" class="sweep"></circle>
+<g style="transition: opacity .8s, transform .8s; opacity: {{pv.l5}}; transform: {{pv.tag}}">
+<rect x="360" y="470" width="190" height="64" style="fill: #F4F6F8"></rect>
+<text x="378" y="500" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 3px; fill: #38414A">No. 734</text>
+<text x="378" y="522" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 3px; fill: #5E6873">READY TO SHIP</text>
+</g>
+</svg></sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<section id="studio" style="padding: 136px 0">
+<div class="reveal" style="max-width: 1440px; margin: 0 auto; padding: 0 48px 56px; display: flex; flex-wrap: wrap; gap: 48px 96px; align-items: flex-end">
+<div style="flex: 1 1 420px; display: flex; align-items: flex-end; gap: 24px">
+<span aria-hidden="true" style="font-family: 'Bodoni Moda', Didot, serif; font-style: italic; font-size: clamp(140px, 18vw, 280px); line-height: .75; letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1px #8A939C">25</span>
+<h2 style="margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: .95; letter-spacing: -.03em; color: #14181C">years of<br><em>casting</em></h2>
+</div>
+<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 20px; max-width: 36em">
+<p class="dropcap" style="margin: 0">We started in 2001 hand-painting tin pictures. In 2004 we brought in technology for spin casting tin and zinc, and since then we have been making small metal castings — belt buckles, Christmas decorations, key fobs, badges, breastpins, medals, company logos, game pawns and glassware labels.</p>
+<p style="margin: 0">Every job, from origination to the final product, including galvanic plating. <span style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 22px; color: #14181C">— Richard Coufal</span></p>
+</div>
+</div>
+<div class="strip" style="padding-left: 48px; padding-right: 48px" aria-label="Workshop photos — scroll sideways">
+<sc-for list="{{studio}}" as="p" hint-placeholder-count="6">
+<figure style="{{p.style}}"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: #4A535D">[ PHOTO · {{p.cap}} ]</figcaption></figure>
+</sc-for>
+</div>
+<div style="max-width: 1440px; margin: 0 auto; padding: 8px 48px 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #5E6873">← Drag / scroll the workshop →</div>
+</section>
+
+<section id="faq" style="border-top: 1px solid {{ink}}">
+<div style="max-width: 1440px; margin: 0 auto; padding: 120px 48px; display: flex; flex-wrap: wrap; gap: 48px 96px">
+<h2 class="reveal" style="flex: 1 1 360px; margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(48px, 6vw, 96px); line-height: .92; letter-spacing: -.04em; color: #14181C">Before<br><em>you order</em></h2>
+<div style="flex: 2 1 560px; min-width: 0">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+<details style="border-bottom: 1px solid #C9CED4; padding: 24px 0">
+<summary style="display: flex; justify-content: space-between; gap: 16px; align-items: center; min-height: 44px; font-family: 'Bodoni Moda', Didot, serif; font-size: 28px; line-height: 1.2; color: #14181C"><span>{{q.q}}</span><span class="plus" style="font-family: 'IBM Plex Mono', monospace; font-size: 24px">+</span></summary>
+<p style="margin: 14px 0 0; max-width: 40em; color: #4A535D">{{q.a}}</p>
+</details>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: {{ink}}; color: #F4F6F8; overflow: hidden">
+<div style="max-width: 1440px; margin: 0 auto; padding: 160px 48px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div class="reveal" style="flex: 2 1 640px; display: flex; flex-direction: column; gap: 40px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #C9CED4">Commission a piece</div>
+<h2 style="margin: 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(64px, 10vw, 172px); line-height: .86; letter-spacing: -.045em">Your design,<br><em class="wm" style="color: transparent; -webkit-text-stroke: 1.5px #E6E7EB">in metal.</em></h2>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center">
+<a href="Quote.dc.html" style="padding: 20px 36px; background: #F4F6F8; color: #14181C; font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase">{{t.cta}} →</a>
+<span style="color: #C9CED4">or call <a class="lnk" href="tel:+420603772780" style="color: #F4F6F8">+420 603 772 780</a></span>
+</div>
+</div>
+<div aria-hidden="true" style="flex: 1 1 280px; max-width: 380px; opacity: .9">
+<svg viewBox="0 0 600 600" style="display: block; width: 100%; height: auto"><defs><path id="rimC" d="M300,300 m-250,0 a250,250 0 1,1 500,0 a250,250 0 1,1 -500,0"></path></defs><circle cx="300" cy="300" r="290" style="fill: none; stroke: #C9CED4; stroke-width: 1"></circle><g class="{{spinCls}}"><text style="font-family: 'IBM Plex Mono', monospace; font-size: 22px; letter-spacing: 9px; fill: #E6E7EB"><textPath href="#rimC">YOUR DESIGN · IN METAL · YOUR DESIGN · IN METAL · </textPath></text></g><circle cx="300" cy="300" r="200" style="fill: none; stroke: #C9CED4; stroke-width: 1; stroke-dasharray: 2 7"></circle><text x="300" y="336" style="font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 110px; fill: #F4F6F8; text-anchor: middle">→</text></svg>
+</div>
+</div>
+</section>
+
+<footer style="background: #2B3138; color: #F4F6F8; overflow: hidden">
+<div style="max-width: 1440px; margin: 0 auto; padding: 88px 48px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #C9CED4">Studio</span><span>CRdesign — Richard Coufal<br>Horova 54, 616 00 Brno<br>Czech Republic</span><span style="color: #C9CED4">[IČO / VAT ID]</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #C9CED4">Contact</span><a class="lnk" href="tel:+420603772780" style="align-self: flex-start">+420 603 772 780</a><a class="lnk" href="mailto:coufalcr@centrum.cz" style="align-self: flex-start">coufalcr@centrum.cz</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #C9CED4">Archive</span><a class="lnk" href="Archive.dc.html" style="align-self: flex-start">Medals</a><a class="lnk" href="Archive.dc.html" style="align-self: flex-start">Badges</a><a class="lnk" href="Archive.dc.html" style="align-self: flex-start">Belt buckles</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #C9CED4">Languages</span><span>English · Deutsch · Čeština · Polski · Français · Italiano</span></div>
+</div>
+<div class="wm" style="max-width: 1440px; margin: 0 auto; padding: 48px 48px 0; font-family: 'Bodoni Moda', Didot, serif; font-weight: 400; font-size: clamp(88px, 19vw, 300px); line-height: .8; letter-spacing: -.055em; color: transparent; -webkit-text-stroke: 1px #6B747E; white-space: nowrap">CRdesign</div>
+<div style="max-width: 1440px; margin: 0 auto; padding: 32px 48px 40px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 13px; color: #C9CED4">
+<span>All pieces shown were made for our clients and remain their property — not for sale.</span><span>© 2026 CRdesign</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ink":{"editor":"color","default":"#38414A","section":"Brand"},"paper":{"editor":"color","default":"#F6F6F4","options":["#F6F6F4","#FFFFFF","#EFEEEA"],"section":"Brand"},"motion":{"editor":"boolean","default":true,"section":"Motion"},"grain":{"editor":"boolean","default":true,"section":"Motion"},"$preview":{"width":1440,"height":9000}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    this._w = setInterval(function () {
+      if ((self.props.motion ?? true) === false) return;
+      var s = self.state || {};
+      self.setState({ w: (s.w || 0) + 1 });
+    }, 2600);
+    this._p = setInterval(function () {
+      if ((self.props.motion ?? true) === false) return;
+      var s = self.state || {};
+      if (s.pinned) return;
+      var next = ((s.step || 0) + 1) % 5;
+      self.setState({ step: next, cycle: next === 0 ? (s.cycle || 0) + 1 : (s.cycle || 0) });
+    }, 4600);
+  }
+  componentWillUnmount() { clearInterval(this._w); clearInterval(this._p); }
+  renderVals() {
+    var self = this;
+    var st = this.state || {};
+    var ink = this.props.ink ?? "#38414A";
+    var paper = this.props.paper ?? "#F6F6F4";
+    var motion = this.props.motion ?? true;
+    var lang = st.lang || "en";
+    var T = {
+      en: { util: "Medals · Badges · Belt buckles — cast to order", t1: "Metal,", t2: "cast to", words: ["your design.", "your logo.", "your sketch.", "your story."], sub: "Medals, badges and belt buckles spin-cast from tin and zinc in our family workshop in Brno — from the first sketch to the finished piece.", cta: "Request a quote", cta2: "The archive", flip: "Click to flip · move to tilt", nav: { archive: "Archive", products: "Index", process: "Process", workshop: "Studio", quote: "Quote" } },
+      de: { util: "Medaillen · Abzeichen · Gürtelschnallen — nach Maß gegossen", t1: "Metall,", t2: "gegossen nach", words: ["Ihrem Entwurf.", "Ihrem Logo.", "Ihrer Skizze.", "Ihrer Idee."], sub: "Medaillen, Abzeichen und Gürtelschnallen im Schleuderguss aus Zinn und Zink – in unserer Familienwerkstatt in Brünn, von der ersten Skizze bis zum fertigen Stück.", cta: "Angebot anfordern", cta2: "Das Archiv", flip: "Klicken zum Wenden · bewegen zum Kippen", nav: { archive: "Archiv", products: "Index", process: "Ablauf", workshop: "Atelier", quote: "Anfrage" } },
+      cs: { util: "Medaile · Odznaky · Opaskové spony — odlité na zakázku", t1: "Kov,", t2: "odlitý podle", words: ["vašeho návrhu.", "vašeho loga.", "vaší skici.", "vašeho nápadu."], sub: "Medaile, odznaky a opaskové spony odstředivě lité z cínu a zinku v naší rodinné dílně v Brně — od první skici po hotový kus.", cta: "Nezávazná poptávka", cta2: "Archiv", flip: "Klikni pro otočení · pohybem nakloníš", nav: { archive: "Archiv", products: "Rejstřík", process: "Postup", workshop: "Dílna", quote: "Poptávka" } },
+      pl: { util: "Medale · Odznaki · Klamry — odlewane na zamówienie", t1: "Metal,", t2: "odlany według", words: ["Twojego projektu.", "Twojego logo.", "Twojego szkicu.", "Twojego pomysłu."], sub: "Medale, odznaki i klamry do pasków odlewane odśrodkowo z cyny i cynku w naszym rodzinnym warsztacie w Brnie — od pierwszego szkicu po gotowy wyrób.", cta: "Zapytaj o wycenę", cta2: "Archiwum", flip: "Kliknij, aby obrócić", nav: { archive: "Archiwum", products: "Indeks", process: "Proces", workshop: "Pracownia", quote: "Wycena" } },
+      fr: { util: "Médailles · Insignes · Boucles — coulés sur mesure", t1: "Le métal,", t2: "coulé selon", words: ["votre dessin.", "votre logo.", "votre croquis.", "votre idée."], sub: "Médailles, insignes et boucles de ceinture coulés par centrifugation en étain et en zinc dans notre atelier familial de Brno — de la première esquisse à la pièce finie.", cta: "Demander un devis", cta2: "Les archives", flip: "Cliquez pour retourner", nav: { archive: "Archives", products: "Index", process: "Procédé", workshop: "Atelier", quote: "Devis" } },
+      it: { util: "Medaglie · Distintivi · Fibbie — fusi su misura", t1: "Metallo,", t2: "fuso", words: ["sul tuo disegno.", "sul tuo logo.", "sul tuo schizzo.", "sulla tua idea."], sub: "Medaglie, distintivi e fibbie per cinture in fusione centrifuga di stagno e zinco nel nostro laboratorio di famiglia a Brno — dal primo schizzo al pezzo finito.", cta: "Richiedi un preventivo", cta2: "L’archivio", flip: "Clicca per girare", nav: { archive: "Archivio", products: "Indice", process: "Processo", workshop: "Laboratorio", quote: "Preventivo" } }
+    };
+    var t = T[lang];
+    var w = st.w || 0;
+    // language dropdown
+    var L = [["en", "English"], ["de", "Deutsch"], ["cs", "Čeština"], ["pl", "Polski"], ["fr", "Français"], ["it", "Italiano"]];
+    var cur = L.filter(function (x) { return x[0] === lang; })[0];
+    var ob = "width:100%;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 14px;border:0;cursor:pointer;font:500 15px Montserrat,sans-serif;text-align:left;";
+    var langs = L.map(function (x) {
+      var on = x[0] === lang;
+      return { code: x[0].toUpperCase(), name: x[1], mark: on ? "● " : "", pressed: on ? "true" : "false",
+        style: on ? ob + "background:#38414A;color:#F4F6F8" : ob + "background:transparent;color:#14181C",
+        pick: function () { self.setState({ lang: x[0], langOpen: false }); } };
+    });
+    // medal tilt / flip
+    var mx = st.mx == null ? .5 : st.mx, my = st.my == null ? .5 : st.my;
+    var ry = (mx - .5) * 26 + (st.flipped ? 180 : 0), rx = (.5 - my) * 22;
+    // index preview
+    var idxRows = [
+      ["01", "Medals", "Sports, club and anniversary medals in relief.", "from 20 pcs"],
+      ["02", "Plaques", "Relief plaques for awards and anniversaries.", "on request"],
+      ["03", "Badges & pins", "Lapel badges and breastpins.", "from 20 pcs"],
+      ["04", "Belt buckles", "Custom buckles, also with inlays.", "from 10 pcs"],
+      ["05", "Key fobs", "Cast key fobs and pendants.", "from 20 pcs"],
+      ["06", "Figures", "Figurines, totems and game pawns.", "from 30 pcs"],
+      ["07", "Company labels", "Logo labels for products and glassware.", "on request"],
+      ["08", "Other castings", "Christmas ornaments and more.", "from 10 pcs"]
+    ];
+    var hov = st.hov == null ? -1 : st.hov;
+    var index = idxRows.map(function (r, i) { return { n: r[0], name: r[1], desc: r[2], moq: r[3], enter: function () { self.setState({ hov: i }); } }; });
+    var tones = ["#D3D8DD", "#DDE1E5", "#E2E5E8", "#CDD3D9", "#DADEE2", "#D6DBE0", "#D3D8DD", "#DDE1E5"];
+    var prev = { show: hov >= 0, name: hov >= 0 ? idxRows[hov][1].toUpperCase() : "", n: hov >= 0 ? idxRows[hov][0] : "",
+      style: "position:absolute;z-index:5;pointer-events:none;width:240px;aspect-ratio:4 / 5;left:" + (st.px || 0) + "px;top:" + (st.py || 0) + "px;transform:translate(-50%,-55%) rotate(" + (hov % 2 ? 4 : -4) + "deg);background:" + (hov >= 0 ? tones[hov] : "#DDE1E5") + ";box-shadow:0 30px 60px rgba(20,24,28,.25), inset 0 0 0 1px rgba(56,65,74,.15);transition:left .18s ease-out, top .18s ease-out, transform .4s" };
+    // process
+    var step = st.step || 0;
+    var cyc = st.cycle || 0;
+    var sdef = [
+      ["I", "Design", "Your sketch, logo or reference becomes a relief drawing."],
+      ["II", "Mould", "A production mould is made for the piece."],
+      ["III", "Casting", "Tin or zinc is spin-cast into the mould."],
+      ["IV", "Finish", "Galvanic plating and hand-painted colour."],
+      ["V", "Delivery", "Packed and shipped to you, across Europe."]
+    ];
+    var sb = "width:100%;padding:22px 16px;border:0;cursor:pointer;font-family:inherit;color:inherit;text-align:left;display:block;";
+    var steps = sdef.map(function (s, i) {
+      var on = i === step;
+      return { n: s[0], title: s[1], text: s[2], on: on, pressed: on ? "true" : "false",
+        style: on ? sb + "background:rgba(255,255,255,.07)" : sb + "background:transparent;opacity:.75",
+        pick: function () { self.setState({ step: i, pinned: true, cycle: i === 0 ? cyc + 1 : cyc }); } };
+    });
+    var studio = [["THE CASTING MACHINE", "3 / 4", 340], ["RUBBER MOULDS", "4 / 3", 520], ["HAND PAINTING", "3 / 4", 340], ["RAW CAST VS. FINISHED", "1 / 1", 440], ["GALVANIC BATH", "4 / 5", 360], ["PACKED SERIES", "4 / 3", 520]].map(function (p, i) {
+      return { cap: p[0], style: "margin:0;position:relative;height:480px;aspect-ratio:" + p[1] + ";background:" + tones[i] + ";box-shadow:inset 0 0 0 1px rgba(56,65,74,.12)" };
+    });
+    var faq = [
+      { q: "What is the minimum order?", a: "From 10 pieces for belt buckles and other castings, 20 for medals, badges and key fobs, and 30 for figures." },
+      { q: "Which metals do you cast?", a: "Tin and zinc, using spin casting. Pieces can be finished with galvanic plating or hand-painted colour." },
+      { q: "Can you make a medal from our logo?", a: "Yes. We work from your logo, sketch or a reference photo and take the job from origination to the finished product." },
+      { q: "How long does production take?", a: "[Typical lead time — to be confirmed with the client.]" },
+      { q: "Do you ship outside the Czech Republic?", a: "[Shipping countries and terms — to be confirmed with the client.]" },
+      { q: "Can I buy the pieces shown here?", a: "No. Every piece shown was made for a client and remains their property. We only make custom work." }
+    ];
+    var mq = ["Medals", "Plaques", "Badges", "Belt buckles", "Key fobs", "Figures", "Company labels", "Ornaments"];
+    return {
+      ink: ink, paper: paper, t: t, langs: langs,
+      langCur: { code: cur[0].toUpperCase(), name: cur[1] },
+      langOpen: !!st.langOpen, langExpanded: st.langOpen ? "true" : "false",
+      chevStyle: "width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .3s;transform:rotate(" + (st.langOpen ? 180 : 0) + "deg)",
+      toggleLang: function () { self.setState({ langOpen: !st.langOpen }); },
+      closeLang: function () { if (st.langOpen) self.setState({ langOpen: false }); },
+      word: t.words[w % t.words.length], wordA: w % 2 === 0, wordB: w % 2 === 1,
+      flip: function () { self.setState({ flipped: !st.flipped }); },
+      tilt: function (e) { var r = e.currentTarget.getBoundingClientRect(); self.setState({ mx: (e.clientX - r.left) / r.width, my: (e.clientY - r.top) / r.height }); },
+      untilt: function () { self.setState({ mx: .5, my: .5 }); },
+      flipHint: t.flip,
+      medalStyle: "position:relative;width:100%;aspect-ratio:1 / 1;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.1,1);transform:rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)",
+      shine: "position:absolute;left:0;top:0;width:100%;height:100%;border-radius:50%;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(circle at " + (mx * 100).toFixed(1) + "% " + (my * 100).toFixed(1) + "%, rgba(255,255,255,.9), rgba(255,255,255,0) 45%)",
+      spinCls: motion ? "spin" : "",
+      grainOp: (this.props.grain ?? true) ? ".07" : "0",
+      marquee: mq.concat(mq),
+      index: index, prev: prev,
+      idxMove: function (e) { var r = e.currentTarget.getBoundingClientRect(); self.setState({ px: e.clientX - r.left, py: e.clientY - r.top }); },
+      idxLeave: function () { self.setState({ hov: -1 }); },
+      steps: steps, procA: cyc % 2 === 0, procB: cyc % 2 === 1,
+      pv: {
+        l2: step >= 1 ? "1" : "0", l4: step >= 3 ? "1" : "0", l5: step >= 4 ? "1" : "0",
+        fill: step >= 2 ? "translateY(0px)" : "translateY(440px)",
+        tag: step >= 4 ? "translateY(0px)" : "translateY(30px)"
+      },
+      studio: studio, faq: faq
+    };
+  }
+}
+</script>
+</body>
+</html>

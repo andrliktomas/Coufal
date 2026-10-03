@@ -1,0 +1,151 @@
+---
+import { LANG_NAMES, LOCALES, type Lang } from '../i18n/locales';
+import { pathFor } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { company, MAILTO, PHONE_HREF } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+  variant: 'full' | 'compact';
+  alternates: Record<Lang, string>;
+}
+const { lang, variant, alternates } = Astro.props;
+const u = t(lang);
+const a = company.address;
+const year = new Date().getFullYear();
+const cats = ['medals', 'badges', 'buckles'] as const;
+---
+
+<footer class="footer">
+  {
+    variant === 'full' ? (
+      <div class="wrap cols">
+        <div class="col">
+          <span class="label">{u.home.footStudio}</span>
+          <span>
+            {company.name} — {company.owner}
+            <br />
+            {a.street}, {a.zip} {a.city}
+            <br />
+            Czech Republic
+          </span>
+          <span class="todo dim">[IČO / VAT ID]</span>
+        </div>
+        <div class="col">
+          <span class="label">{u.home.footContact}</span>
+          <a class="lnk" href={PHONE_HREF}>
+            {company.phone}
+          </a>
+          <a class="lnk" href={MAILTO}>
+            {company.email}
+          </a>
+        </div>
+        <div class="col">
+          <span class="label">{u.home.footArchive}</span>
+          {cats.map((c) => (
+            <a class="lnk" href={pathFor({ type: 'category', category: c }, lang)}>
+              {u.cat[c].plural}
+            </a>
+          ))}
+        </div>
+        <div class="col">
+          <span class="label">{u.home.footLanguages}</span>
+          <span class="langs">
+            {LOCALES.map((l, i) => (
+              <>
+                {i > 0 && ' · '}
+                <a class="lnk" href={alternates[l]} hreflang={l} lang={l} aria-current={l === lang ? 'page' : undefined}>
+                  {LANG_NAMES[l]}
+                </a>
+              </>
+            ))}
+          </span>
+        </div>
+      </div>
+    ) : (
+      <div class="wrap row">
+        <span>
+          {company.name} — {company.owner} · {a.street}, {a.zip} {a.city}
+        </span>
+        <span>
+          <a class="lnk" href={PHONE_HREF}>
+            {company.phone}
+          </a>{' '}
+          ·{' '}
+          <a class="lnk" href={MAILTO}>
+            {company.email}
+          </a>
+        </span>
+      </div>
+    )
+  }
+  <div class="wrap wm" aria-hidden="true">CRdesign</div>
+  <div class="wrap bottom">
+    <span>{u.common.notForSale}</span>
+    <span><a class="lnk" href={pathFor({ type: 'privacy' }, lang)}>{u.common.privacy}</a> · © {year} CRdesign</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--ink-deep);
+    color: var(--on-ink);
+    overflow: hidden;
+  }
+  .label {
+    color: var(--line);
+  }
+  .cols {
+    padding-top: 88px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    font-size: 15px;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .dim {
+    color: var(--line);
+  }
+  .todo {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .row {
+    padding-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--line);
+  }
+  .wm {
+    padding-top: 48px;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(88px, 19vw, 300px);
+    line-height: 0.8;
+    letter-spacing: -0.055em;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--steel);
+    white-space: nowrap;
+    transition: color 0.8s ease;
+  }
+  .wm:hover {
+    color: var(--ink);
+  }
+  .bottom {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--line);
+  }
+</style>

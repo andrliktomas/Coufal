@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { LANG_TAGS, LOCALES, DEFAULT_LANG, type Lang } from '../i18n/locales';
+import { alternatesFor, pathFor, type Route } from '../i18n/routes';
+import { t } from '../i18n/ui';
+import { SITE_URL } from '../lib/site';
+import logoUrl from '../assets/brand/logo-ink.png?url';
+
+interface Props {
+  lang: Lang;
+  route: Route;
+  title: string;
+  description: string;
+  /** Absolute or root-relative URL of the social card. */
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  jsonld?: object[];
+  footer?: 'full' | 'compact';
+  /** Header variant: home has no rule under it and a solid quote button. */
+  home?: boolean;
+  /** Preload this image (the LCP candidate). */
+  preload?: { href: string; srcset?: string; sizes?: string; type?: string };
+  noindex?: boolean;
+}
+
+const { lang, route, title, description, ogImage, ogType = 'website', jsonld = [], footer = 'compact', home = false, preload, noindex } =
+  Astro.props;
+const abs = (p: string) => (p.startsWith('http') ? p : SITE_URL + p);
+const alternates = alternatesFor(route);
+const canonical = abs(pathFor(route, lang));
+const og = abs(ogImage ?? '/og/default.jpg');
+const u = t(lang);
+---
+
+<!doctype html>
+<html lang={LANG_TAGS[lang].html}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    {LOCALES.map((l) => <link rel="alternate" hreflang={LANG_TAGS[l].html} href={abs(alternates[l])} />)}
+    <link rel="alternate" hreflang="x-default" href={abs(alternates[DEFAULT_LANG])} />
+
+    <meta property="og:site_name" content="CRdesign" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={LANG_TAGS[lang].og} />
+    {LOCALES.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={LANG_TAGS[l].og} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+
+    <link rel="icon" type="image/png" href={logoUrl} />
+    <meta name="theme-color" content="#38414A" />
+    {
+      preload && (
+        <link rel="preload" as="image" href={preload.href} imagesrcset={preload.srcset} imagesizes={preload.sizes} type={preload.type} fetchpriority="high" />
+      )
+    }
+    {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">{u.common.skip}</a>
+    <div class="grain" aria-hidden="true"></div>
+    <Header lang={lang} alternates={alternates} home={home} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} variant={footer} alternates={alternates} />
+  </body>
+</html>
+
+<style>
+  /* Film grain: a turbulence tile rasterised once and repeated — far cheaper than a full-screen live filter. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+  main:focus {
+    outline: none;
+  }
+</style>

@@ -1,0 +1,41 @@
+{
+  "no": 664,
+  "title": "AWS Hell",
+  "originalTitle": "AWS Hell",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "patina staré stříbro",
+    "en": "patina old silver",
+    "de": "Altsilber patina"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": "kombinovaná medaile",
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/664/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/664-aws-hell",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/664-aws-hell",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/664-aws-hell"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "aws-hell",
+    "titleSuffix": null
+  }
+}

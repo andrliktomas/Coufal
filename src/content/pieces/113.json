@@ -1,0 +1,41 @@
+{
+  "no": 113,
+  "title": "Taekwondo Pelhřimov",
+  "originalTitle": "medaile Taekwondo Pelhřimov",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklá mosaz",
+    "en": "glossy brass",
+    "de": "Messing glänz"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/113/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/113-medaile-taekwondo-pelhrimov",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/113-medaile-taekwondo-pelhrimov",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/113-medaile-taekwondo-pelhrimov"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-taekwondo-pelhrimov",
+    "titleSuffix": null
+  }
+}

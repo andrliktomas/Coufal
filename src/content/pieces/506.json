@@ -1,0 +1,47 @@
+{
+  "no": 506,
+  "title": "European Champion Clubs Cup",
+  "originalTitle": "Medaile European Champion Clubs Cup",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/506/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/506/2.jpg",
+      "role": "detail",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/506/3.jpg",
+      "role": "detail",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/506-medaile-european-champion-clubs-cup",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/506-medaile-european-champion-clubs-cup",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/506-medaile-european-champion-clubs-cup"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-european-champion-clubs-cup",
+    "titleSuffix": null
+  }
+}

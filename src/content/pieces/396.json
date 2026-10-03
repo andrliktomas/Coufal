@@ -1,0 +1,47 @@
+{
+  "no": 396,
+  "title": "Svatý Jan z Boha",
+  "originalTitle": "Medaile svatý Jan z Boha",
+  "category": "medals",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/396/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/396/2.jpg",
+      "role": "detail",
+      "alt": {}
+    },
+    {
+      "src": "../../assets/pieces/396/3.jpg",
+      "role": "detail",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/medaile/item/396-medaile-svaty-jan-z-boha",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/medaile/item/396-medaile-svaty-jan-z-boha",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/medaile/item/396-medaile-svaty-jan-z-boha"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "medaile",
+    "slug": "medaile-svaty-jan-z-boha",
+    "titleSuffix": null
+  }
+}

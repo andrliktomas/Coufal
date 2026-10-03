@@ -1,0 +1,333 @@
+---
+/**
+ * "From line to metal": five steps that auto-advance every 4.6 s. Clicking a step pins it.
+ * The illustration builds up with the steps (classes s1–s4 = "step ≥ n").
+ * Without JS every step text is visible and the illustration shows the finished piece.
+ */
+interface Props {
+  title: [string, string];
+  lead: string;
+  steps: [string, string][];
+  tag: string;
+  ready: string;
+}
+const { title, lead, steps, tag, ready } = Astro.props;
+const roman = ['I', 'II', 'III', 'IV', 'V'];
+const ell = Array.from({ length: 24 }, (_, i) => i * 7.5);
+---
+
+<section id="process" class="process" data-process>
+  <div class="wrap inner">
+    <div class="reveal head">
+      <h2 class="display h-section">{title[0]}<br /><em>{title[1]}</em></h2>
+      <p>{lead}</p>
+    </div>
+    <div class="body">
+      <ol class="steps">
+        {
+          steps.map(([h, p], i) => (
+            <li>
+              <button type="button" class="step" aria-pressed={i === 0 ? 'true' : 'false'} data-i={i}>
+                <span class="row">
+                  <span class="n" aria-hidden="true">
+                    {roman[i]}
+                  </span>
+                  <span class="txt">
+                    <span class="h">{h}</span>
+                    <span class="p">{p}</span>
+                  </span>
+                </span>
+                <span class="bar" aria-hidden="true" />
+              </button>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="art">
+        <div class="svgbox s1 s2 s3 s4" data-art>
+          <svg viewBox="0 0 600 600" aria-hidden="true">
+            <defs><clipPath id="disc"><circle cx="300" cy="300" r="200"></circle></clipPath></defs>
+            <circle cx="300" cy="300" r="250" class="mould l2"></circle>
+            <circle cx="300" cy="300" r="262" class="mould-dots l2"></circle>
+            <g clip-path="url(#disc)"><rect x="80" y="80" width="440" height="440" class="metal"></rect></g>
+            <g class="guil l4">{ell.map((r) => <ellipse cx="300" cy="300" rx="170" ry="48" transform={`rotate(${r} 300 300)`} />)}</g>
+            <circle cx="300" cy="300" r="200" class="draw ring"></circle>
+            <path class="draw sketch" d="M262 238 C 240 250, 238 340, 268 362 M286 236 L 286 362 M286 236 C 340 230, 352 296, 290 300 L 340 364"></path>
+            <circle cx="300" cy="300" r="200" class="sweep l4"></circle>
+            <g class="tag l5">
+              <rect x="360" y="470" width="190" height="64"></rect>
+              <text x="378" y="500" class="t1">{tag}</text>
+              <text x="378" y="522" class="t2">{ready}</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+  .inner {
+    padding-top: 136px;
+    padding-bottom: 136px;
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 64px;
+    align-items: flex-end;
+    margin-bottom: 72px;
+  }
+  .head h2 {
+    flex: 1 1 560px;
+    color: inherit;
+  }
+  .head p {
+    flex: 1 1 340px;
+    margin: 0;
+    color: var(--line);
+  }
+  .body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+  }
+  .steps {
+    flex: 1 1 420px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--steel);
+  }
+  .steps li {
+    border-bottom: 1px solid var(--steel);
+  }
+  .step {
+    width: 100%;
+    padding: 22px 16px;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    display: block;
+    background: transparent;
+    opacity: 0.75;
+    transition:
+      background 0.3s,
+      opacity 0.3s;
+  }
+  .step:hover {
+    opacity: 1;
+  }
+  .step[aria-pressed='true'] {
+    background: rgba(255, 255, 255, 0.07);
+    opacity: 1;
+  }
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .n {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 54px;
+    line-height: 1;
+    width: 1.6em;
+    flex: none;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line);
+  }
+  .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .h {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .p {
+    color: var(--line);
+    font-size: 15px;
+  }
+  :global(.js) .step:not([aria-pressed='true']) .p {
+    display: none;
+  }
+  .bar {
+    display: none;
+    height: 1px;
+    background: var(--on-ink);
+    margin-top: 14px;
+  }
+  :global(.js) .step[aria-pressed='true'] .bar {
+    display: block;
+    animation: bar 4.6s linear both;
+  }
+  .process.pinned .bar {
+    animation: none !important;
+    width: 100%;
+  }
+  @keyframes bar {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .art {
+    flex: 1 1 460px;
+    min-width: 0;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+  }
+  .mould {
+    fill: none;
+    stroke: var(--steel);
+    stroke-width: 22;
+  }
+  .mould-dots {
+    fill: none;
+    stroke: var(--silver);
+    stroke-width: 0.8;
+    stroke-dasharray: 2 8;
+  }
+  .l2,
+  .l4,
+  .l5 {
+    opacity: 0;
+    transition: opacity 0.9s;
+  }
+  .metal {
+    fill: #8c959e;
+    transform: translateY(440px);
+    transition: transform 1.6s cubic-bezier(0.3, 0.6, 0.2, 1);
+  }
+  .guil {
+    fill: none;
+    stroke: var(--silver);
+    stroke-width: 0.7;
+  }
+  .ring {
+    fill: none;
+    stroke: var(--silver);
+    stroke-width: 1.5;
+  }
+  .sketch {
+    fill: none;
+    stroke: var(--silver);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+  }
+  .draw {
+    stroke-dasharray: 1300;
+    stroke-dashoffset: 0;
+  }
+  :global(.js) .draw {
+    stroke-dashoffset: 1300;
+    animation: draw 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .sweep {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 6;
+    stroke-dasharray: 90 1167;
+    transform-origin: 300px 300px;
+    animation: spin 2.8s linear infinite;
+  }
+  .tag {
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s,
+      transform 0.8s;
+  }
+  .tag rect {
+    fill: var(--on-ink);
+  }
+  .t1,
+  .t2 {
+    font-family: var(--mono);
+    letter-spacing: 3px;
+  }
+  .t1 {
+    font-size: 13px;
+    fill: var(--ink);
+  }
+  .t2 {
+    font-size: 11px;
+    fill: var(--muted);
+  }
+  .s1 .l2,
+  .s3 .l4,
+  .s4 .l5 {
+    opacity: 1;
+  }
+  .s2 .metal,
+  .s4 .tag {
+    transform: none;
+  }
+</style>
+
+<script>
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  for (const root of document.querySelectorAll<HTMLElement>('[data-process]')) {
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('.step')];
+    let box = root.querySelector<HTMLElement>('[data-art]')!;
+    let step = 0;
+    let pinned = false;
+    let timer: number | undefined;
+
+    const render = (restartDrawing: boolean) => {
+      if (restartDrawing) {
+        // Re-mount the illustration so the sketch draws itself again.
+        const fresh = box.cloneNode(true) as HTMLElement;
+        box.replaceWith(fresh);
+        box = fresh;
+      }
+      for (let n = 1; n <= 4; n++) box.classList.toggle(`s${n}`, step >= n);
+      buttons.forEach((b, i) => b.setAttribute('aria-pressed', String(i === step)));
+    };
+    const tick = () => {
+      if (pinned || still.matches || document.hidden) return;
+      step = (step + 1) % buttons.length;
+      render(step === 0);
+    };
+
+    buttons.forEach((b, i) =>
+      b.addEventListener('click', () => {
+        pinned = true;
+        root.classList.add('pinned');
+        const restart = i === 0 && step !== 0;
+        step = i;
+        render(restart);
+      }),
+    );
+
+    // Start from the beginning only once the section is on screen.
+    render(true);
+    const io = new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (e.isIntersecting && !still.matches) timer = window.setInterval(tick, 4600);
+    });
+    io.observe(root);
+  }
+</script>

@@ -1,0 +1,37 @@
+{
+  "no": 449,
+  "title": "Akademie ozbrojených sil generála Milana Rastislava Štefánika",
+  "originalTitle": "Plaketa Akademie ozbrojených sil generála Milana Rastislava Štefánika",
+  "category": "plaques",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": null,
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/449/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/plakety/item/449-plaketa-akademie-ozbrojenych-sil-generala-milana-rastislava-stefanika",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/plakety/item/449-plaketa-akademie-ozbrojenych-sil-generala-milana-rastislava-stefanika",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/plakety/item/449-plaketa-akademie-ozbrojenych-sil-generala-milana-rastislava-stefanika"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "plakety",
+    "slug": "plaketa-akademie-ozbrojenych-sil-generala-milana-rastislava-stefanika",
+    "titleSuffix": null
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "no": 641,
+  "title": "Freud",
+  "originalTitle": "Freud",
+  "category": "key-fobs",
+  "client": null,
+  "year": null,
+  "metal": null,
+  "finish": {
+    "cs": "lesklý nikl",
+    "en": "glossy nickel",
+    "de": "Nickel"
+  },
+  "sizeMm": null,
+  "series": null,
+  "note": null,
+  "story": {
+    "cs": null,
+    "en": null,
+    "de": null
+  },
+  "images": [
+    {
+      "src": "../../assets/pieces/641/1.jpg",
+      "role": "obverse",
+      "alt": {}
+    }
+  ],
+  "clientNamePublishable": null,
+  "oldUrls": {
+    "cs": "https://www.medaile-odznaky.cz/cs/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud",
+    "en": "https://www.medaile-odznaky.cz/en/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud",
+    "de": "https://www.medaile-odznaky.cz/de/ukazky-nasich-vyrobku/privesky-na-klice/item/641-freud"
+  },
+  "migrated": {
+    "at": "2026-10-03",
+    "oldCat": "privesky-na-klice",
+    "slug": "freud",
+    "titleSuffix": null
+  }
+}

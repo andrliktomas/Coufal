@@ -64,7 +64,7 @@ Old Joomla URLs redirect with 301:
 | `QUOTE_WEBHOOK_SECRET` | secret, optional | sent as `X-Quote-Secret`; check it in the Make scenario |
 | `FILE_LINK_SECRET` | secret | signs 30-day download links to uploaded files |
 | `PUBLIC_ORIGIN` | variable, optional | origin used in those links (default: request origin) |
-| `SITE_URL` | build variable | canonical/hreflang/sitemap origin (default `https://medaile-odznaky.pages.dev`) |
+| `SITE_URL` | build variable | canonical/hreflang/sitemap origin (default `https://coufal.andrlikt.workers.dev`; on `*.workers.dev`/`*.pages.dev` robots.txt blocks indexing) |
 
 The webhook receives JSON like this:
 

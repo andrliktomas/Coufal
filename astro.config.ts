@@ -3,8 +3,8 @@ import sitemap from '@astrojs/sitemap';
 import { LOCALES, LANG_TAGS, DEFAULT_LANG } from './src/i18n/locales';
 import { alternatesFor, parsePath } from './src/i18n/routes';
 
-// Production URL. Set SITE_URL in Cloudflare Pages once the domain is connected.
-const site = process.env.SITE_URL || 'https://medaile-odznaky.pages.dev';
+// Public URL. Set SITE_URL (build variable) once the domain is connected.
+const site = process.env.SITE_URL || 'https://coufal.andrlikt.workers.dev';
 
 export default defineConfig({
   site,

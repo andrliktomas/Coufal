@@ -6,7 +6,7 @@ import type { CategoryId } from '../i18n/routes';
 
 export { company };
 
-export const SITE_URL = (import.meta.env.SITE as string | undefined)?.replace(/\/$/, '') ?? 'https://medaile-odznaky.pages.dev';
+export const SITE_URL = (import.meta.env.SITE as string | undefined)?.replace(/\/$/, '') ?? 'https://coufal.andrlikt.workers.dev';
 
 export const PHONE_HREF = 'tel:' + company.phone.replace(/\s+/g, '');
 export const MAILTO = 'mailto:' + company.email;

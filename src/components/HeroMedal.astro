@@ -59,7 +59,8 @@ const left = right.map(([x, y, r]) => [+(600 - x).toFixed(1), y, +(360 - r).toFi
   }
   @keyframes fadein {
     from {
-      opacity: 0;
+      /* .01, not 0: invisible elements do not count as painted, which would delay LCP. */
+      opacity: 0.01;
       transform: scale(0.94) rotate(-8deg);
     }
     to {

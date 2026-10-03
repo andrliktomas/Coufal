@@ -20,8 +20,8 @@ const u = t(lang);
 ---
 
 <header class:list={['site-header wrap', { 'is-home': home }]}>
-  <a href={homePath} class="logo" aria-label="CRdesign — {u.common.home}">
-    <Image src={logo} alt="CRdesign" width={76} height={74} loading="eager" />
+  <a href={homePath} class="logo" aria-label={`CRdesign — ${u.common.home}`}>
+    <Image src={logo} alt="CRdesign" width={76} height={74} densities={[1, 2]} loading="eager" />
   </a>
   <nav aria-label={u.common.mainNav} class="nav caps">
     <a class="lnk" href={pathFor({ type: 'archive' }, lang)}>{nav.archive}</a>

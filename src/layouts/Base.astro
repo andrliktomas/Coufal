@@ -7,6 +7,7 @@ import { alternatesFor, pathFor, type Route } from '../i18n/routes';
 import { t } from '../i18n/ui';
 import { SITE_URL } from '../lib/site';
 import logoUrl from '../assets/brand/logo-ink.png?url';
+import bodoniUrl from '@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-opsz-normal.woff2?url';
 
 interface Props {
   lang: Lang;
@@ -40,6 +41,7 @@ const u = t(lang);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>document.documentElement.classList.add('js');</script>
+    <link rel="preload" href={bodoniUrl} as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}

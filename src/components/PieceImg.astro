@@ -39,7 +39,7 @@ const usable = img ? widths.filter((w) => w <= img.src.width).concat(widths.some
         sizes={sizes}
         loading={eager ? 'eager' : 'lazy'}
         fetchpriority={eager ? 'high' : undefined}
-        decoding={eager ? 'sync' : 'async'}
+        decoding="async"
       />
     ) : (
       <span class="ph-cap">[ PHOTO · {caption ?? numLabel(piece?.no ?? no ?? 0, 'en')} ]</span>

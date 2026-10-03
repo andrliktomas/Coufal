@@ -18,15 +18,17 @@ interface Props {
   parallax?: boolean;
   title?: string;
   widths?: number[];
+  /** Above the fold: load immediately. */
+  eager?: boolean;
 }
-const { piece, lang, size = 'md', ratio, sizes, tone = 1, withMetal = false, more = false, parallax = false, title, widths = [360, 640] } = Astro.props;
+const { piece, lang, size = 'md', ratio, sizes, tone = 1, withMetal = false, more = false, parallax = false, title, widths = [360, 640], eager = false } = Astro.props;
 const u = t(lang);
 ---
 
 <a href={pieceUrl(piece, lang)} class:list={['tile', `tile--${size}`, Astro.props.class]} data-cat={piece.category}>
   <div class="frame">
     <div class:list={{ par: parallax }}>
-      <PieceImg piece={piece} lang={lang} ratio={ratio} sizes={sizes} tone={tone} widths={widths} />
+      <PieceImg piece={piece} lang={lang} ratio={ratio} sizes={sizes} tone={tone} widths={widths} eager={eager} />
     </div>
   </div>
   <div class="meta">

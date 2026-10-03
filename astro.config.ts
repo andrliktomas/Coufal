@@ -11,7 +11,8 @@ export default defineConfig({
   output: 'static',
   devToolbar: { enabled: false },
   trailingSlash: 'always',
-  build: { format: 'directory', inlineStylesheets: 'auto' },
+  // Inline all CSS: one request less before first paint (≈10 kB gzipped per page).
+  build: { format: 'directory', inlineStylesheets: 'always' },
   image: {
     // ~760 photos × a few widths: a low AVIF effort keeps the Cloudflare build well under its time limit.
     service: { entrypoint: 'astro/assets/services/sharp', config: { avif: { effort: 2, quality: 55 }, webp: { quality: 78, effort: 4 } } },

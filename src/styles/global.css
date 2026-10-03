@@ -136,7 +136,7 @@ em {
 /* ------------------------------------------------------------ typography -- */
 .display {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--black);
   letter-spacing: -0.04em;
   line-height: 0.9;
@@ -182,6 +182,7 @@ em {
 .dropcap::first-letter {
   float: left;
   font-family: var(--serif);
+  font-weight: 500;
   font-size: 5.4em;
   line-height: 0.78;
   padding: 8px 12px 0 0;

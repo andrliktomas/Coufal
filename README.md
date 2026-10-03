@@ -81,16 +81,11 @@ The webhook receives JSON like this:
 
 Suggested Make scenario: *Webhooks → Custom webhook* → filter on the `x-quote-secret` header → *Email* to the workshop (reply-to = `email`) → optionally create a lead in the CRM.
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare Workers)
 
-There is deliberately no `wrangler.toml`: with one, Pages takes bindings only from the file and fails the deploy if the R2 bucket does not exist yet. Configure everything in the dashboard instead. The site works without R2; only quote requests with attachments need it.
+The project runs as a **Worker with static assets** (`wrangler.jsonc`, entry `worker/index.ts`), which is what the Cloudflare dashboard creates by default. The Worker serves `dist/` and runs the same handlers as `functions/` (kept so the repo also works as a Pages project).
 
-Nothing has been created online yet. To set it up:
-
-1. **R2**: enable R2 on the account (Dashboard → R2, one-time), then create the bucket `crdesign-quote-uploads` (EU jurisdiction recommended). Optionally add a lifecycle rule that deletes `quotes/` objects after the retention period.
-2. **Turnstile**: add a widget for `*.pages.dev` (and later the domain). Note the site key and the secret.
-3. **Pages**: *Workers & Pages → Create → Pages → Connect to Git* → this repo. Framework preset: Astro. Build command `npm run build`. Output `dist`. Set the environment variable `NODE_VERSION=22`.
-4. **Settings → Bindings**: R2 bucket `QUOTE_UPLOADS` → `crdesign-quote-uploads`.
-5. **Settings → Variables and Secrets**: the table above (`PUBLIC_TURNSTILE_SITE_KEY` and `SITE_URL` as plain build variables).
-6. **Build cache** (Settings → Build): enable it so the processed images (`node_modules/.astro`) are reused between builds.
-7. Every branch gets a preview URL. When the domain is ready, add it under *Custom domains*, set `SITE_URL` and rebuild.
+- Dashboard → Workers & Pages → the `coufal` Worker → Settings → Build: build command `npm run build`, deploy command `npx wrangler deploy`.
+- Settings → Variables and Secrets: `TURNSTILE_SECRET_KEY`, `QUOTE_WEBHOOK_URL`, `QUOTE_WEBHOOK_SECRET`, `FILE_LINK_SECRET` (secrets); `SITE_URL`, `PUBLIC_TURNSTILE_SITE_KEY` (build variables).
+- R2: enable R2 on the account, create `crdesign-quote-uploads`, then add the `r2_buckets` block noted in `wrangler.jsonc`. Until then the site works; only quote requests with attachments fail.
+- `SITE_URL` must be the public URL (e.g. `https://coufal.<account>.workers.dev`, later the domain), otherwise canonical, hreflang and sitemap point elsewhere.

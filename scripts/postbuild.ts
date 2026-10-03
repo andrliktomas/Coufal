@@ -105,4 +105,7 @@ await writeFile(
 `,
 );
 
+// Workers static assets: don't publish Pages-only control files as assets.
+await writeFile(join(DIST, '.assetsignore'), '_routes.json\n');
+
 console.log(`postbuild: ${staticRules.length} static + ${dynamicRules.length} dynamic redirects, ${pieces.length} pieces in legacy map`);

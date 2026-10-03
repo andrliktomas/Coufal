@@ -1,0 +1,20 @@
+{
+  // Cloudflare Workers + static assets. `npm run build` → dist/, then `npx wrangler deploy`.
+  // Secrets/vars (TURNSTILE_SECRET_KEY, QUOTE_WEBHOOK_URL, QUOTE_WEBHOOK_SECRET, FILE_LINK_SECRET)
+  // are set in the dashboard: Worker → Settings → Variables and Secrets.
+  // R2 (QUOTE_UPLOADS) is not declared yet: deploys fail if the bucket does not exist.
+  // Once R2 is enabled and the bucket `crdesign-quote-uploads` exists, add:
+  //   "r2_buckets": [{ "binding": "QUOTE_UPLOADS", "bucket_name": "crdesign-quote-uploads" }]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "coufal",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/", "/api/*", "/en/ukazky-nasich-vyrobku", "/en/ukazky-nasich-vyrobku/*", "/de/ukazky-nasich-vyrobku", "/de/ukazky-nasich-vyrobku/*"]
+  },
+  "observability": { "enabled": true }
+}

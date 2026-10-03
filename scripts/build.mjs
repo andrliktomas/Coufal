@@ -3,6 +3,8 @@
 import { spawn } from 'node:child_process';
 
 const NOISE = /^\S+\s+(?:[├└]─|▶ \/_astro\/)/;
+// eslint-disable-next-line no-control-regex
+const ANSI = /\x1b\[[0-9;]*m/g;
 const child = spawn('npx', ['astro', 'build'], { stdio: ['inherit', 'pipe', 'pipe'] });
 let pages = 0;
 const filter = (out) => {
@@ -12,7 +14,7 @@ const filter = (out) => {
     const lines = buf.split('\n');
     buf = lines.pop();
     for (const l of lines) {
-      if (NOISE.test(l)) pages++;
+      if (NOISE.test(l.replace(ANSI, ''))) pages++;
       else out.write(l + '\n');
     }
   };

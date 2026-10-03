@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && tsx scripts/postbuild.ts",
-    "preview": "wrangler pages dev dist",
+    "preview": "wrangler pages dev dist --compatibility-date=2026-09-01 --r2 QUOTE_UPLOADS",
     "check": "astro check",
     "migrate": "tsx scripts/migrate.ts",
     "redirects": "tsx scripts/redirects.ts"
@@ -25,5 +25,8 @@
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "wrangler": "^4.147.0"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

@@ -57,7 +57,7 @@ Old Joomla URLs redirect with 301:
 
 | Name | Kind | Used by |
 |---|---|---|
-| `QUOTE_UPLOADS` | R2 binding (bucket `crdesign-quote-uploads`, see `wrangler.toml`) | `/api/quote` stores artwork; `/api/files/*` serves it |
+| `QUOTE_UPLOADS` | R2 binding to the bucket `crdesign-quote-uploads` (Pages → Settings → Bindings) | `/api/quote` stores artwork; `/api/files/*` serves it |
 | `TURNSTILE_SECRET_KEY` | secret | `/api/quote` |
 | `PUBLIC_TURNSTILE_SITE_KEY` | build variable | quote page widget (defaults to Cloudflare's always-pass test key) |
 | `QUOTE_WEBHOOK_URL` | secret | Make.com custom webhook |
@@ -83,9 +83,11 @@ Suggested Make scenario: *Webhooks → Custom webhook* → filter on the `x-quot
 
 ## Deployment (Cloudflare Pages)
 
+There is deliberately no `wrangler.toml`: with one, Pages takes bindings only from the file and fails the deploy if the R2 bucket does not exist yet. Configure everything in the dashboard instead. The site works without R2; only quote requests with attachments need it.
+
 Nothing has been created online yet. To set it up:
 
-1. **R2**: create the bucket `crdesign-quote-uploads` (EU jurisdiction recommended). Optionally add a lifecycle rule that deletes `quotes/` objects after the retention period.
+1. **R2**: enable R2 on the account (Dashboard → R2, one-time), then create the bucket `crdesign-quote-uploads` (EU jurisdiction recommended). Optionally add a lifecycle rule that deletes `quotes/` objects after the retention period.
 2. **Turnstile**: add a widget for `*.pages.dev` (and later the domain). Note the site key and the secret.
 3. **Pages**: *Workers & Pages → Create → Pages → Connect to Git* → this repo. Framework preset: Astro. Build command `npm run build`. Output `dist`. Set the environment variable `NODE_VERSION=22`.
 4. **Settings → Bindings**: R2 bucket `QUOTE_UPLOADS` → `crdesign-quote-uploads`.

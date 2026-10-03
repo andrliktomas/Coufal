@@ -30,18 +30,11 @@ const WALL = [
 ];
 const wall = await Promise.all(WALL.map(async (w, i) => ({ ...w, piece: await byNo(w.no), tone: i + 1 })));
 
-// Editorial paragraph: *em* and {chip:NNN} tokens.
-const CHIP_SHAPES = ['pill', 'coin', 'tab'];
-let chipIdx = 0;
-const editorial = await Promise.all(
-  u.home.editorial.split(/(\{chip:\d+\}|\*[^*]+\*)/).map(async (part) => {
-    const chip = part.match(/^\{chip:(\d+)\}$/);
-    if (chip) return { chip: await byNo(Number(chip[1])), no: Number(chip[1]), shape: CHIP_SHAPES[chipIdx++ % 3] };
-    const em = part.match(/^\*([^*]+)\*$/);
-    if (em) return { em: em[1] };
-    return { text: part };
-  }),
-);
+// Editorial paragraph: *word* → <em>.
+const editorial = u.home.editorial.split(/(\*[^*]+\*)/).map((part) => {
+  const em = part.match(/^\*([^*]+)\*$/);
+  return em ? { em: em[1] } : { text: part };
+});
 
 // Index rows, with a representative photo per family for the floating preview.
 const index = CATEGORY_IDS.map((c, i) => {
@@ -145,17 +138,7 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     <div class="reveal ed-inner">
       <p class="ed">
         {
-          editorial.map((s) =>
-            'chip' in s ? (
-              <span class:list={['chip', `chip--${s.shape}`]} aria-hidden="true">
-                <PieceImg piece={s.chip} no={s.no} lang={lang} ratio="auto" sizes="120px" widths={[120, 240]} />
-              </span>
-            ) : 'em' in s ? (
-              <em>{s.em}</em>
-            ) : (
-              s.text
-            ),
-          )
+          editorial.map((s) => ('em' in s ? <em>{s.em}</em> : s.text))
         }
       </p>
     </div>
@@ -453,33 +436,6 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     letter-spacing: -0.02em;
     color: var(--black);
   }
-  .chip {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: -0.06em;
-  }
-  .chip :global(.ph) {
-    width: 100%;
-    height: 100%;
-  }
-  .chip--pill {
-    width: 2.2em;
-    height: 0.78em;
-    border-radius: 999px;
-  }
-  .chip--coin {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.14em;
-    border-radius: 50%;
-  }
-  .chip--tab {
-    width: 1.8em;
-    height: 0.9em;
-    vertical-align: -0.1em;
-    border-radius: 14px;
-  }
-
   /* Wall */
   .work {
     padding-top: clamp(80px, 10vw, 136px);

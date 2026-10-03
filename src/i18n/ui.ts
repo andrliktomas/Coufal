@@ -7,7 +7,6 @@
  *
  * Inline markup used in some strings:
  *   *word*        → <em>word</em>
- *   {chip:677}    → small cropped photo of piece No. 677 (editorial paragraph)
  */
 import type { Lang } from './locales';
 import type { CategoryId } from './routes';
@@ -275,7 +274,7 @@ const en: UI = {
     medalReverseLabel: 'Flip the medal back to the front',
     heroMeta: ['Tin · Zinc · Galvanic finish', 'Scroll ↓'],
     editorial:
-      'Since 2001 we have been turning {chip:677} sketches into *medals* {chip:727}, *badges* and *belt buckles* {chip:733} — spin-cast in tin and zinc in our family workshop in Brno, from the first line to the finished piece.',
+      'Since 2001 we have been turning sketches into *medals*, *badges* and *belt buckles* — spin-cast in tin and zinc in our family workshop in Brno, from the first line to the finished piece.',
     wallTitle: ['Selected', 'commissions'],
     wallLink: 'The full archive →',
     indexTitle: 'Index',
@@ -576,7 +575,7 @@ const cs: UI = {
     medalReverseLabel: 'Otočit medaili zpět na líc',
     heroMeta: ['Cín · Zinek · Galvanická úprava', 'Dolů ↓'],
     editorial:
-      'Od roku 2001 proměňujeme {chip:677} skici v *medaile* {chip:727}, *odznaky* a *opaskové spony* {chip:733} — odstředivě lité z cínu a zinku v naší rodinné dílně v Brně, od první linky po hotový kus.',
+      'Od roku 2001 proměňujeme skici v *medaile*, *odznaky* a *opaskové spony* — odstředivě lité z cínu a zinku v naší rodinné dílně v Brně, od první linky po hotový kus.',
     wallTitle: ['Vybrané', 'zakázky'],
     wallLink: 'Celý archiv →',
     indexTitle: 'Rejstřík',
@@ -872,7 +871,7 @@ const de: UI = {
     medalReverseLabel: 'Medaille zurück auf die Vorderseite wenden',
     heroMeta: ['Zinn · Zink · Galvanische Veredelung', 'Scrollen ↓'],
     editorial:
-      'Seit 2001 verwandeln wir {chip:677} Skizzen in *Medaillen* {chip:727}, *Abzeichen* und *Gürtelschnallen* {chip:733} — im Schleuderguss aus Zinn und Zink in unserer Familienwerkstatt in Brünn, von der ersten Linie bis zum fertigen Stück.',
+      'Seit 2001 verwandeln wir Skizzen in *Medaillen*, *Abzeichen* und *Gürtelschnallen* — im Schleuderguss aus Zinn und Zink in unserer Familienwerkstatt in Brünn, von der ersten Linie bis zum fertigen Stück.',
     wallTitle: ['Ausgewählte', 'Aufträge'],
     wallLink: 'Das ganze Archiv →',
     indexTitle: 'Index',
@@ -1175,7 +1174,7 @@ const pl: UI = {
     medalReverseLabel: 'Obróć medal z powrotem na awers',
     heroMeta: ['Cyna · Cynk · Galwanizacja', 'Przewiń ↓'],
     editorial:
-      'Od 2001 roku zamieniamy {chip:677} szkice w *medale* {chip:727}, *odznaki* i *klamry do pasków* {chip:733} — odlewane odśrodkowo z cyny i cynku w naszym rodzinnym warsztacie w Brnie, od pierwszej linii po gotowy wyrób.',
+      'Od 2001 roku zamieniamy szkice w *medale*, *odznaki* i *klamry do pasków* — odlewane odśrodkowo z cyny i cynku w naszym rodzinnym warsztacie w Brnie, od pierwszej linii po gotowy wyrób.',
     wallTitle: ['Wybrane', 'zlecenia'],
     wallLink: 'Całe archiwum →',
     indexTitle: 'Indeks',
@@ -1455,7 +1454,7 @@ const fr: UI = {
     medalReverseLabel: 'Remettre la médaille côté face',
     heroMeta: ['Étain · Zinc · Finition galvanique', 'Défiler ↓'],
     editorial:
-      'Depuis 2001, nous transformons {chip:677} des croquis en *médailles* {chip:727}, *insignes* et *boucles de ceinture* {chip:733} — coulés par centrifugation en étain et en zinc dans notre atelier familial de Brno, du premier trait à la pièce finie.',
+      'Depuis 2001, nous transformons des croquis en *médailles*, *insignes* et *boucles de ceinture* — coulés par centrifugation en étain et en zinc dans notre atelier familial de Brno, du premier trait à la pièce finie.',
     wallTitle: ['Commandes', 'choisies'],
     wallLink: 'Toutes les archives →',
     indexTitle: 'Index',
@@ -1745,7 +1744,7 @@ const it: UI = {
     medalReverseLabel: 'Rigira la medaglia sul dritto',
     heroMeta: ['Stagno · Zinco · Finitura galvanica', 'Scorri ↓'],
     editorial:
-      'Dal 2001 trasformiamo {chip:677} schizzi in *medaglie* {chip:727}, *distintivi* e *fibbie per cinture* {chip:733} — in fusione centrifuga di stagno e zinco nel nostro laboratorio di famiglia a Brno, dalla prima linea al pezzo finito.',
+      'Dal 2001 trasformiamo schizzi in *medaglie*, *distintivi* e *fibbie per cinture* — in fusione centrifuga di stagno e zinco nel nostro laboratorio di famiglia a Brno, dalla prima linea al pezzo finito.',
     wallTitle: ['Commesse', 'scelte'],
     wallLink: 'Tutto l’archivio →',
     indexTitle: 'Indice',

@@ -44,6 +44,8 @@ export interface UI {
     home: string;
     language: string;
     mainNav: string;
+    menu: string;
+    menuClose: string;
     breadcrumb: string;
     view: string;
     notForSale: string;
@@ -195,6 +197,8 @@ const en: UI = {
     home: 'Home',
     language: 'Language',
     mainNav: 'Main',
+    menu: 'Menu',
+    menuClose: 'Close menu',
     breadcrumb: 'Breadcrumb',
     view: 'View',
     notForSale: 'All pieces shown were made for our clients and remain their property — not for sale.',
@@ -499,6 +503,8 @@ const cs: UI = {
     home: 'Úvod',
     language: 'Jazyk',
     mainNav: 'Hlavní',
+    menu: 'Menu',
+    menuClose: 'Zavřít menu',
     breadcrumb: 'Drobečková navigace',
     view: 'Detail',
     notForSale: 'Všechny zobrazené kusy byly vyrobeny pro naše klienty a jsou jejich majetkem — nejsou na prodej.',
@@ -793,6 +799,8 @@ const de: UI = {
     home: 'Start',
     language: 'Sprache',
     mainNav: 'Hauptmenü',
+    menu: 'Menü',
+    menuClose: 'Menü schließen',
     breadcrumb: 'Brotkrumen',
     view: 'Ansehen',
     notForSale: 'Alle gezeigten Stücke wurden für unsere Kunden gefertigt und sind deren Eigentum — nicht verkäuflich.',
@@ -1094,6 +1102,8 @@ const pl: UI = {
     home: 'Start',
     language: 'Język',
     mainNav: 'Główne',
+    menu: 'Menu',
+    menuClose: 'Zamknij menu',
     breadcrumb: 'Ścieżka',
     view: 'Zobacz',
     notForSale: 'Wszystkie pokazane wyroby wykonano dla naszych klientów i pozostają ich własnością — nie są na sprzedaż.',
@@ -1372,6 +1382,8 @@ const fr: UI = {
     home: 'Accueil',
     language: 'Langue',
     mainNav: 'Principal',
+    menu: 'Menu',
+    menuClose: 'Fermer le menu',
     breadcrumb: 'Fil d’Ariane',
     view: 'Voir',
     notForSale: 'Toutes les pièces présentées ont été réalisées pour nos clients et restent leur propriété — elles ne sont pas à vendre.',
@@ -1661,6 +1673,8 @@ const it: UI = {
     home: 'Home',
     language: 'Lingua',
     mainNav: 'Principale',
+    menu: 'Menu',
+    menuClose: 'Chiudi menu',
     breadcrumb: 'Percorso',
     view: 'Vedi',
     notForSale: 'Tutti i pezzi mostrati sono stati realizzati per i nostri clienti e restano di loro proprietà — non sono in vendita.',

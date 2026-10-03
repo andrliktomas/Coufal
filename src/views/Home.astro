@@ -17,6 +17,12 @@ interface Props {
 const { lang } = Astro.props;
 const u = t(lang);
 const h = heroFor(lang);
+// Widest headline line in em: ≈0.47 em per upright character, 0.45 em per italic one plus the
+// 1.1 em indent of line 2. The desktop headline is sized so every cycled word fits on one line.
+const heroFit = Math.max(
+  Math.max(h.t1.length, ...h.words.map((w) => w.length)) * 0.47,
+  h.t2.length * 0.45 + 1.1,
+);
 const pieces = await allPieces();
 
 // Selected commissions wall (numbers from the artboard).
@@ -86,7 +92,7 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     <div class="util kicker">
       <span>{h.util}</span><span class="hide-sm">{u.home.utilRight}</span>
     </div>
-    <div class="hero-row">
+    <div class="hero-row" style={`--fit: ${heroFit.toFixed(2)}`}>
       <h1 class="hero-h">
         <span class="line"><span>{h.t1}</span></span>
         <span class="line d2"><span class="t2">{h.t2}</span></span>
@@ -102,10 +108,12 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
       </div>
     </div>
     <div class="hero-foot">
-      <p class="sub">{h.sub}</p>
-      <div class="ctas">
-        <a href={pathFor({ type: 'quote' }, lang)} class="btn btn--lg">{h.cta} →</a>
-        <a href={pathFor({ type: 'archive' }, lang)} class="btn btn--lg btn--line">{h.cta2}</a>
+      <div class="lede">
+        <p class="sub">{h.sub}</p>
+        <div class="ctas">
+          <a href={pathFor({ type: 'quote' }, lang)} class="btn btn--lg">{h.cta} →</a>
+          <a href={pathFor({ type: 'archive' }, lang)} class="btn btn--lg btn--line">{h.cta2}</a>
+        </div>
       </div>
       <div class="kicker meta">{u.home.heroMeta[0]}<br />{u.home.heroMeta[1]}</div>
     </div>
@@ -294,23 +302,31 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     padding-top: 14px;
     letter-spacing: 0.14em;
   }
+  /* Desktop: headline column + medal column (38 %), shared by the hero foot below. */
+  .hero-row,
+  .hero-foot {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+    gap: 32px 48px;
+  }
   .hero-row {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    container-type: inline-size;
   }
   .hero-h {
-    flex: 1 1 700px;
     min-width: 0;
     position: relative;
     z-index: 2;
     font-family: var(--serif);
     font-weight: 500;
-    font-size: clamp(60px, 9.6vw, 164px);
+    font-size: min(clamp(60px, 9.6vw, 164px), calc((62cqi - 48px) / var(--fit)));
     line-height: 0.9;
     letter-spacing: -0.045em;
     color: var(--black);
     perspective: 600px;
+  }
+  .hero-h .line {
+    white-space: nowrap;
   }
   .t2 {
     padding-left: 1.1em;
@@ -335,18 +351,21 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     }
   }
   .overlap {
-    flex: 0 1 600px;
-    min-width: 0;
+    width: 100%;
+    max-width: 600px;
+    justify-self: end;
     position: relative;
     z-index: 1;
-    margin-left: -12%;
   }
   .hero-foot {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 32px 48px;
     align-items: end;
     padding-bottom: 72px;
+  }
+  .lede {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 28px 40px;
   }
   .sub {
     margin: 0;
@@ -814,11 +833,16 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
     .t2 {
       padding-left: 0;
     }
+    .hero-h .line {
+      white-space: normal;
+    }
+    .hero-row,
+    .hero-foot {
+      grid-template-columns: minmax(0, 1fr);
+    }
     .overlap {
-      margin-left: 0;
-      flex-basis: 100%;
       max-width: 520px;
-      margin: 0 auto;
+      justify-self: center;
     }
     .meta {
       text-align: left;

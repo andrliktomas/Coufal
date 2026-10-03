@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && tsx scripts/postbuild.ts",
+    "build": "node scripts/build.mjs && tsx scripts/postbuild.ts",
     "preview": "wrangler pages dev dist --compatibility-date=2026-09-01 --r2 QUOTE_UPLOADS",
     "check": "astro check",
     "migrate": "tsx scripts/migrate.ts",

@@ -799,6 +799,21 @@ const homeUrl = SITE_URL + pathFor({ type: 'home' }, lang);
   }
 
   @media (max-width: 860px) {
+    .hero {
+      padding-top: 8px;
+      gap: 28px;
+    }
+    .util {
+      font-size: 11px;
+    }
+    /* Phones: smaller headline without the italic indent, so "odlitý podle" stays on one line. */
+    .hero-h {
+      font-size: clamp(40px, 12.5vw, 72px);
+      line-height: 0.95;
+    }
+    .t2 {
+      padding-left: 0;
+    }
     .overlap {
       margin-left: 0;
       flex-basis: 100%;

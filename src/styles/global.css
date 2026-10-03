@@ -53,6 +53,10 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Bodoni Moda: browsers pick the high-contrast display cut (opsz 96) at large sizes, whose
+     hairlines almost vanish on phones. A fixed small optical size keeps the same face with
+     sturdier hairlines. Montserrat and Plex Mono have no opsz axis, so they are unaffected. */
+  font-variation-settings: 'opsz' 11;
 }
 a {
   color: inherit;
